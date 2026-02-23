@@ -5,6 +5,8 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://everssteeve.github.io',
+	base: '/AIAD',
 	integrations: [
 		starlight({
 			title: 'AIAD Framework',
