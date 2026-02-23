@@ -1,12 +1,13 @@
 ---
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const questions = [
-	{ question: "C'est quoi AIAD ?", href: '/01-preambule/', icon: '📖' },
-	{ question: 'Quelle est la philosophie ?', href: '/02-vision-philosophie/', icon: '💡' },
-	{ question: 'Qui fait quoi ?', href: '/roles/', icon: '👥' },
-	{ question: 'Quels documents produire ?', href: '/artefacts/', icon: '📄' },
-	{ question: 'Comment on travaille ?', href: '/05-boucles-iteratives/', icon: '🔄' },
-	{ question: 'Quand se synchroniser ?', href: '/06-synchronisations/', icon: '🤝' },
-	{ question: 'Comment mesurer ?', href: '/metriques/', icon: '📊' },
+	{ question: "C'est quoi AIAD ?", href: `${base}01-preambule/`, icon: '📖' },
+	{ question: 'Quelle est la philosophie ?', href: `${base}02-vision-philosophie/`, icon: '💡' },
+	{ question: 'Qui fait quoi ?', href: `${base}roles/`, icon: '👥' },
+	{ question: 'Quels documents produire ?', href: `${base}artefacts/`, icon: '📄' },
+	{ question: 'Comment on travaille ?', href: `${base}05-boucles-iteratives/`, icon: '🔄' },
+	{ question: 'Quand se synchroniser ?', href: `${base}06-synchronisations/`, icon: '🤝' },
+	{ question: 'Comment mesurer ?', href: `${base}metriques/`, icon: '📊' },
 ];
 ---
 

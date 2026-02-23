@@ -6,12 +6,13 @@ interface Role {
   emoji: string;
 }
 
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const roles: Role[] = [
-  { name: 'Product Manager', question: 'Construit-on la bonne chose ?', focus: 'Valeur', href: '/roles/product-manager/', emoji: '🎯' },
-  { name: 'Product Engineer', question: "L'agent produit-il le bon résultat ?", focus: 'Orchestration', href: '/roles/product-engineer/', emoji: '⚙️' },
-  { name: 'Agents Engineer', question: "L'écosystème est-il optimal ?", focus: 'Configuration', href: '/roles/agents-engineer/', emoji: '🤖' },
-  { name: 'QA Engineer', question: 'Le résultat est-il fiable ?', focus: 'Qualité', href: '/roles/qa-engineer/', emoji: '✅' },
-  { name: 'Tech Lead', question: 'Le système reste-t-il cohérent ?', focus: 'Architecture', href: '/roles/tech-lead/', emoji: '🏗️' },
+  { name: 'Product Manager', question: 'Construit-on la bonne chose ?', focus: 'Valeur', href: `${base}roles/product-manager/`, emoji: '🎯' },
+  { name: 'Product Engineer', question: "L'agent produit-il le bon résultat ?", focus: 'Orchestration', href: `${base}roles/product-engineer/`, emoji: '⚙️' },
+  { name: 'Agents Engineer', question: "L'écosystème est-il optimal ?", focus: 'Configuration', href: `${base}roles/agents-engineer/`, emoji: '🤖' },
+  { name: 'QA Engineer', question: 'Le résultat est-il fiable ?', focus: 'Qualité', href: `${base}roles/qa-engineer/`, emoji: '✅' },
+  { name: 'Tech Lead', question: 'Le système reste-t-il cohérent ?', focus: 'Architecture', href: `${base}roles/tech-lead/`, emoji: '🏗️' },
 ];
 
 export default function RoleCard() {
