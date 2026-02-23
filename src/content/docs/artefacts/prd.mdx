@@ -1,0 +1,52 @@
+---
+title: "PRD — Product Requirement Document"
+description: "Clarifier POURQUOI et QUOI construire avant de se poser la question du COMMENT"
+---
+
+import DownloadButton from '../../../components/DownloadButton.astro';
+
+> **Essence** : Clarifier POURQUOI et QUOI construire avant de se poser la question du COMMENT.
+
+## Pourquoi cet artefact existe
+
+Le PRD est le point de départ de toute initiative dans le framework AIAD. Sans une compréhension claire du problème à résoudre et des outcomes attendus, même le meilleur agent IA produira du code qui ne sert personne. Le PRD force l'équipe à s'aligner sur le "pourquoi" et le "quoi" avant d'investir dans le "comment".
+
+Dans un contexte AI-Augmented, le PRD prend une importance encore plus grande : les agents IA peuvent produire du code à très haute vélocité, mais cette vélocité est dangereuse si la direction n'est pas claire. Le PRD est le garde-fou stratégique.
+
+## Ce que contient le PRD
+
+| Section | Contenu |
+|---------|---------|
+| Contexte et Problème | Quel problème, pour qui, et pourquoi maintenant |
+| Outcome Criteria | Métriques de succès mesurables et vérifiables |
+| Personas et Use Cases | Les utilisateurs types et leurs scénarios d'usage |
+| Hors Périmètre | Ce que l'on NE fait PAS, volontairement et explicitement |
+| Trade-offs et Décisions | Les choix faits et les alternatives écartées avec justification |
+| Dépendances et Risques | Les risques identifiés et les plans de mitigation |
+
+## Bonnes pratiques
+
+1. **Commencer par le problème, pas la solution** : un bon PRD ne décrit pas une fonctionnalité mais un problème utilisateur à résoudre
+2. **Définir les outcomes avant les outputs** : les métriques de succès doivent être mesurables et liées à la valeur business
+3. **Expliciter le hors périmètre** : dire ce qu'on NE fait PAS est aussi important que dire ce qu'on fait
+4. **Garder le document vivant** : le PRD évolue avec la compréhension de l'équipe
+5. **Co-créer avec l'équipe** : le PM initie mais tous les rôles contribuent
+
+## Indicateurs de qualité
+
+| Indicateur | Cible |
+|------------|-------|
+| Temps de rédaction | Moins de 2 heures pour un PRD initial |
+| Taux de relecture par l'équipe | 100% des membres ont lu et commenté |
+| Nombre de questions ouvertes | Zéro au moment du lancement du sprint |
+| Nombre de changements post-sprint | Moins de 2 modifications majeures par sprint |
+
+## Anti-pattern
+
+**Le PRD-roman** : un PRD de 20 pages que personne ne lit. Si votre PRD dépasse 3-4 pages, il essaie probablement de couvrir trop de périmètre. Découpez-le en plusieurs PRDs plus petits et focalisés. Un PRD doit pouvoir être lu et compris en moins de 15 minutes.
+
+**Le PRD-solution** : un PRD qui décrit comment construire plutôt que pourquoi et quoi construire. Si vous décrivez des endpoints API ou des schémas de base de données, vous êtes dans une SPEC, pas dans un PRD.
+
+## Télécharger le template
+
+<DownloadButton file="/templates/prd-template.md" label="Télécharger le template PRD" />

@@ -1,0 +1,63 @@
+---
+title: "DoOuD — Definition of Outcome Done"
+description: "Mesurer si la valeur attendue a été réalisée pour les stakeholders"
+---
+
+import DownloadButton from '../../../components/DownloadButton.astro';
+
+> **Essence** : Mesurer si la valeur attendue a été réalisée pour les stakeholders.
+
+## Pourquoi cet artefact existe
+
+Le DoOuD répond à la question la plus importante du développement logiciel : "Est-ce que ce qu'on a livré apporte réellement de la valeur ?" Un output peut être techniquement parfait (DoOD validé) sans pour autant produire l'outcome souhaité.
+
+Le DoOuD oblige l'équipe à définir les métriques de succès AVANT de construire, puis à mesurer ces métriques à des jalons définis après la livraison. C'est le passage d'une culture "ship and forget" à une culture "ship and learn".
+
+## Ce que contient le DoOuD
+
+| Section | Contenu |
+|---------|---------|
+| User Outcomes | Métriques centrées utilisateur : NPS, CSAT, adoption, time to value, rétention |
+| Business Outcomes | Métriques business : MRR, conversions, coûts, revenus |
+| Learning Outcomes | Hypothèses testées, validées ou invalidées, et insights obtenus |
+| Process de Mesure | Les 5 étapes : Définir, Mesurer, Comparer, Décider, Documenter |
+| Décision | Continuer, Itérer ou Sunset basé sur les outcomes mesurés |
+
+## Le process de mesure en 5 étapes
+
+1. **Définir** : Identifier les outcomes attendus AVANT de commencer à construire. Les outcomes doivent être mesurables et liés à la valeur utilisateur ou business.
+
+2. **Mesurer** : Collecter les données à des jalons définis (1 semaine, 1 mois, 3 mois après livraison). Utiliser des outils d'analytics, des enquêtes utilisateur ou des métriques business.
+
+3. **Comparer** : Mettre en regard les résultats attendus et les résultats réalisés. Identifier les écarts et chercher à les comprendre.
+
+4. **Décider** : Sur la base des données, prendre une décision claire parmi trois options : Continuer (outcomes atteints), Itérer (outcomes partiels) ou Sunset (outcomes non atteints).
+
+5. **Documenter** : Capturer les learnings pour l'équipe. Chaque mesure, même décevante, est une source d'apprentissage.
+
+## Bonnes pratiques
+
+1. **Définir les outcomes avant de construire** : si vous ne savez pas comment mesurer le succès, vous n'êtes pas prêt à construire
+2. **Limiter le nombre de métriques** : 3 à 5 métriques maximum par fonctionnalité
+3. **Accepter le sunset** : arrêter une fonctionnalité qui ne produit pas de valeur est un signe de maturité, pas un échec
+4. **Mesurer à des jalons réguliers** : 1 semaine, 1 mois et 3 mois couvrent le court, moyen et long terme
+5. **Partager les résultats** : les outcomes sont l'affaire de toute l'équipe, pas seulement du PM
+
+## Indicateurs de qualité
+
+| Indicateur | Cible |
+|------------|-------|
+| Taux de fonctionnalités avec outcomes définis | 100% des fonctionnalités ont des outcomes avant le développement |
+| Taux de mesure à 1 semaine | Plus de 90% des fonctionnalités mesurées au jalon 1 semaine |
+| Taux de décisions prises à 3 mois | 100% des fonctionnalités ont une décision Continuer/Itérer/Sunset |
+| Nombre de learnings documentés | Au moins 1 learning par fonctionnalité mesurée |
+
+## Anti-pattern
+
+**Le DoOuD oublié** : l'équipe définit les outcomes dans le PRD, les oublie pendant le développement, et ne mesure jamais après la livraison. Le DoOuD n'a de valeur que si le cycle complet est respecté : Définir, Mesurer, Comparer, Décider, Documenter.
+
+**Le DoOuD vanity** : mesurer des métriques flatteuses mais sans impact réel. "Nombre de pages vues" ou "nombre de clics" ne sont pas des outcomes. Les vrais outcomes mesurent un changement de comportement ou une valeur business concrète.
+
+## Télécharger le template
+
+<DownloadButton file="/templates/dooud-template.md" label="Télécharger le template DoOuD" />

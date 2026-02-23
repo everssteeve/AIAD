@@ -1,0 +1,62 @@
+---
+title: "DoOD — Definition of Output Done"
+description: "Standard de qualité uniforme pour qu'un incrément soit considéré comme Done"
+---
+
+import DownloadButton from '../../../components/DownloadButton.astro';
+
+> **Essence** : Standard de qualité uniforme pour qu'un incrément soit considéré comme "Done" et livrable.
+
+## Pourquoi cet artefact existe
+
+Dans un contexte AI-Augmented, la vélocité de production de code augmente considérablement. Mais plus vite ne signifie pas mieux. Le DoOD établit un standard de qualité clair et non négociable que tout incrément doit satisfaire avant d'être considéré comme terminé.
+
+Le DoOD est le garde-fou qualité du framework AIAD. Il empêche l'équipe de céder à la tentation de "shipper vite" au détriment de la qualité. C'est la différence entre "le code compile" et "le code est prêt pour la production".
+
+## Ce que contient le DoOD
+
+| Catégorie | Critères |
+|-----------|----------|
+| Critères Techniques | Conventions de code, linting, typage complet, tests unitaires et d'intégration |
+| Critères de Sécurité | Scan de sécurité, absence de secrets, validation des entrées, authentification |
+| Critères de Performance | Respect des budgets de performance, queries optimisées, absence de N+1 |
+| Critères Fonctionnels | Conformité à la SPEC, acceptance criteria validés, cas limites gérés |
+| Critères de Déploiement | Build sans erreur, déployé en staging, smoke tests OK |
+| Critères de Review | Code review approuvée, QA validée, documentation à jour |
+
+## Exemples : "Done" vs "NOT Done"
+
+| Situation | Statut | Raison |
+|-----------|--------|--------|
+| Code fonctionnel mais sans tests | NOT Done | Les tests sont obligatoires |
+| Tests passent mais linting en erreur | NOT Done | Le linting doit passer sans erreur |
+| Tout passe mais pas de code review | NOT Done | La review est un critère obligatoire |
+| Code, tests, review OK mais secrets en dur | NOT Done | La sécurité est non négociable |
+| Tous les critères satisfaits | Done | Prêt pour la production |
+
+## Bonnes pratiques
+
+1. **Automatiser au maximum** : linting, tests et scans de sécurité doivent être automatisés dans la CI/CD
+2. **Ne jamais faire d'exception** : un critère "presque" rempli n'est pas rempli
+3. **Adapter les critères au projet** : le template est un point de départ, ajustez-le à votre contexte
+4. **Rendre le DoOD visible** : affichez-le dans le repo, pas dans un wiki oublié
+5. **Réviser trimestriellement** : ajoutez des critères quand de nouveaux types de bugs apparaissent
+
+## Indicateurs de qualité
+
+| Indicateur | Cible |
+|------------|-------|
+| Taux de conformité DoOD | 100% des incréments livrés passent tous les critères |
+| Nombre de retours en sprint | Zéro incrément déclaré "Done" puis rouvert |
+| Temps de vérification DoOD | Moins de 30 minutes grâce à l'automatisation |
+| Nombre de bugs en production | Moins de 1 bug critique par release |
+
+## Anti-pattern
+
+**Le DoOD à la carte** : l'équipe choisit quels critères appliquer selon la pression du sprint. "On skip les tests pour cette fois, on est en retard." C'est exactement ce que le DoOD est conçu pour empêcher. Un DoOD partiel ne protège de rien.
+
+**Le DoOD invisible** : un DoOD qui existe dans un document mais que personne ne consulte ni ne vérifie. Le DoOD n'a de valeur que s'il est intégré dans le workflow quotidien, idéalement automatisé dans la CI/CD.
+
+## Télécharger le template
+
+<DownloadButton file="/templates/dood-template.md" label="Télécharger le template DoOD" />

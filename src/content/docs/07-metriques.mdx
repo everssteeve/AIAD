@@ -1,0 +1,205 @@
+---
+title: "Les Métriques"
+description: "Mesurer ce qui compte : les cinq catégories de métriques AIAD"
+---
+
+*Temps de lecture estimé : 12 minutes*
+
+## Le principe fondamental
+
+> Les métriques informent les décisions, elles ne les dictent pas. **Data-Informed, pas Data-Driven.**
+
+Cette distinction est fondamentale. Une approche Data-Driven implique que les décisions sont automatiquement déterminées par les données : si la métrique dit X, on fait Y. Une approche Data-Informed considère les données comme un **éclairage** parmi d'autres (contexte, intuition, feedback qualitatif) pour prendre des décisions humaines.
+
+Pourquoi cette nuance ? Parce que toute métrique peut être optimisée au détriment de ce qu'elle est censée mesurer. Si vous mesurez le nombre de lignes de code produites, l'équipe produira des lignes de code — y compris du code verbeux et inutile. Si vous mesurez le nombre de tickets fermés, l'équipe fermera des tickets — y compris en découpant artificiellement le travail en micro-tâches.
+
+Les métriques AIAD sont conçues pour **éclairer** les décisions de l'équipe, pas pour les automatiser.
+
+---
+
+## Les quatre caractéristiques d'une bonne métrique
+
+Avant de mesurer quoi que ce soit, assurez-vous que chaque métrique satisfait ces quatre critères :
+
+### 1. Actionnable
+
+La métrique doit pouvoir déclencher une **action concrète** si elle dévie de sa cible. Si une métrique est « intéressante » mais que vous ne savez pas quoi faire quand elle change, elle n'est pas actionnable.
+
+**Exemple actionnable** : « Le taux de première génération correcte est tombé à 40% » → Action : améliorer la qualité des SPECS et de l'AGENT-GUIDE.
+
+**Exemple non actionnable** : « Nous avons 124 352 lignes de code » → Et alors ?
+
+### 2. Compréhensible
+
+Chaque membre de l'équipe doit pouvoir **comprendre** la métrique sans explication complexe. Si vous devez écrire un paragraphe pour expliquer ce qu'une métrique mesure, elle est trop complexe.
+
+### 3. Comparable
+
+La métrique doit pouvoir être **comparée dans le temps** pour détecter des tendances. Les valeurs absolues sont moins utiles que les évolutions. « Notre taux de satisfaction est de 7.2/10 » est moins informatif que « Notre taux de satisfaction est passé de 6.8 à 7.2 en un mois ».
+
+### 4. Honnête
+
+La métrique doit être **difficile à manipuler** sans réellement améliorer ce qu'elle mesure. Si une métrique peut être facilement « jouée » sans amélioration réelle, elle deviendra rapidement toxique.
+
+---
+
+## Les cinq catégories de métriques
+
+Le framework AIAD organise les métriques en cinq catégories complémentaires. Aucune catégorie ne suffit seule — c'est leur combinaison qui donne une image fidèle de la santé de l'équipe et du projet.
+
+### Vue d'ensemble
+
+| Catégorie | Question centrale | Fréquence de mesure | Audience principale |
+|-----------|-------------------|---------------------|---------------------|
+| Productivité | Livre-t-on assez vite ? | Hebdomadaire | Équipe |
+| Qualité | Livre-t-on du solide ? | Hebdomadaire | Équipe + TL |
+| Efficacité IA | Les agents performent-ils ? | Hebdomadaire | AE + PE |
+| Outcomes | Livre-t-on de la valeur ? | Mensuel | PM + stakeholders |
+| Équipe | L'équipe va-t-elle bien ? | Hebdomadaire | Toute l'équipe |
+
+---
+
+### Productivité — Livre-t-on assez vite ?
+
+Les métriques de productivité mesurent la **capacité de l'équipe à transformer des intentions en livrables**. Attention : productivité ne signifie pas volume. Une équipe qui livre peu mais livre juste est plus productive qu'une équipe qui livre beaucoup mais livre faux.
+
+**Métriques clés** :
+
+- **Cycle time** — temps entre le début d'une boucle et la mise en production. C'est la métrique reine de productivité en AIAD. Cible : réduction progressive au fil du temps.
+- **Throughput** — nombre de boucles complétées par semaine. Indicateur de rythme.
+- **Ratio spec/implémentation** — temps passé en spécification vs temps passé en implémentation. Si le ratio est trop déséquilibré (>70% implémentation), les spécifications manquent probablement de clarté.
+
+En savoir plus : [Métriques Productivité](/metriques/productivite/)
+
+### Qualité — Livre-t-on du solide ?
+
+Les métriques de qualité mesurent la **fiabilité et la robustesse** des livrables. Dans un contexte IA, ces métriques sont critiques car les agents peuvent produire du code qui fonctionne superficiellement mais qui manque de rigueur en profondeur.
+
+**Métriques clés** :
+
+- **Taux de bugs post-production** — nombre de bugs découverts en production par boucle livrée. C'est le signal le plus direct de la qualité.
+- **Couverture de tests** — pourcentage du code couvert par des tests automatisés. Cible minimale : 70%.
+- **Taux de satisfaction DoOD** — pourcentage des livrables qui satisfont la DoOD du premier coup (sans rework).
+- **Temps moyen de résolution de bug** — durée entre la détection et la correction d'un bug.
+
+En savoir plus : [Métriques Qualité](/metriques/qualite/)
+
+### Efficacité IA — Les agents performent-ils ?
+
+Les métriques d'efficacité IA sont spécifiques au framework AIAD. Elles mesurent la **performance de l'écosystème d'agents** et identifient les axes d'optimisation.
+
+**Métriques clés** :
+
+- **Taux de première génération correcte** — pourcentage des générations qui satisfont les critères d'acceptation dès la première itération. C'est l'indicateur le plus direct de la qualité des SPECS et de l'AGENT-GUIDE. Cible : >60%.
+- **Nombre moyen d'itérations par boucle** — combien de cycles générer/évaluer/affiner sont nécessaires en moyenne. Cible : moins de 5.
+- **Taux d'intervention humaine** — pourcentage du code généré qui nécessite une modification manuelle. Cible : moins de 20%.
+- **Temps de setup agent** — temps nécessaire pour préparer le contexte d'un agent avant de lancer une génération.
+
+En savoir plus : [Métriques Efficacité IA](/metriques/efficacite-ia/)
+
+### Outcomes — Livre-t-on de la valeur ?
+
+Les métriques d'outcomes mesurent l'**impact réel** des livraisons sur les utilisateurs et le business. Ce sont les métriques les plus importantes mais aussi les plus lentes à observer.
+
+**Métriques clés** :
+
+- **Taux d'adoption** — pourcentage des utilisateurs cibles qui utilisent une fonctionnalité livrée. Une fonctionnalité livrée mais non utilisée a une valeur nulle.
+- **Satisfaction utilisateur** — mesure qualitative et quantitative de la satisfaction (NPS, CSAT, feedback qualitatif).
+- **Impact business** — métriques spécifiques au contexte (conversion, rétention, revenus, réduction de coûts...).
+- **Taux de succès des hypothèses** — pourcentage des hypothèses produit validées par les données d'usage réel.
+
+En savoir plus : [Métriques Outcomes](/metriques/outcomes/)
+
+### Équipe — L'équipe va-t-elle bien ?
+
+Les métriques d'équipe mesurent la **santé humaine** du collectif. C'est la catégorie la plus souvent négligée et pourtant la plus prédictive de la performance à long terme. Une équipe épuisée ou démotivée finira par produire des résultats médiocres, quels que soient les outils à sa disposition.
+
+**Métriques clés** :
+
+- **Satisfaction d'équipe** — sondage hebdomadaire simple (note de 1 à 5 sur le bien-être, la clarté des objectifs, la qualité de la collaboration).
+- **Taux d'actions de rétrospective complétées** — pourcentage des actions décidées en rétro qui sont effectivement réalisées. Un taux faible signale que l'équipe n'a pas la capacité ou la motivation de s'améliorer.
+- **Distribution de la charge** — mesure de l'équilibre de la charge de travail entre les membres. Un déséquilibre persistant est un risque d'épuisement.
+- **Montée en compétence** — progression des membres dans l'acquisition de nouvelles responsabilités.
+
+En savoir plus : [Métriques Équipe](/metriques/equipe/)
+
+---
+
+## Les deux dashboards
+
+Les métriques AIAD sont présentées dans deux dashboards complémentaires, adaptés à des audiences et des cadences différentes.
+
+### Dashboard hebdomadaire (pour l'équipe)
+
+Le dashboard hebdomadaire est l'outil de pilotage quotidien de l'équipe. Il est consulté lors de la rétrospective et peut être affiché en permanence dans l'espace de travail.
+
+**Contenu** :
+
+- Métriques de productivité : cycle time, throughput, ratio spec/implémentation
+- Métriques de qualité : taux de bugs, couverture de tests, satisfaction DoOD
+- Métriques d'efficacité IA : taux de première génération correcte, nombre d'itérations
+- Métriques d'équipe : satisfaction, charge, actions rétro complétées
+- Tendances sur 4 semaines pour chaque métrique
+
+**Format recommandé** : une seule page, avec des indicateurs visuels simples (vert/orange/rouge) pour identifier rapidement les zones d'attention.
+
+### Dashboard mensuel (pour PM et stakeholders)
+
+Le dashboard mensuel est l'outil de communication avec les parties prenantes. Il traduit les métriques opérationnelles en indicateurs d'impact compréhensibles par des non-techniciens.
+
+**Contenu** :
+
+- Métriques d'outcomes : adoption, satisfaction, impact business
+- Synthèse de productivité : nombre de fonctionnalités livrées, temps moyen de livraison
+- Synthèse de qualité : tendance des bugs, stabilité du système
+- Prochaines priorités et roadmap mise à jour
+- Points d'attention et risques identifiés
+
+**Format recommandé** : un document narratif de 2-3 pages, appuyé par des graphiques de tendance. Le PM prépare ce document et le présente lors de l'Alignement Stratégique mensuel.
+
+---
+
+## Le processus d'amélioration continue
+
+Les métriques n'ont de valeur que si elles déclenchent des actions d'amélioration. AIAD adapte le cycle PDCA (Plan-Do-Check-Act) à son contexte :
+
+### 1. Planifier (Plan)
+
+Identifier une métrique qui dévie de sa cible et formuler une hypothèse d'amélioration.
+
+*Exemple : « Le taux de première génération correcte est à 35%. Hypothèse : les SPECS manquent d'exemples concrets. »*
+
+### 2. Expérimenter (Do)
+
+Mettre en oeuvre l'amélioration sur un périmètre limité (une semaine, un type de tâche, un agent).
+
+*Exemple : « Pendant une semaine, chaque SPECS inclura au moins 3 exemples d'entrées/sorties. »*
+
+### 3. Observer (Check)
+
+Mesurer l'effet de l'amélioration sur la métrique ciblée et sur les métriques connexes.
+
+*Exemple : « Le taux de première génération correcte est passé à 55%. Le temps de rédaction des SPECS a augmenté de 15 minutes en moyenne. »*
+
+### 4. Pérenniser ou pivoter (Act)
+
+Si l'amélioration est concluante, l'intégrer dans les pratiques standard. Sinon, formuler une nouvelle hypothèse et recommencer.
+
+*Exemple : « L'amélioration est significative et le coût acceptable. La pratique est intégrée dans le template SPECS et documentée dans l'AGENT-GUIDE. »*
+
+Ce cycle doit tourner en continu. La rétrospective est le moment naturel pour identifier les métriques à améliorer (étape 1) et observer les résultats des améliorations précédentes (étape 3).
+
+---
+
+## Pièges à éviter
+
+- **Mesurer trop de choses** — commencez avec 5-7 métriques maximum. Vous pourrez en ajouter quand les premières seront bien maîtrisées.
+- **Optimiser une métrique au détriment des autres** — surveillez toujours les effets de bord. Améliorer la productivité ne doit pas dégrader la qualité.
+- **Comparer les individus** — les métriques AIAD mesurent la performance de l'équipe et du système, jamais des individus. Utiliser des métriques pour évaluer des personnes est toxique et contre-productif.
+- **Ignorer les métriques qualitatives** — le feedback utilisateur, la satisfaction d'équipe et les retours de rétro sont des données aussi précieuses que les chiffres.
+
+---
+
+**Section précédente** : [Les Synchronisations](/06-synchronisations/)
+
+**Section suivante** : [Les Annexes](/08-annexes/)

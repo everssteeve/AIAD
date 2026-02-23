@@ -1,0 +1,55 @@
+---
+title: "ARCHITECTURE — Standards Techniques"
+description: "Définir les standards techniques que les agents IA et les PE doivent respecter"
+---
+
+import DownloadButton from '../../../components/DownloadButton.astro';
+
+> **Essence** : Définir les standards techniques que les agents IA et les PE doivent respecter pour garantir cohérence et qualité.
+
+## Pourquoi cet artefact existe
+
+L'ARCHITECTURE est le socle technique du projet. Dans un contexte AI-Augmented, où les agents IA génèrent du code à haute vélocité, les standards techniques deviennent critiques. Sans eux, chaque agent (et chaque développeur) fait des choix différents, ce qui mène à un codebase incohérent et difficile à maintenir.
+
+L'ARCHITECTURE ne décrit pas seulement les choix techniques, mais surtout les raisons derrière ces choix. Elle sert de référence unique pour toute l'équipe et pour les agents IA qui doivent comprendre les contraintes du projet.
+
+## Ce que contient l'ARCHITECTURE
+
+| Section | Contenu |
+|---------|---------|
+| Principes Architecturaux | Les 3-5 principes fondamentaux qui guident toutes les décisions |
+| Vue d'Ensemble | L'architecture high-level avec justification des choix |
+| Stack Technique | Technologies, versions et justifications de chaque choix |
+| Structure du Projet | Organisation des dossiers, modules et leurs responsabilités |
+| Conventions de Code | Nommage, formatage, imports et standards d'écriture |
+| Patterns et Bonnes Pratiques | Design patterns utilisés avec exemples concrets |
+| Sécurité | Principes de sécurité obligatoires et pratiques de validation |
+| Performance | Budgets de performance et métriques cibles |
+| ADR | Architecture Decision Records pour tracer les décisions majeures |
+
+## Bonnes pratiques
+
+1. **Justifier chaque choix technique** : ne jamais lister une technologie sans expliquer pourquoi elle a été choisie
+2. **Inclure des exemples de code** : les conventions abstraites sont inutiles sans exemples concrets
+3. **Utiliser les ADR** : chaque décision architecturale significative mérite un ADR pour garder la trace du contexte
+4. **Réviser régulièrement** : l'architecture évolue, le document doit suivre
+5. **Rester pragmatique** : documenter ce qui compte, pas tout ce qui existe
+
+## Indicateurs de qualité
+
+| Indicateur | Cible |
+|------------|-------|
+| Cohérence du codebase | Plus de 90% du code suit les conventions documentées |
+| Temps d'onboarding technique | Moins de 2 jours pour un nouveau PE |
+| Nombre de violations détectées en review | Moins de 3 par PR en moyenne |
+| Fréquence de mise à jour | Au moins une révision par trimestre |
+
+## Anti-pattern
+
+**L'ARCHITECTURE-musée** : un document magnifiquement rédigé lors du lancement du projet mais jamais mis à jour. Après 3 mois, il ne reflète plus la réalité du code. L'ARCHITECTURE doit être un document vivant, mis à jour à chaque décision significative.
+
+**L'ARCHITECTURE-encyclopédie** : un document qui tente de couvrir chaque détail technique. Si le document fait plus de 10 pages, il est probablement trop détaillé. Les détails d'implémentation appartiennent aux SPECs, pas à l'ARCHITECTURE.
+
+## Télécharger le template
+
+<DownloadButton file="/templates/architecture-template.md" label="Télécharger le template ARCHITECTURE" />

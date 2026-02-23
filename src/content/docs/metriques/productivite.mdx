@@ -1,0 +1,30 @@
+---
+title: "Métriques de Productivité"
+description: "Mesurer la capacité de l'équipe à livrer de la valeur rapidement"
+---
+
+import DashboardMockup from '../../../components/DashboardMockup';
+
+## Essence
+
+Mesurer la capacité de l'équipe à livrer de la valeur rapidement. Sans visibilité sur le flux de livraison, impossible de détecter les goulots d'étranglement.
+
+## Métriques clés
+
+| Métrique | Cible | Fréquence |
+|----------|-------|-----------|
+| **Cycle Time** (PLANIFIER à INTÉGRER) | Moins de 3 jours | Hebdomadaire |
+| **Lead Time** (Idée à Production) | Moins de 2 semaines | Hebdomadaire |
+| **Throughput** (Fonctionnalités livrées) | Stable ou en hausse | Hebdomadaire |
+| **Release Frequency** | Quotidien (idéal) | Hebdomadaire |
+| **Deployment Success Rate** | Plus de 95% | Hebdomadaire |
+
+## Comment interpréter les signaux
+
+| Signal | Questions à se poser |
+|--------|---------------------|
+| Cycle Time en hausse | Fonctionnalités trop complexes ? Problèmes avec les agents ? |
+| Lead Time stagnant | Goulots dans les boucles itératives ? |
+| Throughput en baisse | Qualité des SPECs ? Motivation de l'équipe ? |
+
+<DashboardMockup client:visible category="productivite" />

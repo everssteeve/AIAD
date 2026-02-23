@@ -1,0 +1,50 @@
+---
+title: "QA Engineer"
+description: "Responsable de la Qualité — Garantir que la qualité est intégrée dès le départ"
+---
+
+import RoleInteractions from '../../../components/RoleInteractions';
+import TeamConfigurator from '../../../components/TeamConfigurator';
+
+> **Essence** : Garantir que la qualité est intégrée dès le départ, pas vérifiée à la fin.
+
+## Pourquoi cette responsabilité existe
+
+Les agents génèrent des tests, mais ils ne peuvent pas penser comme un utilisateur frustré. Le QA apporte le regard critique, la pensée latérale et l'obsession du "et si..." que les agents ne possèdent pas.
+
+## Ce que fait le QA
+
+| Action | Fréquence |
+|--------|-----------|
+| Définir la stratégie de tests globale | Mensuel |
+| Co-définir la Definition of Done avec les PE | Par fonctionnalité |
+| Valider les tests générés par les agents | À chaque génération |
+| Conduire les tests exploratoires | Hebdomadaire |
+| Communiquer l'état qualité à l'équipe | Continu |
+
+## Les 4 niveaux de validation
+
+| Niveau | Automatisation | Responsable |
+|--------|----------------|-------------|
+| **Unitaire** | 100% automatisé | Agent + PE |
+| **Intégration** | 90% automatisé | Agent + PE + QA |
+| **Fonctionnel** | 70% automatisé | QA + PE |
+| **Exploratoire** | 0% automatisé — 100% humain | QA uniquement |
+
+Le QA intervient principalement sur les niveaux fonctionnel et exploratoire, tout en définissant les standards pour les niveaux unitaire et intégration.
+
+## Indicateurs de performance
+
+| Indicateur | Cible |
+|------------|-------|
+| Bugs en production | Tendance décroissante |
+| Temps de détection d'un bug | Moins de 24h |
+| Taux de régression | Moins de 5% |
+
+## Anti-pattern
+
+**Le QA "gardien de la porte"** qui teste uniquement à la fin du cycle. Dans AIAD, la qualité est intégrée dès la rédaction des SPECs et validée en continu, pas vérifiée en bout de chaîne.
+
+<RoleInteractions client:visible role="qa" />
+
+<TeamConfigurator client:visible />
