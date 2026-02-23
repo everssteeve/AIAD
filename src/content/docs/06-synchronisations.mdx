@@ -1,0 +1,193 @@
+---
+title: "Les Synchronisations"
+description: "Les moments de décision collective qui remplacent les cérémonies traditionnelles"
+---
+
+*Temps de lecture estimé : 10 minutes*
+
+## Le principe fondamental
+
+> Les synchronisations ne sont pas des cérémonies. Ce sont des **moments de décision collective** déclenchés par un besoin réel.
+
+Dans les méthodes agiles traditionnelles, les cérémonies (stand-up, sprint planning, sprint review, rétrospective) sont des événements calendaires récurrents. Elles ont lieu à date fixe, indépendamment de leur utilité à ce moment précis. Cette rigidité conduit souvent à des réunions creuses, routinières, où les participants récitent un script sans prendre de véritables décisions.
+
+AIAD propose une approche différente : chaque synchronisation a une **intention claire** et ne se tient que lorsqu'elle est utile. Le calendrier est un guide, pas une obligation. Si une synchronisation prévue n'a pas de matière, elle est annulée. Si un besoin de synchronisation émerge en dehors du calendrier, elle est organisée immédiatement.
+
+---
+
+## Les sept caractéristiques d'une synchronisation AIAD
+
+Chaque synchronisation dans le framework AIAD doit satisfaire ces sept caractéristiques :
+
+### 1. Intentionnelle
+
+Chaque synchronisation a un **objectif explicite** formulé comme une question à laquelle l'équipe doit répondre. Si la question n'a pas besoin d'être posée à ce moment, la synchronisation est reportée.
+
+### 2. Timeboxée
+
+Chaque synchronisation a une **durée maximale** stricte. Quand le temps est écoulé, la synchronisation se termine — même si tous les sujets n'ont pas été traités. Les sujets restants sont reportés ou traités autrement.
+
+### 3. Actionnable
+
+Chaque synchronisation doit produire au moins une **action concrète** avec un responsable identifié et une échéance. Une synchronisation sans action est une réunion d'information, pas une synchronisation.
+
+### 4. Flexible
+
+La fréquence et le format de chaque synchronisation s'adaptent aux besoins de l'équipe. Une rétrospective hebdomadaire peut devenir bi-hebdomadaire quand l'équipe atteint sa maturité. Un stand-up quotidien peut être remplacé par un stand-up asynchrone.
+
+### 5. Orientée valeur
+
+Le contenu de chaque synchronisation est centré sur la **valeur livrée aux utilisateurs**, pas sur l'activité de l'équipe. On ne demande pas « qu'as-tu fait hier ? » mais « quelle valeur a été livrée ? » et « qu'est-ce qui bloque la prochaine livraison de valeur ? ».
+
+### 6. Documentée
+
+Les décisions et actions issues de chaque synchronisation sont **documentées** immédiatement, dans un format accessible à toute l'équipe. Pas de compte-rendu formel — une liste d'actions avec responsables et échéances suffit.
+
+### 7. Améliorée
+
+Chaque synchronisation est elle-même sujette à amélioration. Si un format ne fonctionne pas, l'équipe le modifie. Si une fréquence est inadaptée, elle est ajustée. Les synchronisations évoluent avec la maturité de l'équipe.
+
+---
+
+## Les cinq synchronisations
+
+Le framework AIAD définit cinq types de synchronisations. Leur fréquence est indicative et doit être adaptée au contexte de chaque équipe.
+
+### Vue d'ensemble
+
+| Synchronisation | Question centrale | Fréquence recommandée | Durée max | Participants |
+|-----------------|-------------------|----------------------|-----------|--------------|
+| Alignement Stratégique | Où va-t-on ? | Mensuel | 2h | PM + TL + équipe |
+| Demo & Feedback | Est-ce que ça plaît ? | Hebdomadaire | 1h | Équipe + stakeholders |
+| Tech Review | Est-ce solide ? | Mensuel | 1h30 | TL + PE + AE |
+| Rétrospective | Comment s'améliorer ? | Hebdo ou bi-hebdo | 1h | Toute l'équipe |
+| Standup | Où en est-on ? | Quotidien (optionnel) | 15 min | Toute l'équipe |
+
+---
+
+### Alignement Stratégique
+
+**Question centrale** : Où va-t-on ?
+
+**Fréquence** : Mensuelle (ou à chaque changement de direction significatif)
+
+**Durée maximale** : 2 heures
+
+L'Alignement Stratégique est la synchronisation de plus haut niveau. Elle rassemble l'équipe et les parties prenantes clés pour s'assurer que la direction du produit est toujours pertinente et que les priorités sont correctement ordonnées.
+
+**Ordre du jour type** :
+
+- Revue des métriques d'impact du mois écoulé (outcomes, pas outputs)
+- Analyse des retours utilisateurs significatifs
+- Mise à jour du PRD si nécessaire
+- Re-priorisation du backlog stratégique
+- Identification des risques et opportunités pour le mois suivant
+
+**Output attendu** : priorités claires pour le mois suivant, PRD mis à jour si nécessaire, et décisions documentées.
+
+Le PM est le facilitateur naturel de cette synchronisation. Il prépare les données en amont et s'assure que les décisions prises sont actionnables.
+
+### Demo & Feedback
+
+**Question centrale** : Est-ce que ça plaît ?
+
+**Fréquence** : Hebdomadaire
+
+**Durée maximale** : 1 heure
+
+La Demo & Feedback est le moment où l'équipe montre ce qui a été produit et recueille du feedback direct. C'est la synchronisation la plus importante pour maintenir l'alignement entre ce que l'équipe construit et ce que les utilisateurs attendent.
+
+**Ordre du jour type** :
+
+- Démonstration des fonctionnalités livrées dans la semaine (25 min)
+- Réactions et questions des stakeholders (15 min)
+- Feedback structuré : ce qui plaît, ce qui manque, ce qui pose problème (15 min)
+- Actions décidées en conséquence (5 min)
+
+**Output attendu** : feedback documenté, ajustements identifiés, satisfaction des stakeholders mesurée.
+
+> **Règle** : ne montrez que du fonctionnel. Pas de slides, pas de maquettes « bientôt prêtes ». Si rien n'est démontrable, la demo est annulée — et c'est un signal d'alerte.
+
+### Tech Review
+
+**Question centrale** : Est-ce solide ?
+
+**Fréquence** : Mensuelle (ou après un changement architectural significatif)
+
+**Durée maximale** : 1 heure 30
+
+La Tech Review est le moment où l'équipe technique prend du recul sur la qualité et la cohérence du système. C'est une synchronisation particulièrement importante dans un contexte AIAD, car le code généré par des agents peut introduire de la dette technique subtile si personne ne regarde l'ensemble.
+
+**Ordre du jour type** :
+
+- Revue des métriques de qualité (couverture de tests, dette technique, performance)
+- Analyse des patterns récurrents dans les générations des agents
+- Identification des zones de fragilité architecturale
+- Mise à jour du document ARCHITECTURE si nécessaire
+- Planification des tâches de refactoring prioritaires
+
+**Output attendu** : état de santé technique du projet, actions de remédiation priorisées, document ARCHITECTURE mis à jour.
+
+### Rétrospective
+
+**Question centrale** : Comment s'améliorer ?
+
+**Fréquence** : Hebdomadaire ou bi-hebdomadaire
+
+**Durée maximale** : 1 heure
+
+La Rétrospective est le moteur de l'amélioration continue. Dans un contexte AIAD, elle a une dimension supplémentaire : elle inclut l'évaluation de l'efficacité des agents et de la qualité de l'écosystème.
+
+**Ordre du jour type** :
+
+- Ce qui a bien fonctionné cette semaine (incluant les interactions avec les agents)
+- Ce qui a posé problème (incluant les limites des agents rencontrées)
+- Actions d'amélioration concrètes avec responsable et échéance
+- Suivi des actions de la rétrospective précédente
+
+**Output attendu** : 2-3 actions d'amélioration maximum, avec responsable et échéance. Pas plus — mieux vaut exécuter 2 actions que d'en lister 10 et n'en exécuter aucune.
+
+**Format recommandé** : alternez les formats pour éviter la lassitude (Start/Stop/Continue, Mad/Sad/Glad, 4L — Liked/Learned/Lacked/Longed for...).
+
+### Standup
+
+**Question centrale** : Où en est-on ?
+
+**Fréquence** : Quotidienne (optionnelle)
+
+**Durée maximale** : 15 minutes
+
+Le Standup est la synchronisation la plus légère et la plus controversée. Dans un contexte AIAD, le standup traditionnel (« hier j'ai fait / aujourd'hui je fais / je suis bloqué par ») perd de sa pertinence car les boucles sont plus courtes et le travail est plus visible.
+
+**Format AIAD recommandé** :
+
+Au lieu du format classique, chaque membre répond à deux questions :
+
+1. **Quelle valeur a été livrée ou va être livrée aujourd'hui ?**
+2. **Y a-t-il un blocage qui nécessite l'aide d'un autre membre de l'équipe ?**
+
+Si la réponse à la deuxième question est « non » pour tout le monde, le standup est terminé en 5 minutes. Ce n'est pas un problème — c'est un signe que l'équipe fonctionne bien.
+
+**Alternative asynchrone** : pour les équipes matures ou distribuées, un standup asynchrone (message sur un canal dédié) peut remplacer la réunion synchrone. Chaque membre poste un bref résumé avant une heure convenue, et les blocages sont traités en bilatéral.
+
+---
+
+## Adapter les synchronisations à la maturité de l'équipe
+
+### Équipe débutante (mois 1-2)
+
+Maintenez toutes les synchronisations à leur fréquence recommandée. L'équipe a besoin de ces points de contact réguliers pour construire ses habitudes et sa culture.
+
+### Équipe en progression (mois 3-6)
+
+Commencez à adapter : passez la rétrospective en bi-hebdomadaire si l'équipe est stable, rendez le standup asynchrone si les blocages sont rares, allongez les Tech Reviews si l'architecture est solide.
+
+### Équipe mature (mois 6+)
+
+L'équipe ajuste ses synchronisations en continu. Certaines peuvent être fusionnées (Demo + Rétro dans la même session), d'autres espacées. La règle reste la même : chaque synchronisation doit produire de la valeur, sinon elle est modifiée ou supprimée.
+
+---
+
+**Section précédente** : [Boucles Itératives](/05-boucles-iteratives/)
+
+**Section suivante** : [Les Métriques](/07-metriques/)

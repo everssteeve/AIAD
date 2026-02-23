@@ -1,0 +1,56 @@
+---
+title: "AGENT-GUIDE — Contexte pour les Agents IA"
+description: "Fournir le contexte optimal aux agents IA pour un code de qualité"
+---
+
+import DownloadButton from '../../../components/DownloadButton.astro';
+
+> **Essence** : Fournir le contexte optimal aux agents IA pour qu'ils génèrent du code de qualité aligné avec les standards de l'équipe.
+
+## Pourquoi cet artefact existe
+
+Les agents IA sont puissants mais sans contexte. Ils ne connaissent ni votre domaine métier, ni vos conventions de code, ni vos contraintes techniques. L'AGENT-GUIDE comble ce fossé en fournissant un document structuré que les agents peuvent consommer pour produire du code pertinent dès le premier essai.
+
+Sans AGENT-GUIDE, chaque interaction avec un agent IA nécessite de re-expliquer le contexte, les règles et les conventions. C'est un gaspillage de temps et une source d'incohérences. L'AGENT-GUIDE est le "briefing permanent" de vos agents IA.
+
+## Ce que contient l'AGENT-GUIDE
+
+| Section | Contenu |
+|---------|---------|
+| Identité du Projet | Nom, description, domaine métier et mission |
+| Documentation de Référence | Liens vers le PRD, l'ARCHITECTURE et les SPECs en cours |
+| Stack Technique | Résumé des technologies utilisées |
+| Règles Absolues (TOUJOURS) | Ce que l'agent doit toujours faire, sans exception |
+| Règles Absolues (JAMAIS) | Ce que l'agent ne doit jamais faire, sans exception |
+| Conventions de Code | Nommage, structure des composants, ordre des imports |
+| Vocabulaire Métier | Glossaire des termes du domaine avec définitions précises |
+| Patterns de Développement | Approches favorisées avec exemples de code |
+| Anti-Patterns | Ce qu'il faut éviter avec exemples concrets |
+| Notes d'Apprentissage | Learnings accumulés par l'équipe au fil du temps |
+
+## Bonnes pratiques
+
+1. **Être explicite et sans ambiguïté** : les agents IA prennent les instructions au pied de la lettre
+2. **Utiliser des exemples de code** : un exemple vaut mille mots pour un agent IA
+3. **Structurer en TOUJOURS/JAMAIS** : les règles binaires sont les plus efficaces pour les agents
+4. **Inclure le vocabulaire métier** : les agents ne devinent pas vos termes de domaine
+5. **Mettre à jour les notes d'apprentissage** : chaque erreur corrigée est un apprentissage à documenter
+
+## Indicateurs de qualité
+
+| Indicateur | Cible |
+|------------|-------|
+| Taux de code utilisable au premier essai | Plus de 70% du code généré est directement utilisable |
+| Nombre de corrections de conventions | Moins de 2 corrections de style par génération |
+| Respect du vocabulaire métier | 100% des termes métier utilisés correctement |
+| Fréquence de mise à jour des notes | Au moins une mise à jour par semaine |
+
+## Anti-pattern
+
+**L'AGENT-GUIDE vide** : un fichier créé par obligation mais contenant uniquement le nom du projet et la stack technique. Sans règles explicites et sans exemples, l'agent IA improvise et le résultat est imprévisible.
+
+**L'AGENT-GUIDE figé** : un guide écrit une fois et jamais mis à jour. Les notes d'apprentissage sont la section la plus précieuse : elles capturent les erreurs passées pour éviter de les répéter. Un AGENT-GUIDE qui ne grandit pas avec l'équipe perd progressivement sa valeur.
+
+## Télécharger le template
+
+<DownloadButton file="/templates/agent-guide-template.md" label="Télécharger le template AGENT-GUIDE" />

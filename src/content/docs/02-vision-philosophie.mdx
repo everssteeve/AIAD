@@ -1,0 +1,132 @@
+---
+title: "Vision & Philosophie"
+description: "Les quatre piliers fondamentaux et le manifeste AIAD"
+---
+
+*Temps de lecture estimé : 10 minutes*
+
+## Le principe fondamental
+
+> Le succès ne se mesure qu'à une seule aune : **la valeur créée pour les utilisateurs**.
+
+Ni le nombre de lignes de code produites, ni la vélocité en story points, ni le nombre de tickets fermés par sprint. Ces métriques intermédiaires peuvent être utiles comme indicateurs, mais elles ne doivent jamais devenir des objectifs en soi.
+
+Le framework AIAD est conçu autour de cette conviction : chaque pratique, chaque artefact, chaque synchronisation doit pouvoir justifier son existence par un lien direct ou indirect avec la valeur livrée à l'utilisateur final.
+
+Cette orientation a des conséquences profondes sur la manière dont une équipe s'organise. Elle implique de remettre en question des habitudes bien ancrées : les estimations rituelles, les revues de code systématiques sans critères clairs, les réunions de suivi d'avancement déconnectées de l'impact réel.
+
+---
+
+## Les quatre piliers
+
+Le framework AIAD repose sur quatre piliers qui forment un système cohérent. Chaque pilier renforce les autres ; aucun ne fonctionne isolément.
+
+### Pilier 1 : Empirisme radical
+
+**Principe** : Valider les hypothèses par l'observation, pas par l'opinion.
+
+Dans un contexte où les agents IA peuvent produire des résultats en quelques minutes, la boucle de feedback se raccourcit considérablement. Il devient non seulement possible mais **nécessaire** de valider rapidement chaque hypothèse par l'expérimentation.
+
+Les deux mantras de l'empirisme radical :
+
+- **Hypothèses > Certitudes** — Chaque décision technique ou produit est une hypothèse jusqu'à ce qu'elle soit validée par l'usage réel. Formuler explicitement ses hypothèses permet de les tester de manière structurée.
+- **Observation > Opinion** — Face à un désaccord technique, la meilleure réponse n'est pas un débat théorique mais un prototype rapide. Demandez à l'agent de produire les deux approches, testez-les, observez les résultats.
+
+**En pratique** :
+
+- Avant de débattre de l'architecture d'un composant pendant une heure, faites générer deux versions par l'agent et comparez-les en 15 minutes.
+- Quand un PM hésite entre deux approches produit, prototypez les deux et recueillez du feedback utilisateur.
+- Quand une estimation semble incertaine, lancez l'implémentation sur un périmètre réduit pour observer la complexité réelle.
+
+> L'empirisme radical ne signifie pas « coder sans réfléchir ». Il signifie « réfléchir en expérimentant plutôt qu'en théorisant ».
+
+### Pilier 2 : Orchestration systémique
+
+**Principe** : Les humains définissent le *pourquoi* et le *quoi*. Les agents gèrent le *comment*.
+
+Cette répartition claire des responsabilités entre humains et agents est au coeur du framework AIAD. Elle repose sur un constat : les agents IA excellent dans l'exécution technique (génération de code, refactoring, tests) mais ne peuvent pas déterminer seuls ce qui a de la valeur pour les utilisateurs.
+
+L'orchestration systémique implique :
+
+- **Investir dans la configuration des agents** — Un agent bien configuré (avec un AGENT-GUIDE précis, un contexte projet clair, des conventions documentées) produit des résultats significativement meilleurs qu'un agent générique. Cet investissement initial est rapidement amorti.
+- **Bénéfice collectif** — Contrairement à la compétence individuelle d'un développeur, la configuration d'un agent est **partageable instantanément**. Quand un membre de l'équipe optimise un prompt ou un guide, toute l'équipe en bénéficie immédiatement.
+- **Supervision humaine permanente** — L'orchestration ne signifie pas l'automatisation complète. Chaque résultat d'agent doit être validé par un humain qui comprend l'intention initiale et le contexte métier.
+
+### Pilier 3 : Fluidité par émergence
+
+**Principe** : Abandonner les sprints rigides au profit de cadences naturelles adaptées à chaque tâche.
+
+Le framework Scrum a introduit le sprint comme unité de temps fixe pour créer de la prévisibilité. Mais dans un contexte où certaines tâches prennent 2 heures et d'autres 3 jours, imposer une cadence uniforme de deux semaines crée plus de friction que de valeur.
+
+AIAD propose une approche différente :
+
+- **Cadences adaptatives** — La durée d'une boucle itérative s'adapte à la nature de la tâche, pas l'inverse. Un bug simple peut être résolu en une boucle de 2 heures. Une fonctionnalité complexe peut nécessiter plusieurs boucles sur une semaine.
+- **Émergence plutôt que prescription** — Le rythme optimal de l'équipe émerge de la pratique, pas d'une règle imposée. Certaines équipes trouvent leur rythme avec des boucles quotidiennes, d'autres avec des boucles de 2-3 jours.
+- **Synchronisations intentionnelles** — Les moments collectifs (démos, rétrospectives, revues techniques) ne sont pas des cérémonies rituelles mais des **moments de décision** déclenchés par un besoin réel.
+
+> La fluidité ne signifie pas l'absence de structure. Elle signifie une structure qui s'adapte au flux de travail réel plutôt que de le contraindre.
+
+### Pilier 4 : Excellence produit
+
+**Principe** : Résoudre de vrais problèmes, pas simplement livrer du code.
+
+L'accélération de la production de code par les agents IA crée un risque paradoxal : produire plus de fonctionnalités inutiles, plus vite. L'excellence produit est le contrepoids nécessaire à cette capacité de production accrue.
+
+Les principes de l'excellence produit :
+
+- **Product thinking > Project thinking** — Penser en termes de problèmes utilisateurs à résoudre plutôt qu'en termes de fonctionnalités à livrer. Un projet est terminé quand toutes les tâches sont faites. Un produit n'est jamais terminé tant que des utilisateurs ont des problèmes non résolus.
+- **Qualité intégrée** — La qualité n'est pas une étape finale de vérification mais une propriété intégrée à chaque phase du cycle. Les critères d'acceptation sont définis avant la génération, pas après.
+- **Feedback continu** — Chaque livraison est une opportunité d'apprentissage. Les métriques d'usage réel informent les décisions suivantes.
+
+---
+
+## Le manifeste
+
+Le manifeste AIAD exprime les arbitrages fondamentaux du framework. Ce ne sont pas des règles absolues mais des **préférences assumées** lorsqu'un choix doit être fait.
+
+### Nous valorisons :
+
+| Plus que... | Nous valorisons... |
+|---|---|
+| Les outputs livrés | **Les outcomes observables** |
+| Les spécifications exhaustives | **L'intention claire** |
+| Les silos fonctionnels | **La responsabilité partagée** |
+| La planification détaillée | **L'adaptation continue** |
+| La vélocité individuelle | **L'efficacité systémique** |
+| Les cérémonies rituelles | **Les synchronisations intentionnelles** |
+| Les métriques de volume | **Les métriques d'impact** |
+
+### Ce que cela signifie concrètement :
+
+- **Outcomes observables > Outputs livrés** — Livrer 10 fonctionnalités que personne n'utilise a moins de valeur que livrer une fonctionnalité qui résout un vrai problème. On mesure le succès par l'impact, pas par le volume.
+
+- **Intention claire > Spécifications exhaustives** — Un document de 50 pages que personne ne lit est moins utile qu'un document de 2 pages que tout le monde comprend. La clarté prime sur l'exhaustivité.
+
+- **Responsabilité partagée > Silos fonctionnels** — Dans une équipe AIAD, chaque membre peut assumer plusieurs responsabilités. La polyvalence et la collaboration remplacent les frontières rigides entre « devs », « QA » et « PMs ».
+
+- **Adaptation continue > Planification détaillée** — Un plan détaillé à 3 mois est une fiction rassurante. Une capacité d'adaptation à 3 jours est un avantage compétitif réel.
+
+- **Efficacité systémique > Vélocité individuelle** — Un développeur qui optimise un agent pour toute l'équipe crée plus de valeur qu'un développeur qui code deux fois plus vite tout seul.
+
+- **Synchronisations intentionnelles > Cérémonies rituelles** — Une rétrospective qui aboutit à une action concrète vaut plus que dix stand-ups routiniers sans décision.
+
+- **Métriques d'impact > Métriques de volume** — Le nombre de story points complétés est moins pertinent que le taux d'adoption d'une fonctionnalité.
+
+---
+
+## Comment utiliser ces principes
+
+Ces piliers et ce manifeste ne sont pas des règles à appliquer mécaniquement. Ce sont des **boussoles** qui orientent les décisions quotidiennes.
+
+Quand vous hésitez entre deux approches, posez-vous ces questions :
+
+1. Laquelle crée le plus de valeur pour l'utilisateur ? *(Excellence produit)*
+2. Laquelle peut être validée le plus rapidement ? *(Empirisme radical)*
+3. Laquelle bénéficie à l'ensemble de l'équipe ? *(Orchestration systémique)*
+4. Laquelle s'adapte le mieux au rythme réel du travail ? *(Fluidité par émergence)*
+
+---
+
+**Section précédente** : [Préambule](/01-preambule/)
+
+**Section suivante** : [Écosystème](/03-ecosysteme/)

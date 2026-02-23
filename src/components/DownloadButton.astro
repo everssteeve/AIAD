@@ -1,0 +1,39 @@
+---
+interface Props {
+	file: string;
+	label?: string;
+}
+
+const { file, label = 'Télécharger le template' } = Astro.props;
+---
+
+<a href={file} download class="download-btn">
+	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+		<polyline points="7 10 12 15 17 10"/>
+		<line x1="12" y1="15" x2="12" y2="3"/>
+	</svg>
+	{label}
+</a>
+
+<style>
+	.download-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.6rem 1.2rem;
+		background: var(--sl-color-accent);
+		color: var(--sl-color-accent-high);
+		border-radius: 0.5rem;
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 0.9rem;
+		transition: opacity 0.2s;
+	}
+	.download-btn:hover {
+		opacity: 0.85;
+	}
+	:root[data-theme='light'] .download-btn {
+		color: #fff;
+	}
+</style>

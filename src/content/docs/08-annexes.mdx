@@ -1,0 +1,196 @@
+---
+title: "Les Annexes"
+description: "Index des ressources détaillées : templates, guides opérationnels et références"
+---
+
+*Temps de lecture estimé : 5 minutes*
+
+## Vue d'ensemble
+
+Les annexes rassemblent l'ensemble des **ressources détaillées** du framework AIAD : templates d'artefacts, processus opérationnels, guides par rôle, exemples pratiques et références techniques. Ce sont des documents de référence à consulter **selon vos besoins**, pas à lire de bout en bout.
+
+Contrairement aux sections précédentes qui décrivent la philosophie et la structure du framework, les annexes sont des ressources **pratiques et immédiatement utilisables**. Chaque template peut être copié et adapté à votre contexte. Chaque guide opérationnel décrit des étapes concrètes. Chaque exemple illustre un pattern réel.
+
+> **Conseil** : ne cherchez pas à tout lire d'un coup. Identifiez votre besoin immédiat et consultez l'annexe correspondante. Vous reviendrez aux autres au fur et à mesure de votre progression.
+
+---
+
+## Index des annexes
+
+| Annexe | Titre | Description |
+|--------|-------|-------------|
+| A | Templates d'artefacts | PRD, ARCHITECTURE, AGENT-GUIDE, SPECS, DoOD, DoOuD |
+| B | Responsabilités quotidiennes par rôle | Activités détaillées pour PM, PE, AE, QA et Tech Lead |
+| C | Processus opérationnels détaillés | Workflows pas-à-pas pour chaque phase des boucles itératives |
+| D | Templates de synchronisations | Ordres du jour et formats pour chaque type de synchronisation |
+| E | Métriques et dashboards | Détail des métriques, formules de calcul et templates de dashboards |
+| F | Catalogue d'agents IA spécialisés | Inventaire des agents recommandés par type de tâche |
+| G | Instructions techniques d'implémentation | Configuration des outils, intégration CI/CD, setup de l'environnement |
+| H | Exemples pratiques et patterns de code | Cas concrets d'utilisation du framework avec résultats annotés |
+| I | Troubleshooting et références | Résolution des problèmes courants et bibliographie |
+
+---
+
+## Annexe A — Templates d'artefacts
+
+L'annexe A contient les templates prêts à l'emploi pour les six artefacts du framework AIAD. Chaque template inclut :
+
+- La structure recommandée avec les sections obligatoires et optionnelles
+- Des instructions de rédaction pour chaque section
+- Un exemple complété sur un cas concret
+- Les erreurs fréquentes à éviter
+
+**Artefacts couverts** :
+
+- **PRD** (Product Requirements Document) — le document fondateur qui décrit le pourquoi et le quoi
+- **ARCHITECTURE** — les standards techniques et conventions du projet
+- **AGENT-GUIDE** — le contexte spécifique pour les agents IA
+- **SPECS** — les spécifications détaillées par fonctionnalité
+- **DoOD** (Definition of Obvious Done) — les critères minimaux de complétion
+- **DoOuD** (Definition of Outstanding Done) — les critères d'excellence
+
+Accéder aux templates : [Artefacts](/artefacts/)
+
+---
+
+## Annexe B — Responsabilités quotidiennes par rôle
+
+L'annexe B détaille les activités quotidiennes, hebdomadaires et mensuelles de chaque responsabilité AIAD. Pour chaque rôle, vous trouverez :
+
+- Une journée type avec les activités principales
+- Les interactions attendues avec les autres rôles
+- Les indicateurs de performance spécifiques
+- Les compétences à développer en priorité
+
+**Rôles couverts** : Product Manager, Prompt Engineer, Agent Engineer, Quality Analyst, Tech Lead.
+
+Accéder aux guides : [Rôles](/roles/)
+
+---
+
+## Annexe C — Processus opérationnels détaillés
+
+L'annexe C décrit les workflows pas-à-pas pour chaque phase des boucles itératives. Là où la section [Boucles Itératives](/05-boucles-iteratives/) donne la vue d'ensemble, l'annexe C fournit les détails opérationnels :
+
+- Checklist de la phase PLANIFIER (de la sélection de la tâche à la validation du SPECS)
+- Checklist de la phase IMPLÉMENTER (de la préparation du contexte agent à la livraison du code)
+- Checklist de la phase VALIDER (de la vérification DoOD aux tests exploratoires)
+- Checklist de la phase INTÉGRER (du merge au monitoring post-déploiement)
+- Processus de gestion des blocages et d'escalade
+
+---
+
+## Annexe D — Templates de synchronisations
+
+L'annexe D fournit des templates d'ordres du jour et des formats d'animation pour chaque synchronisation AIAD :
+
+- Template d'Alignement Stratégique avec checklist de préparation
+- Template de Demo & Feedback avec grille d'évaluation
+- Template de Tech Review avec liste de vérification architecturale
+- Template de Rétrospective avec plusieurs formats alternatifs
+- Template de Standup synchrone et asynchrone
+
+Chaque template est accompagné de conseils de facilitation et de pièges à éviter.
+
+---
+
+## Annexe E — Métriques et dashboards
+
+L'annexe E approfondit chaque métrique présentée dans la section [Métriques](/07-metriques/) :
+
+- Formules de calcul détaillées pour chaque métrique
+- Sources de données recommandées (outils, APIs, collecte manuelle)
+- Seuils d'alerte et cibles par niveau de maturité
+- Templates de dashboard hebdomadaire et mensuel (formats tableur et outil BI)
+- Guide de mise en place progressive des métriques
+
+---
+
+## Annexe F — Catalogue d'agents IA spécialisés
+
+L'annexe F inventorie les agents IA recommandés par le framework AIAD, organisés par type de tâche :
+
+- Agents de génération de code (par langage et framework)
+- Agents de revue de code et d'analyse statique
+- Agents de génération de tests
+- Agents de documentation
+- Agents de refactoring et d'optimisation
+- Agents spécialisés par domaine (frontend, backend, data, DevOps)
+
+Pour chaque agent, le catalogue fournit : les cas d'usage recommandés, les limites connues, les bonnes pratiques de configuration et des exemples de prompts efficaces.
+
+---
+
+## Annexe G — Instructions techniques d'implémentation
+
+L'annexe G couvre les aspects techniques de la mise en place de l'écosystème AIAD :
+
+- Configuration de l'environnement de développement pour le travail avec les agents
+- Intégration des agents dans le pipeline CI/CD
+- Setup des outils de mesure et de monitoring
+- Configuration des espaces de travail partagés
+- Gestion des secrets et de la sécurité dans les interactions avec les agents
+- Automatisation des workflows récurrents
+
+---
+
+## Annexe H — Exemples pratiques et patterns de code
+
+L'annexe H illustre le framework AIAD par des cas concrets :
+
+- Exemple complet d'une boucle itérative : du PRD au déploiement
+- Patterns de SPECS efficaces par type de tâche (CRUD, intégration API, composant UI, migration de données)
+- Exemples d'AGENT-GUIDE par contexte technologique
+- Comparaisons avant/après : même tâche avec et sans AIAD
+- Anti-patterns documentés avec explications
+
+---
+
+## Annexe I — Troubleshooting et références
+
+L'annexe I aide à résoudre les problèmes courants et fournit des ressources complémentaires :
+
+- FAQ des problèmes les plus fréquents lors de l'adoption d'AIAD
+- Diagnostic des baisses de performance des agents
+- Guide de résolution des conflits entre responsabilités
+- Bibliographie et lectures recommandées
+- Glossaire des termes AIAD
+- Liens vers la communauté et les ressources en ligne
+
+---
+
+## Approche recommandée
+
+L'adoption du framework AIAD est un processus progressif. Voici l'ordre recommandé pour exploiter les annexes :
+
+### Phase 1 — Démarrage (semaine 1-2)
+
+Commencez par les artefacts essentiels :
+
+1. Rédigez votre PRD en utilisant le template de l'Annexe A
+2. Créez votre document ARCHITECTURE (Annexe A)
+3. Rédigez un premier AGENT-GUIDE minimal (Annexe A)
+4. Établissez votre DoOD avec l'équipe (Annexe A)
+
+### Phase 2 — Rodage (semaine 3-4)
+
+Ajoutez les processus opérationnels :
+
+1. Mettez en place les boucles itératives avec les checklists de l'Annexe C
+2. Lancez les synchronisations avec les templates de l'Annexe D
+3. Commencez à mesurer 3-5 métriques clés (Annexe E)
+
+### Phase 3 — Optimisation (mois 2+)
+
+Affinez et enrichissez :
+
+1. Optimisez votre écosystème d'agents (Annexe F)
+2. Automatisez les workflows récurrents (Annexe G)
+3. Capitalisez sur les patterns efficaces (Annexe H)
+4. Ajoutez des métriques et peaufinez vos dashboards (Annexe E)
+
+> **Rappel** : n'essayez pas de tout mettre en place d'un coup. Le framework AIAD est conçu pour une adoption progressive. Commencez par ce qui apporte le plus de valeur immédiate et ajoutez le reste au fur et à mesure que l'équipe gagne en maturité.
+
+---
+
+**Section précédente** : [Métriques](/07-metriques/)

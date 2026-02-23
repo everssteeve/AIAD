@@ -1,0 +1,50 @@
+---
+title: "Tech Lead"
+description: "Responsable de la Cohérence Technique — Garantir la cohérence à long terme"
+---
+
+import RoleInteractions from '../../../components/RoleInteractions';
+import TeamConfigurator from '../../../components/TeamConfigurator';
+
+> **Essence** : Garantir que les décisions techniques d'aujourd'hui ne bloquent pas les évolutions de demain.
+
+## Pourquoi cette responsabilité existe
+
+Sans vision à long terme, chaque fonctionnalité est localement optimisée mais globalement incohérente. Le Tech Lead assure que l'ensemble reste maintenable, évolutif et aligné avec la stratégie technique.
+
+## Ce que fait le Tech Lead
+
+| Action | Fréquence |
+|--------|-----------|
+| Maintenir le document ARCHITECTURE à jour | Continu |
+| Valider les décisions techniques structurantes | À la demande |
+| Conduire les design reviews | Par fonctionnalité |
+| Définir et faire évoluer les standards | Mensuel |
+| Gérer la dette technique globale | Continu |
+| Coacher les PE sur les bonnes pratiques | Continu |
+
+## Types de décisions
+
+Le Tech Lead n'intervient pas sur tout avec la même intensité :
+
+| Type | Rôle du Tech Lead | Exemple |
+|------|-------------------|---------|
+| **Stratégique** | Décide | Choix de stack, patterns d'architecture, migrations majeures |
+| **Tactique** | Guide | Structure d'un module, choix d'une librairie, patterns locaux |
+| **Opérationnelle** | N'intervient pas | Nommage de variables, style de code, détails d'implémentation |
+
+## Indicateurs de performance
+
+| Indicateur | Cible |
+|------------|-------|
+| Dette technique | Stable ou décroissante |
+| Décisions techniques revisitées dans l'année | Moins de 10% |
+| Temps moyen d'une design review | Moins de 2h |
+
+## Anti-pattern
+
+**Le TL "super développeur"** qui code plus qu'il ne guide. Le Tech Lead doit se concentrer sur les décisions à fort impact et le coaching, pas sur l'implémentation quotidienne.
+
+<RoleInteractions client:visible role="tech-lead" />
+
+<TeamConfigurator client:visible />

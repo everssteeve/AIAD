@@ -1,0 +1,176 @@
+---
+title: "L'Écosystème"
+description: "Les cinq responsabilités clés d'une équipe AIAD et comment les combiner"
+---
+
+*Temps de lecture estimé : 12 minutes*
+
+## Le principe fondamental
+
+> Dans une équipe AIAD, il n'y a pas de rôles traditionnels figés. Il y a des **responsabilités** qui doivent être assumées.
+
+La distinction est essentielle. Un rôle est une étiquette attachée à une personne : « tu es le développeur back-end ». Une responsabilité est un engagement envers un résultat : « quelqu'un doit s'assurer que l'architecture reste cohérente ».
+
+Dans un contexte où les agents IA exécutent une grande partie du travail de production, les frontières traditionnelles entre rôles deviennent floues. Un Product Manager qui sait formuler des spécifications précises peut piloter directement un agent. Un développeur qui comprend les enjeux métier peut challenger une exigence produit. Un QA qui maîtrise les agents peut automatiser l'essentiel de la validation.
+
+Ce qui compte, ce n'est pas *qui* porte le titre, mais que **chaque responsabilité ait un propriétaire clairement identifié**.
+
+---
+
+## Le changement de paradigme
+
+| Aspect | Approche traditionnelle | Approche AIAD |
+|--------|------------------------|---------------|
+| Organisation | 1 personne = 1 rôle | 1 personne = plusieurs responsabilités |
+| Spécialisation | Expertise technique profonde | Polyvalence + orchestration |
+| Valeur individuelle | Volume de code produit | Qualité de l'orchestration et des décisions |
+| Collaboration | Handoff entre silos | Co-responsabilité sur les résultats |
+| Évolution | Parcours vertical (junior → senior → lead) | Parcours horizontal (acquisition de responsabilités) |
+| Formation | Maîtrise d'un langage/framework | Maîtrise de la spécification et de la validation |
+
+---
+
+## Les cinq responsabilités clés
+
+Chaque équipe AIAD doit couvrir cinq responsabilités fondamentales. Aucune n'est optionnelle — mais une même personne peut en assumer plusieurs.
+
+### Vue d'ensemble
+
+| Responsabilité | Question centrale | Focus principal |
+|----------------|-------------------|-----------------|
+| Product Manager (PM) | Construit-on la bonne chose ? | Valeur |
+| Prompt Engineer (PE) | L'agent produit-il le bon résultat ? | Orchestration |
+| Agent Engineer (AE) | L'écosystème est-il optimal ? | Configuration |
+| Quality Analyst (QA) | Le résultat est-il fiable ? | Qualité |
+| Tech Lead (TL) | Le système reste-t-il cohérent ? | Architecture |
+
+---
+
+### Product Manager (PM)
+
+Le Product Manager est le **gardien de la valeur**. Sa responsabilité première est de s'assurer que l'équipe construit ce qui a le plus d'impact pour les utilisateurs. Dans un contexte AIAD, cette responsabilité est amplifiée : puisque la capacité de production est décuplée par les agents, le risque de construire les mauvaises choses est lui aussi décuplé.
+
+Le PM rédige et maintient le PRD (Product Requirements Document), priorise le backlog par impact utilisateur, définit les critères de succès mesurables et recueille le feedback utilisateur de manière continue.
+
+En savoir plus : [Guide Product Manager](/roles/product-manager/)
+
+### Prompt Engineer (PE)
+
+Le Prompt Engineer est l'**orchestrateur quotidien** des agents IA. Sa responsabilité est de transformer les intentions produit (issues du PRD) en spécifications que les agents peuvent exécuter efficacement. Il est le traducteur entre le langage métier et le langage des agents.
+
+Le PE rédige les SPECS détaillées pour chaque fonctionnalité, pilote les agents pendant la phase d'implémentation, itère sur les résultats jusqu'à atteindre la qualité attendue et documente les patterns de prompts efficaces pour l'équipe.
+
+En savoir plus : [Guide Prompt Engineer](/roles/prompt-engineer/)
+
+### Agent Engineer (AE)
+
+L'Agent Engineer est le **responsable de l'écosystème technique** des agents. Là où le PE utilise les agents au quotidien, l'AE s'assure que l'environnement dans lequel ils opèrent est optimal. C'est un rôle d'investissement à long terme dont les bénéfices sont multiplicatifs.
+
+L'AE rédige et maintient l'AGENT-GUIDE, configure et optimise les agents pour le contexte du projet, met en place les outils et workflows qui maximisent l'efficacité des agents et mesure les performances des agents pour identifier les axes d'amélioration.
+
+En savoir plus : [Guide Agent Engineer](/roles/agent-engineer/)
+
+### Quality Analyst (QA)
+
+Le Quality Analyst est le **gardien de la fiabilité**. Dans un contexte où le code est généré par des agents, la validation devient encore plus critique : les agents peuvent produire du code qui a l'air correct mais qui contient des erreurs subtiles, des failles de sécurité ou des régressions non détectées.
+
+Le QA définit la stratégie de test (automatisée et manuelle), valide les résultats des agents contre les critères d'acceptation, maintient les Definitions of Done (DoOD et DoOuD) et identifie les patterns d'erreurs récurrents pour améliorer les spécifications.
+
+En savoir plus : [Guide Quality Analyst](/roles/quality-analyst/)
+
+### Tech Lead (TL)
+
+Le Tech Lead est le **gardien de la cohérence architecturale**. Les agents IA excellent dans la résolution de problèmes locaux mais n'ont pas de vision globale du système. Le Tech Lead assure que chaque pièce produite par les agents s'intègre de manière cohérente dans l'ensemble.
+
+Le TL rédige et maintient le document ARCHITECTURE, revoit les choix techniques significatifs, s'assure de la cohérence entre les composants générés par différents agents et anticipe les problèmes de dette technique et de scalabilité.
+
+En savoir plus : [Guide Tech Lead](/roles/tech-lead/)
+
+---
+
+## Combiner les responsabilités
+
+En pratique, rares sont les équipes où chaque responsabilité est portée par une personne dédiée. Le framework AIAD est conçu pour s'adapter à des équipes de tailles variées.
+
+### Équipe de 2-3 personnes
+
+Dans une petite équipe, chaque membre assume plusieurs responsabilités. La configuration recommandée :
+
+| Personne | Responsabilités | Focus principal |
+|----------|----------------|-----------------|
+| Personne A | PM + QA | Valeur et qualité |
+| Personne B | PE + AE + TL | Orchestration et technique |
+
+Ou, si l'équipe a un profil plus technique :
+
+| Personne | Responsabilités | Focus principal |
+|----------|----------------|-----------------|
+| Personne A | PM + PE | Spécification et pilotage |
+| Personne B | AE + TL | Écosystème et architecture |
+| Personne C | QA + PE | Qualité et orchestration |
+
+**Risque principal** : la responsabilité PM est souvent négligée dans les petites équipes techniques. Veillez à ce qu'elle soit explicitement assignée.
+
+### Équipe de 4-6 personnes
+
+L'équipe peut commencer à séparer certaines responsabilités :
+
+| Personne | Responsabilités | Focus principal |
+|----------|----------------|-----------------|
+| Personne A | PM | Valeur et stratégie |
+| Personne B | PE | Orchestration quotidienne |
+| Personne C | AE + TL | Écosystème et architecture |
+| Personne D | QA | Qualité et validation |
+| Personne E (opt.) | PE | Orchestration quotidienne |
+
+C'est souvent la configuration la plus équilibrée. Le PM est dédié, le QA est dédié, et les responsabilités techniques sont distribuées selon les affinités.
+
+### Équipe de 7+ personnes
+
+Les grandes équipes peuvent dédier une personne par responsabilité et commencer à spécialiser les PE par domaine fonctionnel :
+
+| Personne | Responsabilités | Focus principal |
+|----------|----------------|-----------------|
+| Personne A | PM | Stratégie produit |
+| Personne B | AE | Écosystème d'agents |
+| Personne C | TL | Architecture système |
+| Personne D | QA | Stratégie de qualité |
+| Personnes E-G+ | PE (par domaine) | Orchestration spécialisée |
+
+**Risque principal** : les grandes équipes peuvent recréer des silos. Maintenez des synchronisations régulières et une responsabilité partagée sur les résultats.
+
+---
+
+## Règle d'or
+
+> **Chaque responsabilité doit avoir un propriétaire clairement identifié.**
+
+Cela ne signifie pas que le propriétaire fait tout seul. Cela signifie que si quelque chose ne va pas dans le périmètre d'une responsabilité, on sait **à qui s'adresser**.
+
+Vérifiez régulièrement :
+
+- Qui est responsable de la valeur produit ? *(PM)*
+- Qui est responsable de la qualité des spécifications envoyées aux agents ? *(PE)*
+- Qui est responsable de la performance de l'écosystème d'agents ? *(AE)*
+- Qui est responsable de la fiabilité des livrables ? *(QA)*
+- Qui est responsable de la cohérence architecturale ? *(TL)*
+
+Si une de ces questions reste sans réponse claire, c'est un signal d'alarme.
+
+---
+
+## Évolution des responsabilités
+
+Les responsabilités ne sont pas figées dans le temps. Une équipe AIAD mature fait évoluer ses attributions en fonction de l'expérience acquise et des besoins du projet :
+
+- Un PE qui développe une forte sensibilité produit peut progressivement assumer des responsabilités PM.
+- Un TL dont le projet se stabilise peut dédier plus de temps à la responsabilité AE.
+- Un QA qui maîtrise les agents peut contribuer en tant que PE sur certaines fonctionnalités.
+
+Cette fluidité est un signe de maturité, pas de désorganisation — à condition que la règle d'or soit toujours respectée.
+
+---
+
+**Section précédente** : [Vision & Philosophie](/02-vision-philosophie/)
+
+**Section suivante** : [Les Artefacts](/04-artefacts/)

@@ -1,0 +1,64 @@
+---
+title: "SPECS — Spécifications Techniques"
+description: "Faire le pont entre l'intention métier et l'implémentation concrète"
+---
+
+import DownloadButton from '../../../components/DownloadButton.astro';
+
+> **Essence** : Faire le pont entre l'intention métier (PRD) et l'implémentation concrète par les agents IA.
+
+## Pourquoi cet artefact existe
+
+Les SPECs sont le document le plus actionnable du framework AIAD. Elles traduisent les besoins métier du PRD en instructions précises et non ambigues que les agents IA peuvent exécuter directement. Une bonne SPEC réduit drastiquement les allers-retours entre le PE et l'agent IA.
+
+Dans le workflow AIAD, la SPEC est le document que le Prompt Engineer utilise comme input principal pour guider l'agent IA. Plus la SPEC est précise, plus le code généré est pertinent et plus le cycle de développement est court.
+
+## Ce que contient une SPEC
+
+| Section | Contenu |
+|---------|---------|
+| Contexte | User story de référence, objectif et outcome attendu |
+| Périmètre | Ce qui est inclus (In Scope) et explicitement exclu (Out of Scope) |
+| Fichiers Impactés | Liste précise des fichiers à créer et à modifier |
+| Interface Technique | Endpoints API, types TypeScript, schémas DB selon le besoin |
+| Comportement Détaillé | Flow nominal et cas limites avec comportements attendus |
+| Validation Rules | Règles de validation par champ avec messages d'erreur |
+| Business Rules | Règles métier à respecter impérativement |
+| Tests Attendus | Scénarios de test qui valident l'implémentation |
+| Definition of Done | Checklist de complétion de la SPEC |
+
+## Les quatre critères de qualité d'une SPEC
+
+| Critère | Description | Exemple |
+|---------|-------------|---------|
+| **Atomicité** | Une SPEC = une fonctionnalité cohérente et déployable | "Créer le formulaire d'inscription" et non "Créer le module utilisateur" |
+| **Précision** | Chaque comportement est décrit sans ambiguïté | "Le champ email accepte le format RFC 5322" et non "valider l'email" |
+| **Testabilité** | Chaque critère peut être vérifié par un test automatisé | "Retourne une erreur 422 si le nom fait plus de 100 caractères" |
+| **Complétude** | Tous les cas (nominal, limites, erreurs) sont couverts | Les cas d'erreur réseau, timeout et données invalides sont documentés |
+
+## Bonnes pratiques
+
+1. **Une SPEC par fonctionnalité atomique** : ne pas mélanger plusieurs features dans une seule SPEC
+2. **Lister explicitement les fichiers** : l'agent IA sait exactement où intervenir
+3. **Décrire les cas limites** : c'est là que la plupart des bugs se cachent
+4. **Inclure les messages d'erreur** : l'expérience utilisateur commence par les cas d'erreur
+5. **Définir les tests avant l'implémentation** : la SPEC est une spécification exécutable
+
+## Indicateurs de qualité
+
+| Indicateur | Cible |
+|------------|-------|
+| Taux de complétion au premier sprint | Plus de 80% des SPECs terminées dans le sprint prévu |
+| Nombre de bugs post-implémentation | Moins de 1 bug par SPEC en moyenne |
+| Temps de rédaction d'une SPEC | Moins de 1 heure pour une SPEC standard |
+| Couverture des cas limites | 100% des cas limites identifiés et documentés |
+
+## Anti-pattern
+
+**La SPEC-fleuve** : une SPEC qui couvre un module entier avec des dizaines de comportements. Si votre SPEC fait plus de 2-3 pages, elle couvre probablement trop de périmètre. Découpez-la en SPECs atomiques.
+
+**La SPEC-vague** : une SPEC qui dit "gérer les erreurs correctement" ou "valider les données". Sans détails précis sur chaque cas d'erreur et chaque règle de validation, l'agent IA fera des suppositions qui seront probablement fausses.
+
+## Télécharger le template
+
+<DownloadButton file="/templates/specs-template.md" label="Télécharger le template SPECS" />

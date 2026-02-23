@@ -1,0 +1,187 @@
+---
+title: "Les Boucles Itératives"
+description: "Le cycle naturel de création de valeur : Planifier, Implémenter, Valider, Intégrer"
+---
+
+*Temps de lecture estimé : 12 minutes*
+
+## Le principe fondamental
+
+> Les boucles itératives AIAD ne sont pas des Sprints. Ce sont des **cycles naturels de création de valeur** dont la durée s'adapte à la nature du travail.
+
+Un Sprint Scrum impose une cadence fixe (généralement deux semaines) indépendamment de la complexité des tâches. Cette uniformité avait du sens quand l'exécution technique prenait des jours et que la prévisibilité était un besoin primordial.
+
+Dans un contexte AIAD, la donne change radicalement :
+
+- Un bug simple peut être corrigé en une boucle de **2 heures** (spec + génération + validation)
+- Une fonctionnalité standard prend **1 à 2 jours**
+- Un composant architectural complexe peut nécessiter **3 à 5 jours** de boucles successives
+
+Imposer une cadence unique à ces réalités si différentes crée de la friction inutile. AIAD propose à la place des **boucles adaptatives** dont la durée est déterminée par la nature de la tâche, pas par un calendrier arbitraire.
+
+---
+
+## Les quatre phases
+
+Chaque boucle itérative AIAD se compose de quatre phases séquentielles. L'ordre est important : chaque phase prépare la suivante.
+
+### Phase 1 : PLANIFIER
+
+**Durée typique** : 30 minutes à 4 heures
+
+**Objectif** : Convertir l'intention métier en spécifications exploitables par les agents IA.
+
+C'est la phase la plus critique du cycle. La qualité de la planification détermine directement la qualité de l'implémentation. Investir 30 minutes supplémentaires dans la clarification d'une spécification peut économiser des heures de correction en aval.
+
+**Activités principales** :
+
+- **Sélectionner** le travail à réaliser — identifier la prochaine tâche à plus forte valeur dans le backlog priorisé par le PM
+- **Analyser** le contexte — comprendre les dépendances techniques, les contraintes existantes et les impacts sur le reste du système
+- **Rédiger le SPECS** — transformer l'intention métier en spécification actionnable pour l'agent, avec des critères d'acceptation précis
+- **Identifier les risques** — anticiper les points de blocage potentiels et prévoir des approches alternatives
+
+**Participants** : PE (lead), PM (validation de l'intention), TL (validation technique)
+
+**Critère de sortie** : un SPECS complet, validé par le PM et le TL, prêt à être transmis à l'agent.
+
+> **Astuce** : si vous n'arrivez pas à rédiger un SPECS clair en moins de 4 heures, c'est probablement que la tâche est trop grosse. Découpez-la.
+
+### Phase 2 : IMPLÉMENTER
+
+**Durée typique** : 2 heures à 3 jours
+
+**Objectif** : Orchestrer les agents IA pour transformer les spécifications en code fonctionnel.
+
+C'est la phase où les agents IA démontrent leur valeur. Le PE pilote l'agent en lui fournissant le SPECS, l'AGENT-GUIDE et le contexte nécessaire, puis itère sur les résultats jusqu'à obtenir un code satisfaisant.
+
+**Activités principales** :
+
+- **Préparer le contexte** — charger l'AGENT-GUIDE, le SPECS, et les fichiers de référence pertinents dans le contexte de l'agent
+- **Lancer la génération** — transmettre la spécification à l'agent et obtenir une première version du code
+- **Itérer** — examiner le résultat, identifier les écarts avec l'attendu, affiner les instructions et relancer si nécessaire
+- **Documenter** — noter les patterns qui ont bien fonctionné et les ajustements nécessaires pour enrichir l'AGENT-GUIDE
+
+**Participants** : PE (lead), AE (support sur l'écosystème d'agents)
+
+**Critère de sortie** : un code qui satisfait les critères d'acceptation du SPECS et passe les vérifications automatisées de base (compilation, linting).
+
+**Le cycle interne d'itération** :
+
+Pendant la phase d'implémentation, le PE parcourt un micro-cycle rapide :
+
+1. **Générer** — l'agent produit du code
+2. **Évaluer** — le PE examine le résultat
+3. **Affiner** — le PE ajuste les instructions
+4. **Régénérer** — l'agent produit une version améliorée
+
+Ce micro-cycle peut être parcouru **5 à 15 fois** en une session de travail. Chaque itération rapproche le résultat de l'attendu. La clé est de donner un feedback précis à chaque itération plutôt qu'un feedback vague.
+
+### Phase 3 : VALIDER
+
+**Durée typique** : 1 à 4 heures
+
+**Objectif** : S'assurer que le code produit répond aux attentes et satisfait les standards de qualité.
+
+La validation est la phase qui distingue une équipe AIAD mature d'une équipe qui « laisse faire l'IA ». Les agents peuvent produire du code qui compile, qui passe les tests... et qui contient quand même des erreurs de logique, des failles de sécurité ou des régressions subtiles.
+
+**Activités principales** :
+
+- **Vérifier la DoOD** — passer en revue chaque critère de la Definition of Obvious Done
+- **Exécuter les tests** — lancer la suite de tests automatisés (unitaires, intégration, e2e selon le périmètre)
+- **Revue fonctionnelle** — vérifier que le comportement correspond à l'intention métier du SPECS
+- **Revue technique** — vérifier la cohérence architecturale, la gestion des erreurs, les performances
+- **Tests exploratoires** — explorer les cas limites et les scénarios non prévus dans le SPECS
+
+**Participants** : QA (lead), PE (contexte technique), TL (revue architecturale si nécessaire)
+
+**Critère de sortie** : le livrable satisfait la DoOD. Idéalement, il satisfait aussi certains critères de la DoOuD.
+
+> **Point de vigilance** : la validation n'est pas une formalité. C'est le moment où l'équipe s'assure que la valeur promise est effectivement livrée. Ne la bâclez pas sous prétexte que « l'IA a fait un bon travail ».
+
+### Phase 4 : INTÉGRER
+
+**Durée typique** : 30 minutes à 2 heures
+
+**Objectif** : Déployer le livrable validé en production et préparer la boucle suivante.
+
+L'intégration est la phase qui transforme le code validé en valeur réelle pour les utilisateurs. Elle inclut le déploiement mais aussi la collecte des premières données d'usage qui alimenteront les décisions de la prochaine boucle.
+
+**Activités principales** :
+
+- **Merger le code** — intégrer le code dans la branche principale après une dernière vérification
+- **Déployer** — mettre en production selon la stratégie de déploiement du projet (continu, staged, canary...)
+- **Vérifier en production** — s'assurer que le déploiement s'est bien passé (smoke tests, monitoring)
+- **Communiquer** — informer les parties prenantes de la livraison et de ce qui est nouveau
+- **Capitaliser** — mettre à jour l'AGENT-GUIDE avec les leçons apprises, enrichir les patterns documentés
+
+**Participants** : PE (lead), TL (validation du merge), PM (communication)
+
+**Critère de sortie** : le livrable est en production, les parties prenantes sont informées, les leçons apprises sont documentées.
+
+---
+
+## Phase d'initialisation
+
+Avant de lancer les premières boucles itératives, l'équipe doit investir dans une **phase d'initialisation** qui produit les artefacts fondateurs. Cette phase est un investissement ponctuel qui conditionne l'efficacité de toutes les boucles suivantes.
+
+**Activités de la phase d'initialisation** :
+
+| Activité | Responsable | Durée estimée |
+|----------|-------------|---------------|
+| Rédiger le PRD initial | PM | 1-2 jours |
+| Définir le document ARCHITECTURE | TL | 1-2 jours |
+| Créer le premier AGENT-GUIDE | AE + PE | 1 jour |
+| Établir la DoOD et la DoOuD | QA + équipe | 0.5 jour |
+| Configurer l'environnement d'agents | AE | 0.5-1 jour |
+| Prioriser le backlog initial | PM + équipe | 0.5 jour |
+
+**Durée totale estimée** : 3 à 5 jours pour une équipe de 3-5 personnes.
+
+> **Ne sautez pas cette phase.** Les équipes qui commencent à coder sans artefacts fondateurs passent deux fois plus de temps en corrections et en alignement par la suite.
+
+---
+
+## Le rythme des boucles
+
+Les boucles ne sont pas calées sur un calendrier fixe. Elles s'enchaînent naturellement :
+
+```
+[Boucle 1: Feature A]  →  [Boucle 2: Bug fix B]  →  [Boucle 3: Feature C]
+     2 jours                   2 heures                   3 jours
+```
+
+Plusieurs boucles peuvent se chevaucher si l'équipe est assez grande :
+
+```
+PE 1: [Boucle Feature A ----]  [Boucle Feature D ---]
+PE 2:    [Boucle Feature B ------]  [Boucle Bug E]
+QA:       [Valid. A][Valid. B ----]  [Valid. D]
+```
+
+Le PM et le TL interviennent ponctuellement dans les phases de planification et de validation, mais ne pilotent pas les boucles au quotidien.
+
+---
+
+## Erreurs fréquentes
+
+### Tout planifier à l'avance
+
+Planifier cinq boucles en détail avant d'en commencer une seule est un retour aux habitudes de planification excessive. Planifiez la boucle en cours en détail, et gardez une vision approximative des 2-3 boucles suivantes. Le reste émergera des apprentissages.
+
+### Sous-investir dans la clarté du SPECS
+
+« L'agent comprendra ce que je veux dire » est le chemin le plus court vers un résultat décevant. Chaque minute investie dans la clarification du SPECS est rentabilisée au centuple pendant la phase d'implémentation. Les critères d'acceptation doivent être **exhaustifs et non ambigus**.
+
+### Reporter la validation
+
+« Je validerai plus tard, il faut avancer » est un piège classique. La dette de validation s'accumule beaucoup plus vite que la dette technique. Un bug découvert en production coûte 10 fois plus cher à corriger qu'un bug détecté pendant la phase de validation.
+
+### Confondre vitesse et efficacité
+
+Enchaîner les boucles le plus vite possible n'est pas l'objectif. L'objectif est de **maximiser la valeur livrée par boucle**. Une boucle bien menée en 2 jours vaut mieux que trois boucles bâclées en 2 jours.
+
+---
+
+**Section précédente** : [Les Artefacts](/04-artefacts/)
+
+**Section suivante** : [Les Synchronisations](/06-synchronisations/)

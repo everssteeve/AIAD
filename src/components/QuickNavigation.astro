@@ -1,0 +1,60 @@
+---
+const questions = [
+	{ question: "C'est quoi AIAD ?", href: '/01-preambule/', icon: '📖' },
+	{ question: 'Quelle est la philosophie ?', href: '/02-vision-philosophie/', icon: '💡' },
+	{ question: 'Qui fait quoi ?', href: '/roles/', icon: '👥' },
+	{ question: 'Quels documents produire ?', href: '/artefacts/', icon: '📄' },
+	{ question: 'Comment on travaille ?', href: '/05-boucles-iteratives/', icon: '🔄' },
+	{ question: 'Quand se synchroniser ?', href: '/06-synchronisations/', icon: '🤝' },
+	{ question: 'Comment mesurer ?', href: '/metriques/', icon: '📊' },
+];
+---
+
+<div class="quick-nav">
+	<h2>Navigation rapide</h2>
+	<div class="quick-nav-grid">
+		{questions.map(({ question, href, icon }) => (
+			<a href={href} class="quick-nav-card">
+				<span class="quick-nav-icon">{icon}</span>
+				<span class="quick-nav-question">{question}</span>
+			</a>
+		))}
+	</div>
+</div>
+
+<style>
+	.quick-nav {
+		margin: 2rem 0;
+	}
+	.quick-nav h2 {
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+	}
+	.quick-nav-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+		gap: 0.75rem;
+	}
+	.quick-nav-card {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 0.75rem 1rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.5rem;
+		text-decoration: none;
+		color: var(--sl-color-text);
+		transition: border-color 0.2s, background 0.2s;
+	}
+	.quick-nav-card:hover {
+		border-color: var(--sl-color-accent);
+		background: var(--sl-color-accent-low);
+	}
+	.quick-nav-icon {
+		font-size: 1.25rem;
+	}
+	.quick-nav-question {
+		font-size: 0.9rem;
+		font-weight: 500;
+	}
+</style>

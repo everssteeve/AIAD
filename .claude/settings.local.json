@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(echo uv not found:*)",
+      "Bash(echo uvx not found:*)",
+      "Bash(echo pip not found:*)",
+      "Bash(powershell:*)",
+      "Bash(cd /c/Users/steeve.evers/OneDrive\\\\ -\\\\ CONSERTO/perso/AIAD/application && echo \"\" | PYTHONIOENCODING=utf-8 /c/Users/steeve.evers/.local/bin/uvx --from git+https://github.com/github/spec-kit.git specify init AIAD --ai claude --force --no-git 2>&1)",
+      "Bash(gh api:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebSearch",
+      "Bash(ls -la \"/c/Users/steeve.evers/OneDrive - CONSERTO/perso/AIAD/application/src/content/docs/fr/\"*.mdx)",
+      "Bash(wc:*)",
+      "Bash(cd:*)",
+      "Bash(cd \"C:\\\\Users\\\\steeve.evers\\\\OneDrive - CONSERTO\\\\perso\\\\AIAD\\\\application\" && npx astro build 2>&1)",
+      "Bash(cd \"C:\\\\Users\\\\steeve.evers\\\\OneDrive - CONSERTO\\\\perso\\\\AIAD\\\\application\" && npx astro dev 2>&1)"
+    ]
+  }
+}

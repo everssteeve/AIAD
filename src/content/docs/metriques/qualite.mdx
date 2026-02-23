@@ -1,0 +1,32 @@
+---
+title: "Métriques de Qualité"
+description: "Mesurer la robustesse du code et la fiabilité du produit"
+---
+
+import DashboardMockup from '../../../components/DashboardMockup';
+
+## Essence
+
+Mesurer la robustesse du code et la fiabilité du produit. La qualité n'est pas un luxe, c'est ce qui permet de livrer vite durablement.
+
+## Métriques clés
+
+| Métrique | Cible | Fréquence |
+|----------|-------|-----------|
+| **Couverture Tests Backend** | Plus de 80% | Hebdomadaire |
+| **Couverture Tests Frontend** | Plus de 70% | Hebdomadaire |
+| **Bugs en Production** | Tendance en baisse (-20%/trimestre) | Hebdomadaire |
+| **MTTD** (Mean Time To Detect) | Moins de 24h | Hebdomadaire |
+| **MTTR** (Mean Time To Resolve) | Moins de 4h | Hebdomadaire |
+| **Dette Technique** | Stable ou en baisse | Mensuel |
+| **First-Time Success Rate** | Plus de 70% | Hebdomadaire |
+
+## Comment interpréter les signaux
+
+| Signal | Questions à se poser |
+|--------|---------------------|
+| Couverture basse | Agent Quality mal configuré ? Tests non générés ? |
+| Bugs en hausse | DoOD pas respecté ? Revue de code insuffisante ? |
+| MTTR élevé | Monitoring insuffisant ? Logs pas exploitables ? |
+
+<DashboardMockup client:visible category="qualite" />

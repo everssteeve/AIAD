@@ -1,0 +1,155 @@
+---
+title: "Préambule"
+description: "Introduction au framework AIAD : comment les agents IA transforment le développement logiciel"
+---
+
+*Temps de lecture estimé : 8 minutes*
+
+## Pourquoi lire cette section ?
+
+Cette section pose les **fondations du framework AIAD**. Avant de plonger dans les pratiques, les rôles ou les artefacts, il est essentiel de comprendre *pourquoi* nous avons besoin d'un nouveau cadre de travail. Si vous ne lisez qu'une seule section, lisez celle-ci : elle définit le vocabulaire commun, les principes directeurs et le changement de paradigme qui sous-tendent tout le reste du framework.
+
+À la fin de cette lecture, vous saurez :
+
+- Pourquoi les méthodes agiles traditionnelles ne suffisent plus face aux agents IA
+- Quels sont les trois principes fondateurs d'AIAD
+- Comment le workflow quotidien d'un développeur se transforme concrètement
+- Quelles erreurs éviter lors de l'adoption de ce nouveau paradigme
+
+---
+
+## Le constat
+
+Les agents IA ont **fondamentalement changé** le développement logiciel. Nous ne parlons pas d'une simple accélération : il s'agit d'une transformation structurelle du métier.
+
+Pendant des décennies, la valeur d'un développeur résidait dans sa capacité à produire du code — écrire des algorithmes, maîtriser des syntaxes, résoudre des problèmes techniques complexes ligne par ligne. Cette époque est révolue.
+
+Aujourd'hui, la valeur d'un professionnel du développement réside dans deux capacités distinctes :
+
+1. **La spécification claire** — formuler avec précision ce que le logiciel doit faire, pourquoi il doit le faire, et dans quel contexte il sera utilisé.
+2. **La validation rigoureuse** — vérifier que le résultat produit par l'agent correspond à l'intention initiale, qu'il fonctionne correctement et qu'il s'intègre de manière cohérente dans le système existant.
+
+Entre ces deux moments — la spécification et la validation — un agent IA peut produire du code fonctionnel en quelques minutes. Ce n'est plus la production de code qui est le goulet d'étranglement, mais la **clarté de l'intention** et la **rigueur de la vérification**.
+
+> Le développeur ne disparaît pas. Son rôle se transforme : il passe de **producteur de code** à **orchestrateur d'intelligence artificielle**.
+
+Ce constat n'est pas théorique. Des équipes qui ont adopté cette approche rapportent des gains de productivité de 3x à 10x sur certaines tâches, non pas parce qu'elles codent plus vite, mais parce qu'elles investissent leur énergie au bon endroit.
+
+---
+
+## Les trois principes fondateurs
+
+Le framework AIAD repose sur trois principes qui guident toutes les pratiques décrites dans ce document.
+
+### 1. L'intention prime sur l'exécution
+
+Dans un monde où un agent peut générer du code en quelques minutes, la valeur se déplace vers l'amont : **clarifier le problème est plus important que coder rapidement**.
+
+Concrètement, cela signifie :
+
+- Passer plus de temps à rédiger une spécification précise qu'à écrire du code
+- Investir dans la compréhension du besoin utilisateur avant de lancer un agent
+- Considérer qu'une spécification ambiguë est un bug plus grave qu'un bug de code
+- Mesurer la qualité d'une équipe par la clarté de ses intentions, pas par le volume de code produit
+
+> **Règle d'or** : si vous ne pouvez pas expliquer clairement ce que vous voulez à un agent IA, vous ne le comprenez pas encore assez bien pour le construire.
+
+### 2. L'observation prime sur la planification
+
+Les méthodes traditionnelles investissent massivement dans la planification : estimations, roadmaps détaillées, diagrammes de Gantt. AIAD remplace cette approche par un cycle d'itération rapide :
+
+**Essayer → Observer → Adapter → Répéter**
+
+Ce cycle repose sur un constat simple : avec des agents IA, le coût d'un essai est devenu très faible. Plutôt que de passer deux heures à planifier la meilleure approche, il est souvent plus efficace de :
+
+1. **Essayer** — demander à l'agent de produire une première version
+2. **Observer** — examiner le résultat, identifier ce qui fonctionne et ce qui ne fonctionne pas
+3. **Adapter** — affiner la spécification en fonction de ce que l'on a appris
+4. **Répéter** — relancer l'agent avec la spécification améliorée
+
+Ce cycle peut être parcouru plusieurs fois en une heure, là où un cycle traditionnel de planification-exécution-revue prenait plusieurs jours.
+
+### 3. L'écosystème prime sur l'individu
+
+Un agent IA bien configuré bénéficie à **toute l'équipe**, pas seulement à celui qui l'a configuré. Investir dans la configuration de l'écosystème d'agents produit des bénéfices multiplicatifs.
+
+Cela implique :
+
+- Partager les configurations d'agents entre membres de l'équipe
+- Documenter les patterns qui fonctionnent bien avec les agents
+- Investir dans des guides d'agents (AGENT-GUIDE) qui capitalisent le savoir collectif
+- Considérer l'optimisation des agents comme une responsabilité d'équipe, pas individuelle
+
+> **L'effet multiplicateur** : 1 heure investie dans la configuration d'un agent qui sera utilisé par 5 personnes produit 5 heures de bénéfice. C'est un investissement à rendement immédiat.
+
+---
+
+## Le changement de workflow
+
+Pour rendre le changement tangible, voici une comparaison entre un workflow traditionnel et un workflow AIAD pour une même fonctionnalité (un formulaire d'inscription avec validation).
+
+### Approche traditionnelle
+
+| Étape | Durée | Activité |
+|-------|-------|----------|
+| Analyse du ticket | 30 min | Lire le ticket Jira, poser des questions au PM |
+| Conception technique | 2h | Choisir l'approche, dessiner l'architecture |
+| Développement | 1-2 jours | Écrire le code, les tests, le CSS |
+| Code review | 4h | Attendre et traiter les retours |
+| Corrections | 2-4h | Appliquer les corrections demandées |
+| **Total** | **3-4 jours** | |
+
+### Approche AIAD
+
+| Étape | Durée | Activité |
+|-------|-------|----------|
+| Spécification précise | 30 min | Rédiger le SPECS avec critères d'acceptation |
+| Génération par l'agent | 10 min | L'agent produit le code, les tests, le styling |
+| Validation et ajustements | 1h | Vérifier le résultat, affiner si nécessaire |
+| **Total** | **~2h** | |
+
+La différence n'est pas seulement une question de vitesse. C'est une **redistribution de l'effort** : moins de temps sur l'exécution mécanique, plus de temps sur la réflexion et la vérification.
+
+> **Attention** : ces durées sont indicatives. La complexité de la fonctionnalité, la maturité de l'équipe avec les agents et la qualité de l'écosystème influencent fortement les résultats.
+
+---
+
+## Les erreurs courantes
+
+L'adoption d'un workflow piloté par les agents IA s'accompagne de pièges récurrents. En voici les trois plus fréquents.
+
+### Erreur n°1 : Traiter l'IA comme un simple outil de vitesse
+
+L'IA n'est pas un développeur qui tape plus vite. C'est un **collaborateur** qui nécessite un langage différent. Si vous lui donnez les mêmes instructions vagues qu'à un humain en espérant qu'il « comprenne le contexte », vous obtiendrez des résultats médiocres.
+
+**Symptôme** : l'équipe passe plus de temps à corriger le code généré qu'à le produire elle-même.
+
+**Solution** : investir dans la qualité des spécifications et des guides d'agents.
+
+### Erreur n°2 : Sous-documenter parce que « l'IA comprend »
+
+Les agents IA ne « comprennent » pas au sens humain. Ils produisent des résultats statistiquement probables en fonction du contexte fourni. Moins le contexte est précis, plus le résultat sera générique et potentiellement inadapté.
+
+**Symptôme** : chaque génération nécessite de nombreux allers-retours de correction.
+
+**Solution** : traiter la documentation (PRD, SPECS, AGENT-GUIDE) comme un investissement, pas comme une corvée.
+
+### Erreur n°3 : Forcer les workflows IA dans des cérémonies rigides
+
+Les sprints de deux semaines, les estimations en story points, les stand-ups quotidiens de 15 minutes — ces pratiques ont été conçues pour un monde où l'exécution prenait des jours. Dans un monde où l'exécution prend des heures, ces cadences sont souvent inadaptées.
+
+**Symptôme** : l'équipe a l'impression de « jouer au Scrum » sans en tirer de bénéfice.
+
+**Solution** : adopter des boucles itératives fluides (voir [Boucles Itératives](/05-boucles-iteratives/)) adaptées au rythme réel de production.
+
+---
+
+## En résumé
+
+Le framework AIAD ne rejette pas l'agilité — il la **radicalise**. En plaçant l'intention au centre, en privilégiant l'observation sur la planification, et en investissant dans l'écosystème collectif, AIAD propose un cadre adapté à l'ère des agents IA.
+
+Les sections suivantes détaillent chaque aspect de ce framework : la vision, les rôles, les artefacts, les boucles de travail, les synchronisations et les métriques.
+
+---
+
+**Section suivante** : [Vision & Philosophie](/02-vision-philosophie/)

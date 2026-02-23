@@ -1,0 +1,48 @@
+---
+title: "Product Engineer"
+description: "Responsable de l'Orchestration — Transformer des intentions en réalité technique"
+---
+
+import RoleInteractions from '../../../components/RoleInteractions';
+import TeamConfigurator from '../../../components/TeamConfigurator';
+
+> **Essence** : Transformer des intentions en réalité technique en orchestrant des agents IA.
+
+## Pourquoi cette responsabilité existe
+
+Les agents savent générer du code, mais ils ne savent pas quoi construire ni si le résultat est correct. Le PE est le chef d'orchestre qui donne la direction, le tempo et valide la partition.
+
+## Ce que fait le PE
+
+| Action | Fréquence |
+|--------|-----------|
+| Rédiger des SPECs claires et complètes | Par fonctionnalité |
+| Orchestrer les agents pour produire du code | Continu |
+| Valider la qualité du code généré | À chaque génération |
+| Maintenir le contexte projet pour les agents | Continu |
+| Prototyper rapidement des solutions | Hebdomadaire |
+| Gérer la dette technique locale | Continu |
+
+## Compétences non-négociables
+
+1. **Orchestration d'Agents** : Savoir formuler des SPECs que les agents comprennent et exécutent correctement
+2. **Architecture** : Comprendre les patterns, les contraintes et les implications de chaque décision technique
+3. **Quality Thinking** : Intégrer la qualité dès la rédaction des SPECs, pas après la génération
+4. **Product Thinking** : Comprendre le "pourquoi" derrière chaque fonctionnalité pour mieux guider les agents
+
+## Indicateurs de performance
+
+| Indicateur | Cible |
+|------------|-------|
+| First-time success rate (code généré valide du premier coup) | Plus de 70% |
+| Ratio code généré / code manuel | Plus de 80/20 |
+| Couverture tests backend | Plus de 80% |
+| Couverture tests frontend | Plus de 70% |
+
+## Anti-pattern
+
+**Le PE "réécrivain"** qui réécrit systématiquement le code des agents au lieu d'améliorer ses SPECs. Si l'agent produit du mauvais code, le problème vient probablement de l'instruction, pas de l'agent.
+
+<RoleInteractions client:visible role="pe" />
+
+<TeamConfigurator client:visible />
