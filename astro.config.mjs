@@ -16,6 +16,7 @@ export default defineConfig({
 			},
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/everssteeve/AIAD' },
+				{ icon: 'discord', label: 'Discord', href: 'https://discord.gg/Yx8A2G2Dy3' },
 			],
 			sidebar: [
 				{
