@@ -20,6 +20,12 @@ export default defineConfig({
 			],
 			sidebar: [
 				{
+					label: 'Diagnostic',
+					items: [
+						{ label: 'Audit de Maturité IA', slug: 'diagnostic' },
+					],
+				},
+				{
 					label: 'Framework',
 					items: [
 						{ label: '01. Préambule', slug: '01-preambule' },
