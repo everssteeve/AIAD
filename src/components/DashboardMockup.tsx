@@ -72,7 +72,7 @@ function MetricRow({ metric }: { metric: MetricBar }) {
 
   return (
     <div style={{ marginBottom: '1rem' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem', fontSize: '0.85rem' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem', fontSize: '0.9375rem' }}>
         <span style={{ fontWeight: 600 }}>{metric.label}</span>
         <span>
           <span style={{ fontWeight: 700, color: isGood ? '#22c55e' : '#f59e0b' }}>{metric.value}</span>
@@ -93,7 +93,7 @@ export default function DashboardMockup({ category }: DashboardProps) {
   return (
     <div style={{ margin: '1.5rem 0', padding: '1.25rem', border: '1px solid var(--sl-color-gray-5)', borderRadius: '0.75rem' }}>
       <h3 style={{ marginTop: 0, marginBottom: '1rem' }}>{data.title}</h3>
-      <p style={{ fontSize: '0.8rem', color: 'var(--sl-color-gray-3)', marginBottom: '1rem', fontStyle: 'italic' }}>
+      <p style={{ fontSize: '0.875rem', color: 'var(--sl-color-gray-3)', marginBottom: '1rem', fontStyle: 'italic' }}>
         Exemple de visualisation avec données fictives
       </p>
       {data.metrics.map((m) => (

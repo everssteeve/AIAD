@@ -17,20 +17,16 @@ const roles: Role[] = [
 
 export default function RoleCard() {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '1rem', margin: '1.5rem 0' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 240px), 1fr))', gap: '1rem', margin: '1.5rem 0' }}>
       {roles.map((role) => (
-        <a key={role.name} href={role.href} style={{
+        <a key={role.name} href={role.href} className="rd-role-card" style={{
           display: 'block', padding: '1.25rem', border: '1px solid var(--sl-color-gray-5)',
           borderRadius: '0.75rem', textDecoration: 'none', color: 'var(--sl-color-text)',
-          transition: 'border-color 0.2s, transform 0.2s',
-        }}
-        onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--sl-color-accent)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-        onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--sl-color-gray-5)'; e.currentTarget.style.transform = 'none'; }}
-        >
+        }}>
           <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>{role.emoji}</div>
           <div style={{ fontWeight: 700, marginBottom: '0.25rem' }}>{role.name}</div>
-          <div style={{ fontSize: '0.85rem', color: 'var(--sl-color-gray-2)', marginBottom: '0.5rem' }}>{role.question}</div>
-          <div style={{ fontSize: '0.8rem', padding: '0.2rem 0.6rem', background: 'var(--sl-color-accent-low)', borderRadius: '1rem', display: 'inline-block' }}>{role.focus}</div>
+          <div style={{ fontSize: '0.9375rem', color: 'var(--sl-color-gray-2)', marginBottom: '0.5rem' }}>{role.question}</div>
+          <div style={{ fontSize: '0.875rem', padding: '0.25rem 0.625rem', background: 'var(--sl-color-accent-low)', borderRadius: '1rem', display: 'inline-block' }}>{role.focus}</div>
         </a>
       ))}
     </div>

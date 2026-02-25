@@ -32,10 +32,10 @@ export default function RoleInteractions({ role }: Props) {
   return (
     <div style={{ margin: '1.5rem 0', padding: '1.25rem', border: '1px solid var(--sl-color-gray-5)', borderRadius: '0.75rem' }}>
       <h3 style={{ marginTop: 0 }}>Interactions avec les autres rôles</h3>
-      <p style={{ fontSize: '0.9rem', lineHeight: 1.6 }}>{data.description}</p>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '0.75rem' }}>
+      <p style={{ fontSize: '1rem', lineHeight: 1.6 }}>{data.description}</p>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.625rem', marginTop: '0.75rem' }}>
         {data.collaborates.map((c) => (
-          <span key={c} style={{ padding: '0.3rem 0.8rem', background: 'var(--sl-color-accent-low)', borderRadius: '1rem', fontSize: '0.85rem', fontWeight: 600 }}>{c}</span>
+          <span key={c} style={{ padding: '0.5rem 1rem', background: 'var(--sl-color-accent-low)', borderRadius: '1rem', fontSize: '0.9375rem', fontWeight: 600 }}>{c}</span>
         ))}
       </div>
     </div>
