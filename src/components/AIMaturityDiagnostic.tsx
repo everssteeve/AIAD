@@ -358,7 +358,7 @@ function QuestionCard({
     <div style={{ width: "100%", animation: "aiad-fadeSlideUp 0.4s ease forwards" }}>
       <p
         style={{
-          fontSize: "0.75rem",
+          fontSize: "0.8125rem",
           fontWeight: 500,
           letterSpacing: "0.1em",
           textTransform: "uppercase",
@@ -412,7 +412,7 @@ function QuestionCard({
                   width: "1.5rem",
                   height: "1.5rem",
                   borderRadius: "9999px",
-                  fontSize: "0.75rem",
+                  fontSize: "0.8125rem",
                   fontWeight: 700,
                   marginRight: "0.75rem",
                   flexShrink: 0,
@@ -432,7 +432,22 @@ function QuestionCard({
   );
 }
 
+function useIsMobile(breakpoint = 480) {
+  const [isMobile, setIsMobile] = useState(false);
+  if (typeof window !== "undefined") {
+    const mql = window.matchMedia(`(max-width: ${breakpoint}px)`);
+    if (mql.matches !== isMobile) {
+      setIsMobile(mql.matches);
+    }
+    if (typeof mql.addEventListener === "function") {
+      mql.addEventListener("change", (e) => setIsMobile(e.matches));
+    }
+  }
+  return isMobile;
+}
+
 function RadarChartComponent({ dimensionScores }: { dimensionScores: number[] }) {
+  const isMobile = useIsMobile();
   const data = DIMENSIONS.map((d, i) => ({
     subject: d.short,
     score: dimensionScores[i],
@@ -440,9 +455,9 @@ function RadarChartComponent({ dimensionScores }: { dimensionScores: number[] })
   }));
 
   return (
-    <div style={{ width: "100%", height: 320 }}>
+    <div style={{ width: "100%", height: isMobile ? 240 : 320 }}>
       <ResponsiveContainer width="100%" height="100%">
-        <RadarChart data={data} cx="50%" cy="50%" outerRadius="72%">
+        <RadarChart data={data} cx="50%" cy="50%" outerRadius={isMobile ? "65%" : "72%"}>
           <PolarGrid stroke="#CBD5E1" strokeWidth={0.5} />
           <PolarAngleAxis
             dataKey="subject"
@@ -492,7 +507,7 @@ function DimensionDetail({ dimension, score, index }: { dimension: (typeof DIMEN
         </h4>
         <span
           style={{
-            fontSize: "0.75rem",
+            fontSize: "0.8125rem",
             fontWeight: 700,
             padding: "0.25rem 0.625rem",
             borderRadius: "9999px",
@@ -504,10 +519,10 @@ function DimensionDetail({ dimension, score, index }: { dimension: (typeof DIMEN
         </span>
       </div>
       <ProgressBar value={score} max={4} color={levelData.color} height={5} />
-      <p style={{ fontSize: "0.75rem", marginTop: "0.625rem", fontWeight: 500, color: levelData.color, marginBottom: 0 }}>
+      <p style={{ fontSize: "0.8125rem", marginTop: "0.625rem", fontWeight: 500, color: levelData.color, marginBottom: 0 }}>
         Niveau {level} — {levelData.name}
       </p>
-      <p style={{ fontSize: "0.75rem", marginTop: "0.375rem", lineHeight: "1.625", color: "#64748B", marginBottom: 0 }}>
+      <p style={{ fontSize: "0.8125rem", marginTop: "0.375rem", lineHeight: "1.625", color: "#64748B", marginBottom: 0 }}>
         {rec}
       </p>
     </div>
@@ -604,7 +619,7 @@ export default function AIMaturityDiagnostic() {
         />
 
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem 1rem" }}>
-          <div style={{ width: "100%", maxWidth: "32rem", animation: "aiad-fadeSlideUp 0.6s ease forwards" }}>
+          <div style={{ width: "100%", maxWidth: "min(100%, 32rem)", animation: "aiad-fadeSlideUp 0.6s ease forwards" }}>
             {/* Badge */}
             <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.25rem" }}>
               <span
@@ -614,7 +629,7 @@ export default function AIMaturityDiagnostic() {
                   gap: "0.375rem",
                   padding: "0.25rem 0.75rem",
                   borderRadius: "9999px",
-                  fontSize: "0.75rem",
+                  fontSize: "0.8125rem",
                   fontWeight: 600,
                   letterSpacing: "0.025em",
                   background: "#1B2A4A",
@@ -628,7 +643,7 @@ export default function AIMaturityDiagnostic() {
             <h1
               style={{
                 textAlign: "center",
-                fontSize: "2.25rem",
+                fontSize: "clamp(1.5rem, 5vw, 2.25rem)",
                 fontWeight: 700,
                 lineHeight: "1.25",
                 marginBottom: "0.75rem",
@@ -653,7 +668,7 @@ export default function AIMaturityDiagnostic() {
               <label
                 style={{
                   display: "block",
-                  fontSize: "0.75rem",
+                  fontSize: "0.8125rem",
                   fontWeight: 600,
                   marginBottom: "0.375rem",
                   letterSpacing: "0.025em",
@@ -673,7 +688,7 @@ export default function AIMaturityDiagnostic() {
                   width: "100%",
                   borderRadius: "0.75rem",
                   padding: "0.75rem 1rem",
-                  fontSize: "0.875rem",
+                  fontSize: "1rem",
                   border: "2px solid #E2E8F0",
                   outline: "none",
                   background: "#FFFFFF",
@@ -705,7 +720,7 @@ export default function AIMaturityDiagnostic() {
               Demarrer le diagnostic →
             </button>
 
-            <p style={{ textAlign: "center", fontSize: "0.75rem", marginTop: "1rem", lineHeight: "1.625", color: "#94A3B8" }}>
+            <p style={{ textAlign: "center", fontSize: "0.8125rem", marginTop: "1rem", lineHeight: "1.625", color: "#94A3B8" }}>
               Base sur 30+ sources : McKinsey, Gartner, Thoughtworks, MIT Technology Review, Stack Overflow…
             </p>
           </div>
@@ -749,24 +764,25 @@ export default function AIMaturityDiagnostic() {
           <button
             onClick={() => setPage("home")}
             style={{
-              fontSize: "0.75rem",
+              fontSize: "0.875rem",
               fontWeight: 500,
-              padding: "0.375rem 0.75rem",
+              padding: "0.5rem 0.875rem",
               borderRadius: "0.5rem",
               color: "#64748B",
               background: "#F1F5F9",
               border: "none",
+              minHeight: "2.75rem",
             }}
           >
             ← Accueil
           </button>
-          <span style={{ fontSize: "0.75rem", fontWeight: 600, color: "#3B82F6" }}>
+          <span style={{ fontSize: "0.8125rem", fontWeight: 600, color: "#3B82F6" }}>
             {progress} / {totalQuestions}
           </span>
         </div>
 
         <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", padding: "1.5rem 1rem" }}>
-          <div style={{ width: "100%", maxWidth: "32rem" }} key={currentQ}>
+          <div style={{ width: "100%", maxWidth: "min(100%, 32rem)" }} key={currentQ}>
             <QuestionCard
               question={question}
               selected={answers[currentQ]}
@@ -787,11 +803,12 @@ export default function AIMaturityDiagnostic() {
                 onClick={goPrev}
                 disabled={currentQ === 0}
                 style={{
-                  padding: "0.625rem 1.25rem",
+                  padding: "0.75rem 1.5rem",
                   borderRadius: "0.75rem",
                   fontSize: "0.875rem",
                   fontWeight: 600,
                   border: "none",
+                  minHeight: "2.75rem",
                   color: currentQ === 0 ? "#CBD5E1" : "#475569",
                   background: currentQ === 0 ? "#F8FAFC" : "#F1F5F9",
                   cursor: currentQ === 0 ? "default" : "pointer",
@@ -805,8 +822,9 @@ export default function AIMaturityDiagnostic() {
                   onClick={goNext}
                   disabled={!answers[currentQ]}
                   style={{
-                    padding: "0.625rem 1.25rem",
+                    padding: "0.75rem 1.5rem",
                     borderRadius: "0.75rem",
+                    minHeight: "2.75rem",
                     fontSize: "0.875rem",
                     fontWeight: 600,
                     color: "#FFFFFF",
@@ -824,7 +842,8 @@ export default function AIMaturityDiagnostic() {
                   onClick={handleFinish}
                   disabled={!canFinish}
                   style={{
-                    padding: "0.625rem 1.5rem",
+                    padding: "0.75rem 1.5rem",
+                    minHeight: "2.75rem",
                     borderRadius: "0.75rem",
                     fontSize: "0.875rem",
                     fontWeight: 700,
@@ -857,8 +876,8 @@ export default function AIMaturityDiagnostic() {
                   <span
                     key={i}
                     style={{
-                      fontSize: "0.75rem",
-                      padding: "0.25rem 0.625rem",
+                      fontSize: "0.875rem",
+                      padding: "0.375rem 0.75rem",
                       borderRadius: "9999px",
                       fontWeight: 500,
                       background: allAnswered ? "#DCFCE7" : isCurrent ? "#DBEAFE" : "#F1F5F9",
@@ -898,9 +917,10 @@ export default function AIMaturityDiagnostic() {
           }}
         />
 
-        <div style={{ maxWidth: "42rem", margin: "0 auto", padding: "2rem 1rem" }}>
+        <div style={{ maxWidth: "min(100%, 42rem)", margin: "0 auto", padding: "2rem 1rem" }}>
           {/* Hero result */}
           <div
+            className="rd-diagnostic-hero"
             style={{
               borderRadius: "1rem",
               padding: "2rem",
@@ -982,7 +1002,7 @@ export default function AIMaturityDiagnostic() {
                   <span
                     key={i}
                     style={{
-                      fontSize: "0.75rem",
+                      fontSize: "0.8125rem",
                       color: i + 1 === globalLevel ? levelData.color : "#64748B",
                       fontWeight: i + 1 === globalLevel ? 700 : 400,
                     }}
@@ -1013,7 +1033,7 @@ export default function AIMaturityDiagnostic() {
             <h3 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.25rem", textAlign: "center", color: "#1B2A4A", marginTop: 0 }}>
               Profil par dimension
             </h3>
-            <p style={{ fontSize: "0.75rem", textAlign: "center", marginBottom: "0.75rem", color: "#94A3B8" }}>
+            <p style={{ fontSize: "0.8125rem", textAlign: "center", marginBottom: "0.75rem", color: "#94A3B8" }}>
               Visualisez vos forces et axes d'amelioration
             </p>
             <RadarChartComponent dimensionScores={dimScores} />
@@ -1046,7 +1066,7 @@ export default function AIMaturityDiagnostic() {
             <h3 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.25rem", color: "#1B2A4A", marginTop: 0 }}>
               {globalLevel < 4 ? `Pour passer au Niveau ${globalLevel + 1}` : "Recommandations"}
             </h3>
-            <p style={{ fontSize: "0.75rem", marginBottom: "1rem", color: "#94A3B8" }}>
+            <p style={{ fontSize: "0.8125rem", marginBottom: "1rem", color: "#94A3B8" }}>
               {globalLevel < 4
                 ? `Actions concretes pour progresser vers ${LEVELS[globalLevel].name}`
                 : "Vous etes au sommet — continuez a exceller"}
@@ -1073,7 +1093,7 @@ export default function AIMaturityDiagnostic() {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      fontSize: "0.75rem",
+                      fontSize: "0.8125rem",
                       fontWeight: 700,
                       marginTop: "0.125rem",
                       background: globalLevel === 4 ? "#DCFCE7" : "#DBEAFE",
@@ -1151,7 +1171,7 @@ export default function AIMaturityDiagnostic() {
           </div>
 
           {/* Footer */}
-          <p style={{ textAlign: "center", fontSize: "0.75rem", paddingBottom: "1.5rem", color: "#CBD5E1" }}>
+          <p style={{ textAlign: "center", fontSize: "0.8125rem", paddingBottom: "1.5rem", color: "#CBD5E1" }}>
             Diagnostic propulse par le Framework AIAD — AI-Agent Iterative Development
           </p>
         </div>
