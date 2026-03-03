@@ -26,6 +26,22 @@ export default defineConfig({
 					],
 				},
 				{
+					label: 'Constitution',
+					items: [
+						{ label: 'Préambule', slug: 'constitution/preambule' },
+						{ label: 'Art. I — Raison d\'être', slug: 'constitution/article-i-raison-detre' },
+						{ label: 'Art. II — Valeurs Fondatrices', slug: 'constitution/article-ii-valeurs-fondatrices' },
+						{ label: 'Art. III — Ruptures Technologiques', slug: 'constitution/article-iii-ruptures-technologiques' },
+						{ label: 'Art. IV — Numérique Durable', slug: 'constitution/article-iv-numerique-durable' },
+						{ label: 'Art. V — Les Composantes', slug: 'constitution/article-v-composantes' },
+						{ label: 'Art. VI — Gouvernance', slug: 'constitution/article-vi-gouvernance' },
+						{ label: 'Art. VII — ALIS', slug: 'constitution/article-vii-alis' },
+						{ label: 'Art. VIII — Droits & Responsabilités', slug: 'constitution/article-viii-droits-responsabilites' },
+						{ label: 'Art. IX — Évolution', slug: 'constitution/article-ix-evolution' },
+						{ label: 'Signature', slug: 'constitution/signature' },
+					],
+				},
+				{
 					label: 'Framework',
 					items: [
 						{ label: '01. Préambule', slug: '01-preambule' },
