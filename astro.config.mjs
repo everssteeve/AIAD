@@ -10,6 +10,10 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'AIAD Framework',
+			components: {
+				Head: './src/components/Head.astro',
+				Footer: './src/components/Footer.astro',
+			},
 			defaultLocale: 'root',
 			locales: {
 				root: { label: 'Français', lang: 'fr' },
