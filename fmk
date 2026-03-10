@@ -1,0 +1,3934 @@
+# Framework AIAD - Compilation Complète
+
+> Ce document est une compilation fidèle et mot à mot de l'ensemble des fichiers contenus dans le répertoire `framework/`.
+> Version 1.4 - Février 2026
+
+---
+
+# FICHIER : intention.md
+
+# Intention du Framework AIAD
+
+*Document de cadrage pour la rédaction et l'évolution du Framework AIAD*
+
+---
+
+## 1. Vision
+
+### 1.1 Objectif du Framework
+
+Fournir une **méthodologie de référence** pour le développement produit à l'ère des agents IA, permettant aux équipes de :
+
+- Maximiser la valeur livrée aux utilisateurs
+- Exploiter pleinement le potentiel des agents IA
+- Maintenir une qualité professionnelle sans sacrifier la vélocité
+- Adopter une approche empirique et adaptative
+
+### 1.2 Audience Cible
+
+| Audience | Besoins Principaux |
+|----------|-------------------|
+| **Product Managers** | Cadre pour définir et mesurer la valeur, orchestrer la discovery |
+| **Product Engineers** | Méthodologie d'orchestration des agents IA, standards de qualité |
+| **Tech Leads** | Guidelines architecturales, gestion de la cohérence technique |
+| **Agents Engineers** | Stratégies de configuration et d'optimisation de l'écosystème IA |
+| **QA Engineers** | Stratégies de test adaptées au contexte IA |
+| **Organisations** | Framework d'adoption et de transformation |
+
+### 1.3 Positionnement
+
+AIAD se positionne comme une **alternative moderne aux frameworks agiles traditionnels** (Scrum, Kanban) en intégrant nativement :
+
+- L'orchestration d'agents IA comme pratique centrale
+- L'empirisme radical plutôt que la planification rigide
+- La fluidité plutôt que les cérémonies prescrites
+- L'excellence produit plutôt que la conformité processus
+
+---
+
+## 2. Problèmes Adressés
+
+### 2.1 Limites des Frameworks Actuels
+
+| Problème | Impact |
+|----------|--------|
+| Rigidité des Sprints | Inadapté à la vélocité des agents IA |
+| Cérémonies excessives | Temps perdu, frustration équipe |
+| Focus sur l'output | Perte de vue de la valeur réelle (outcomes) |
+| Rôles figés | Manque d'adaptabilité contextuelle |
+| Absence de guidance IA | Exploitation sous-optimale des agents |
+
+### 2.2 Opportunités Manquées
+
+- Potentiel des agents IA sous-exploité (80%+ du code pourrait être généré)
+- Feedback utilisateur trop tardif dans le cycle
+- Dette de contexte (agents mal configurés, documentation obsolète)
+- Silos entre discovery et delivery
+- Spec drift non traité : les SPECs évoluent mais ne reflètent plus le code réel
+- Saturation du contexte agent : AGENT-GUIDE trop lourds dégradent la performance silencieusement
+
+---
+
+## 3. Principes Directeurs de Rédaction
+
+### 3.1 Ton et Style
+
+- **Pragmatique** : Des recommandations actionnables, pas de la théorie abstraite
+- **Direct** : Aller à l'essentiel, éviter la verbosité
+- **Opinionated** : Prendre position, pas de "ça dépend" systématique
+- **Inclusif** : Accessible aux débutants, utile aux experts
+
+### 3.2 Structure
+
+Chaque section du framework doit :
+
+1. **Commencer par le "Pourquoi"** : Justifier l'existence de la section
+2. **Définir le "Quoi"** : Concepts clairs et définis
+3. **Guider le "Comment"** : Étapes actionnables
+4. **Illustrer avec des exemples** : Cas concrets, templates
+5. **Prévenir les erreurs** : Anti-patterns explicites
+
+### 3.3 Niveau de Détail
+
+| Section | Niveau | Justification |
+|---------|--------|---------------|
+| Principes et Vision | Conceptuel | Inspiration et alignement |
+| Responsabilités | Pratique | Clarté sur les attentes |
+| Artefacts | Détaillé | Templates utilisables |
+| Boucles Itératives | Procédural | Étapes à suivre |
+| Métriques | Quantifié | Cibles mesurables |
+| Annexes | Exhaustif | Référence complète |
+
+---
+
+## 4. Critères de Succès du Framework
+
+### 4.1 Adoptabilité
+
+- **Compréhension rapide** : Framework compris en 30 minutes de lecture
+- **Démarrage facilité** : Équipe opérationnelle en 1 semaine
+- **Maîtrise progressive** : Expertise acquise en 3 mois
+
+### 4.2 Efficacité
+
+- **Amélioration mesurable** : gain de productivité en 3 mois
+- **Qualité maintenue** : Bugs en production en baisse
+- **Satisfaction équipe** : en hausse après adoption
+
+### 4.3 Durabilité
+
+- **Évolutif** : Framework adaptable aux évolutions des agents IA
+- **Modulaire** : Adoption partielle possible
+- **Auto-améliorant** : Mécanismes de feedback intégrés
+
+---
+
+## 5. Périmètre
+
+### 5.1 In Scope
+
+- Philosophie et principes fondateurs
+- Définition des responsabilités (pas des rôles rigides)
+- Artefacts essentiels avec templates
+- Boucles itératives continues
+- Synchronisations intentionnelles
+- Métriques et amélioration continue
+- Écosystème d'agents IA
+- Guides d'implémentation (annexes)
+
+### 5.2 Out of Scope
+
+- Formation technique aux outils spécifiques
+- Gestion RH et recrutement
+- Aspects contractuels et légaux
+- Détails de configuration de chaque agent IA (trop volatile)
+- Comparaison détaillée avec autres frameworks
+
+---
+
+## 6. Versions et Évolution
+
+### 6.1 Historique
+
+| Version | Focus Principal |
+|---------|----------------|
+| v1.0 | Fondations du framework |
+| v1.1 | Intégration des agents IA |
+| v1.2 | Rupture avec Scrum, empirisme radical |
+| v1.3 | Simplification, pragmatisme maximal |
+| v1.4 | Intégration Spec Driven Development, anti-drift, Context Budget |
+
+### 6.2 Principes d'Évolution
+
+1. **Rétrocompatibilité conceptuelle** : Les principes fondateurs restent stables
+2. **Pragmatisme** : Changements basés sur le feedback terrain
+3. **Minimalisme** : Ajouter uniquement si nécessaire, retirer si obsolète
+4. **Transparence** : Changelog clair entre versions
+
+### 6.3 Roadmap Indicative
+
+- **v1.4** : Intégration SDD Mode — anti-drift, Lessons Learned, Spec Quality Score *(version actuelle)*
+- **v1.5** : Enrichissement des annexes, cas d'usage sectoriels (legacy, TMA)
+- **v2.0** : Évolution majeure basée sur 12+ mois de feedback
+
+---
+
+## 7. Contraintes et Risques
+
+### 7.1 Contraintes
+
+| Contrainte | Impact sur la Rédaction |
+|------------|------------------------|
+| Évolution rapide des LLMs | Garder les recommandations génériques |
+| Diversité des contextes | Proposer des variantes selon taille d'équipe |
+| Langue française | Terminologie cohérente, anglicismes maîtrisés |
+| Format web | Sections autonomes, navigation facile |
+
+### 7.2 Risques de Rédaction
+
+| Risque | Mitigation |
+|--------|------------|
+| Trop théorique | Exemples concrets systématiques |
+| Trop prescriptif | Principes > règles rigides |
+| Obsolescence rapide | Abstraction des outils spécifiques |
+| Incohérence interne | Relecture croisée, glossaire |
+
+---
+
+## 8. Glossaire Essentiel
+
+| Terme | Définition |
+|-------|------------|
+| **Outcome** | Résultat mesurable de valeur pour les stakeholders |
+| **Output** | Livrable produit (code, fonctionnalité) |
+| **Product Engineer** | Développeur orchestrant des agents IA |
+| **Agents Engineer** | Responsable de l'écosystème d'agents IA |
+| **AGENT-GUIDE** | Document de contexte pour les agents IA |
+| **SPEC** | Spécification technique détaillée |
+| **DoOD** | Definition of Output Done |
+| **DoOuD** | Definition of Outcome Done |
+| **Boucle itérative** | Cycle PLANIFIER → IMPLÉMENTER → VALIDER → INTÉGRER |
+| **Synchronisation** | Réunion intentionnelle (remplace "cérémonie") |
+| **Spec Drift** | Écart entre l'état d'une SPEC et l'état réel du code |
+| **Context Budget** | Capacité effective d'un agent IA à absorber du contexte sans dégrader sa qualité |
+| **Lessons Learned** | Section de l'AGENT-GUIDE documentant les erreurs récurrentes de l'agent |
+| **Spec Quality Score** | Checklist de validation d'une SPEC avant exécution par l'agent |
+| **Steering Files** | Terme générique (Kiro, Cursor) désignant les fichiers de contexte permanents — équivalent à l'AGENT-GUIDE dans AIAD |
+
+---
+
+## 9. Checklist de Validation
+
+Avant publication d'une section, vérifier :
+
+- [ ] **Cohérence** : Alignement avec les principes AIAD
+- [ ] **Clarté** : Compréhensible sans contexte supplémentaire
+- [ ] **Actionnabilité** : Le lecteur sait quoi faire concrètement
+- [ ] **Exemples** : Au moins un exemple concret par concept
+- [ ] **Anti-patterns** : Erreurs courantes documentées
+- [ ] **Liens** : Références croisées vers sections liées
+- [ ] **Format** : Respect des conventions de style
+
+---
+
+## 10. Ressources de Référence
+
+### 10.1 Inspirations
+
+- Manifeste Agile (valeurs, pas prescriptions)
+- Shape Up (Basecamp) : Cycles et appétit
+- Continuous Discovery Habits (Teresa Torres)
+- Team Topologies (flux de valeur)
+
+### 10.2 Standards Techniques
+
+- Conventional Commits
+- Semantic Versioning
+- Architecture Decision Records (ADR)
+
+---
+
+*Document vivant - Dernière mise à jour : Février 2026 — v1.4*
+
+
+---
+
+# FICHIER : referentiel.md
+
+# Référentiel du Framework AIAD
+
+Ce fichier référence l'ensemble des documents du framework AIAD (partie théorique).
+
+---
+
+## Guide de Rédaction
+
+- [intention.md](intention.md) - Guide de rédaction et intention du framework
+
+---
+
+## Documents du Framework
+
+| Fichier | Description | Contenu Principal |
+|---------|-------------|-------------------|
+| [01-preambule.md](01-preambule.md) | Préambule | Introduction au framework, contexte, objectifs |
+| [02-vision-philosophie.md](02-vision-philosophie.md) | Vision et Philosophie | Principes fondateurs, valeurs, approche AIAD |
+| [03-ecosysteme.md](03-ecosysteme.md) | Écosystème | Rôles (PM, PE, TL, QA), interactions, responsabilités |
+| [04-artefacts.md](04-artefacts.md) | Artefacts | PRD, SPECS, ARCHITECTURE, AGENT-GUIDE, DoOD/DoOuD |
+| [05-boucles-iteratives.md](05-boucles-iteratives.md) | Boucles Itératives | PLANIFIER, IMPLÉMENTER, VALIDER, INTÉGRER |
+| [06-synchronisations.md](06-synchronisations.md) | Synchronisations | Rituels d'équipe, alignement, communication |
+| [07-metriques.md](07-metriques.md) | Métriques | KPIs, mesure de performance, dashboards |
+| [08-annexes.md](08-annexes.md) | Annexes | Index vers les annexes détaillées |
+
+---
+
+## Ordre de Lecture Recommandé
+
+### Découverte (30 min)
+1. [01-preambule.md](01-preambule.md) - Comprendre le contexte
+2. [02-vision-philosophie.md](02-vision-philosophie.md) - Saisir la philosophie
+
+### Compréhension (1h)
+3. [03-ecosysteme.md](03-ecosysteme.md) - Connaître les rôles
+4. [04-artefacts.md](04-artefacts.md) - Maîtriser les livrables
+5. [05-boucles-iteratives.md](05-boucles-iteratives.md) - Comprendre le cycle
+
+### Mise en Pratique
+6. [06-synchronisations.md](06-synchronisations.md) - Organiser l'équipe
+7. [07-metriques.md](07-metriques.md) - Mesurer la performance
+8. [08-annexes.md](08-annexes.md) - Approfondir avec les annexes
+
+---
+
+## Navigation Rapide par Question
+
+| Question | Document |
+|----------|----------|
+| C'est quoi AIAD ? | [01-preambule.md](01-preambule.md) |
+| Quelle est la philosophie ? | [02-vision-philosophie.md](02-vision-philosophie.md) |
+| Qui fait quoi ? | [03-ecosysteme.md](03-ecosysteme.md) |
+| Quels documents produire ? | [04-artefacts.md](04-artefacts.md) |
+| Comment on travaille ? | [05-boucles-iteratives.md](05-boucles-iteratives.md) |
+| Quand se synchroniser ? | [06-synchronisations.md](06-synchronisations.md) |
+| Comment mesurer ? | [07-metriques.md](07-metriques.md) |
+| Où trouver plus de détails ? | [08-annexes.md](08-annexes.md) |
+
+---
+
+## Liens avec les Autres Sections
+
+| Section | Relation |
+|---------|----------|
+| [Mode Opératoire](../mode%20opératoire/referentiel.md) | Application pratique du framework |
+| [Annexes](../annexes/referentiel.md) | Détails, templates, guides |
+| [Communication](../communication/referentiel.md) | Messages par audience |
+
+---
+
+## Statistiques
+
+- **Total fichiers** : 9
+- **Dernière mise à jour** : Janvier 2025
+
+
+---
+
+# FICHIER : 01-preambule.md
+
+# Préambule
+
+## Pourquoi lire ce préambule ?
+
+Les agents IA ont rendu obsolète la façon dont nous développions des logiciels. Ce préambule explique ce qui a changé et pourquoi les méthodes traditionnelles ne fonctionnent plus.
+
+**Temps de lecture : 5 minutes**
+
+---
+
+## Le constat
+
+### Ce qui a changé
+
+Les agents IA savent désormais :
+- Transformer une intention claire en code fonctionnel
+- Générer des tests en parallèle du code
+- Refactorer et optimiser automatiquement
+
+**Conséquence directe** : la valeur d'un développeur ne réside plus dans sa capacité à écrire du code, mais dans sa capacité à **exprimer une intention précise** et **valider un résultat**.
+
+### Exemple concret
+
+**Avant (approche traditionnelle)**
+1. Développeur écrit 500 lignes → 2 jours
+2. Code review, corrections → 1 jour
+3. Tests écrits après coup → 0.5 jour
+4. **Total : 3-4 jours, qualité variable**
+
+**Avec AIAD**
+1. Product Engineer rédige une SPEC précise → 30 min
+2. Agent génère code + tests → 10 min
+3. Validation humaine et ajustements → 1h
+4. **Total : 2h, qualité standardisée**
+
+La différence ? **30 minutes de réflexion en amont** remplacent **3 jours de production**.
+
+---
+
+## Trois principes fondateurs
+
+### 1. L'intention prime sur l'exécution
+
+| Haute valeur | Faible valeur |
+|--------------|---------------|
+| Clarifier le problème à résoudre | Écrire du code |
+| Rédiger des spécifications précises | Maîtriser une syntaxe |
+| Valider que le résultat répond au besoin | Produire vite |
+
+**En pratique** : une SPEC de qualité évite des jours de corrections. Un agent sans contexte produit du code générique inutilisable.
+
+### 2. Observer plutôt que planifier
+
+Les plans détaillés deviennent obsolètes avant leur exécution. La seule approche viable :
+
+```
+Essayer → Observer → Adapter → Répéter
+```
+
+**Exemple** :
+- ❌ Planifier 3 mois avec des estimations détaillées
+- ✅ Définir une direction, livrer en 3 jours, mesurer, ajuster
+
+### 3. L'écosystème dépasse l'individu
+
+Un Product Engineer avec un écosystème d'agents bien configuré surpasse un développeur expert travaillant seul.
+
+| Investissement | Retour |
+|----------------|--------|
+| Former un expert | Amélioration linéaire (1 personne) |
+| Optimiser l'écosystème d'agents | Amélioration multiplicative (toute l'équipe) |
+
+**En pratique** : configurer l'AGENT-GUIDE est l'investissement au meilleur rendement.
+
+---
+
+## Erreurs fréquentes
+
+### "L'IA va juste nous faire coder plus vite"
+
+**Le problème** : on génère plus de code médiocre, plus vite. La dette technique explose.
+
+**La réalité** : l'IA change *ce qu'on fait*, pas seulement *la vitesse*.
+
+### "Pas besoin de documenter, l'IA comprend"
+
+**Le problème** : code générique, incohérent avec l'existant, corrections manuelles permanentes.
+
+**La réalité** : plus l'agent a de contexte (AGENT-GUIDE, SPEC), plus son output est pertinent.
+
+### "On garde nos Sprints, on ajoute l'IA"
+
+**Le problème** : friction entre la vélocité des agents et la rigidité des cérémonies.
+
+**La réalité** : les boucles itératives fluides remplacent les cycles rigides.
+
+---
+
+## En résumé
+
+| Avant | Avec AIAD |
+|-------|-----------|
+| Le code est le livrable | L'intention est le livrable |
+| Planifier puis exécuter | Observer puis adapter |
+| Excellence individuelle | Excellence de l'écosystème |
+| Cérémonies prescrites | Synchronisations à la demande |
+
+---
+
+*Prochaine section : [Vision et Philosophie](02-vision-philosophie.md)*
+
+
+---
+
+# FICHIER : 02-vision-philosophie.md
+
+# Vision et Philosophie
+
+## Pourquoi lire cette section ?
+
+Cette section définit ce que signifie "réussir" avec AIAD. Sans cette clarté, vous risquez d'optimiser les mauvaises métriques et de livrer des fonctionnalités que personne n'utilise.
+
+**Temps de lecture : 8 minutes**
+
+---
+
+## Le principe cardinal
+
+**AIAD ne juge pas sur l'effort, la vélocité ou la conformité aux processus. AIAD juge sur la valeur réalisée pour les stakeholders.**
+
+### Ce que cela signifie concrètement
+
+| Situation | Verdict AIAD |
+|-----------|--------------|
+| Fonctionnalité techniquement parfaite, non utilisée | **Échec** |
+| Fonctionnalité simple, adoptée massivement | **Succès** |
+| Sprint complété à 100%, aucun impact mesurable | **Échec** |
+| Livraison partielle qui résout le problème réel | **Succès** |
+
+### Exemple
+
+Une équipe livre un système de notifications push en 3 semaines. Code propre, tests complets, documentation exhaustive.
+
+Résultat : 2% des utilisateurs activent les notifications. 0.1% cliquent dessus.
+
+**Avec AIAD** : avant de construire, l'équipe aurait validé l'hypothèse "les utilisateurs veulent des notifications push" par un test simple (bouton factice, enquête, prototype). Coût : 2 jours. Économie : 3 semaines.
+
+---
+
+## Les quatre piliers
+
+### 1. Empirisme radical
+
+**Pourquoi** : dans un contexte de développement assisté par IA, la vélocité d'exécution rend les plans obsolètes avant leur complétion. Seule l'observation permet de naviguer.
+
+**Principes :**
+
+| Principe | Signification |
+|----------|---------------|
+| Hypothèses > Certitudes | Tout est une hypothèse jusqu'à preuve du contraire |
+| Observation > Opinion | Les données et usages réels priment sur les intuitions |
+| Adaptation > Adhérence | Pivoter rapidement vaut mieux que persévérer dans l'erreur |
+| Apprentissage > Exécution | Maximiser la vitesse d'apprentissage, pas la vitesse de production |
+
+**En pratique :**
+
+```
+❌ "Les utilisateurs veulent cette feature" → Construction → Livraison → Déception
+✅ "Hypothèse : les utilisateurs veulent X" → Test minimal → Observation → Décision
+```
+
+**Anti-pattern** : "On sait ce que veulent nos utilisateurs, on travaille avec eux depuis 5 ans."
+→ Les besoins évoluent. Les certitudes d'hier sont les échecs de demain.
+
+---
+
+### 2. Orchestration systémique
+
+**Pourquoi** : la valeur d'une équipe ne réside plus dans sa capacité à coder, mais dans sa capacité à orchestrer des agents IA efficacement.
+
+**Principes :**
+
+| Principe | Signification |
+|----------|---------------|
+| Humains : pourquoi/quoi | Définir l'intention et valider le résultat |
+| Agents : comment | Générer le code, les tests, la documentation |
+| Écosystème > Héroïsme | L'excellence collective surpasse l'expertise individuelle |
+| Contexte = carburant | Un agent sans contexte produit du code générique |
+
+**En pratique :**
+
+| Investissement | Impact |
+|----------------|--------|
+| Former un développeur expert | +20% pour 1 personne |
+| Configurer l'AGENT-GUIDE | +50% pour toute l'équipe |
+| Standardiser les SPEC | Qualité constante, moins de corrections |
+
+**Anti-pattern** : "Notre meilleur dev n'a pas besoin des agents, il code plus vite manuellement."
+→ Peut-être. Mais son temps serait mieux investi à configurer l'écosystème pour les 10 autres.
+
+---
+
+### 3. Fluidité par émergence
+
+**Pourquoi** : les cadences artificielles (Sprints de 2 semaines) créent une friction avec la vélocité naturelle du développement assisté par IA.
+
+**Principes :**
+
+| Avant | Avec AIAD |
+|-------|-----------|
+| Sprints de durée fixe | Flux continu ajusté à la complexité |
+| Cérémonies prescrites | Synchronisations quand nécessaires |
+| Rôles rigides | Responsabilités fluides selon le contexte |
+| Planning détaillé à 3 mois | Direction claire + ajustements continus |
+
+**En pratique :**
+
+Une tâche simple (correction de bug) : boucle de 2h
+Une tâche complexe (nouvelle feature) : boucle de 3 jours
+Une exploration (nouveau domaine) : boucle de 1 semaine
+
+**Chaque tâche trouve sa cadence naturelle.**
+
+**Anti-pattern** : "On garde nos Sprints mais on fait de l'AIAD dedans."
+→ Vous aurez le pire des deux mondes : rigidité + confusion.
+
+---
+
+### 4. Excellence produit
+
+**Pourquoi** : livrer du code n'est pas l'objectif. Résoudre des problèmes réels pour de vrais utilisateurs l'est.
+
+**Principes :**
+
+| Principe | Signification |
+|----------|---------------|
+| Product thinking > Project thinking | Focus sur le cycle de vie complet, pas sur la livraison |
+| Discovery intégrée | Comprendre le problème fait partie du développement |
+| Qualité built-in | La qualité n'est pas négociable, pas un trade-off |
+| Validation continue | La release est le début de l'apprentissage, pas la fin |
+
+**En pratique :**
+
+```
+❌ Spécifier → Développer → Tester → Livrer → Oublier
+✅ Comprendre → Hypothèse → Prototype → Valider → Itérer → Mesurer → Améliorer
+```
+
+**Anti-pattern** : "On livre d'abord, on améliorera après si besoin."
+→ "Après" n'arrive jamais. La dette s'accumule. Les utilisateurs partent.
+
+---
+
+## Les trois principes SDD (v1.4)
+
+Ces trois principes viennent enrichir les quatre piliers dans le contexte Spec Driven Development. Ils ne les remplacent pas — ils les précisent pour les équipes qui adoptent les SPECs comme source de vérité primaire.
+
+### 5. Spec as Living Invariant
+
+**Pourquoi** : l'industrie (Kiro, GitHub Spec Kit, InfoQ, Thoughtworks) a convergé en 2025 vers une même conclusion — une SPEC n'est pas un document de passage. C'est un invariant vivant qui reste la source de vérité entre l'intention humaine et le code agent, avant, pendant et après l'implémentation.
+
+**Ce que ça change :**
+
+| Ancienne vision | Vision Living Invariant |
+|----------------|------------------------|
+| SPEC rédigée avant, oubliée après | SPEC mise à jour en même temps que le code |
+| Code = source de vérité | SPEC = source de vérité, code = sous-produit |
+| Documentation statique | Instruction exécutable vivante |
+
+**En pratique** : une SPEC est "done" quand elle reflète exactement l'état du code en production. Tant que ce n'est pas le cas, l'itération n'est pas terminée.
+
+**Conséquence directe** : le *spec drift* (écart entre SPEC et réalité du code) est l'anti-pattern #1 d'AIAD v1.4, non pas un problème mineur de documentation.
+
+---
+
+### 6. Drift = Definition of Done brisée
+
+**Pourquoi** : le spec drift n'est pas un problème d'IA — c'est un échec de processus humain. Quand le code évolue sans que la SPEC soit mise à jour, l'artefact devient de la documentation morte. La prochaine session avec l'agent repart d'une intention incorrecte.
+
+**Définition du spec drift** :
+
+> Une SPEC est en drift quand le code qu'elle décrit a évolué sans que le document ait été mis à jour.
+
+**Conséquences du drift non traité :**
+
+| Délai | Conséquence |
+|-------|-------------|
+| 1 itération | SPEC légèrement désalignée, corrections mineures |
+| 5 itérations | SPEC obsolète, agent génère du code conflictuel |
+| 20 itérations | SPEC inutilisable, retour au vibe coding de facto |
+
+**Règle non-négociable** : toute itération qui modifie le comportement d'une fonctionnalité DOIT mettre à jour la SPEC correspondante dans la même session.
+
+---
+
+### 7. Context Budget
+
+**Pourquoi** : les études terrain (Addy Osmani, jan. 2026 ; Kiro, AWS 2025) montrent que les agents IA dégradent leur adhérence aux instructions quand le contexte injecté dépasse un certain seuil. Un AGENT-GUIDE de 100 pages n'est pas plus efficace — il est moins efficace.
+
+**Le principe :**
+
+> Le Product Engineer est responsable de ne pas saturer le budget de contexte de l'agent. La hiérarchie AIAD (PRD → ARCHITECTURE → AGENT-GUIDE → SPEC) est précisément l'outil pour gérer ce budget.
+
+**La règle de séparation :**
+
+| Type de contenu | Où l'injecter |
+|-----------------|---------------|
+| Contexte permanent (standards, conventions, patterns) | AGENT-GUIDE |
+| Contexte de tâche (fonctionnalité en cours) | SPEC activée uniquement pour la session |
+| Contexte stratégique (vision, outcomes) | PRD synthétique en référence |
+
+**Anti-pattern** : injecter l'AGENT-GUIDE complet + toutes les SPECs + le PRD dans chaque session. L'agent reçoit tout, comprend peu.
+
+---
+
+*Prochaine section : [L'Écosystème AIAD](03-ecosysteme.md)*
+
+
+
+
+**Nous valorisons :**
+
+| Plus de valeur | Moins de valeur |
+|----------------|-----------------|
+| Outcomes observables | Outputs livrés |
+| Intention claire | Spécifications exhaustives |
+| Observation empirique | Planification détaillée |
+| Orchestration maîtrisée | Codage héroïque |
+| Amélioration continue | Conformité aux processus |
+| Collaboration intentionnelle | Réunions prescrites |
+| Responsabilité partagée | Silos fonctionnels |
+| Excellence long-terme | Livraison à tout prix |
+
+Sans ignorer les éléments de droite, nous reconnaissons que **les éléments de gauche créent plus de valeur** dans un contexte de développement assisté par agents IA.
+
+---
+
+## Erreurs fréquentes
+
+### "On mesure déjà la vélocité, c'est pareil"
+
+**Le problème** : la vélocité mesure l'output (points livrés), pas l'outcome (valeur créée).
+
+**Exemple** : une équipe avec une vélocité de 50 points/sprint peut livrer 50 points de fonctionnalités inutiles.
+
+**La réalité AIAD** : mesurez l'adoption, l'usage, la satisfaction. Pas les points.
+
+### "L'empirisme, c'est ne pas planifier"
+
+**Le problème** : confusion entre "pas de plan" et "plan adaptatif".
+
+**La réalité AIAD** : vous avez une direction (North Star), des objectifs (Outcomes), et des hypothèses à valider. Ce que vous n'avez pas, c'est un plan détaillé à 6 mois figé.
+
+### "Les piliers sont indépendants, on en prend 2 sur 4"
+
+**Le problème** : les piliers forment un système. Retirer un pilier fait s'effondrer l'ensemble.
+
+| Sans ce pilier | Conséquence |
+|----------------|-------------|
+| Empirisme | Vous construisez les mauvaises choses |
+| Orchestration | Vous construisez lentement et mal |
+| Fluidité | Vous créez de la friction et du gaspillage |
+| Excellence produit | Vous livrez du code, pas de la valeur |
+
+---
+
+## En résumé
+
+| Question | Réponse AIAD |
+|----------|--------------|
+| Comment mesure-t-on le succès ? | Par la valeur créée pour les stakeholders |
+| Comment sait-on quoi construire ? | Par l'observation empirique, pas les certitudes |
+| Comment construit-on efficacement ? | Par l'orchestration d'agents IA, pas l'héroïsme |
+| Comment s'organise-t-on ? | Par la fluidité émergente, pas les cadences rigides |
+| Quel est l'objectif final ? | L'excellence produit, pas la livraison de code |
+
+---
+
+*Prochaine section : [Responsabilités](03-responsabilites.md)*
+
+
+---
+
+# FICHIER : 03-ecosysteme.md
+
+# L'Écosystème AIAD
+
+## Pourquoi lire cette section ?
+
+Cette section définit qui fait quoi dans une équipe AIAD. Sans cette clarté, les responsabilités se chevauchent, les décisions traînent, et l'orchestration des agents IA reste sous-optimale.
+
+**Temps de lecture : 12 minutes**
+
+---
+
+## Le principe fondamental
+
+**Dans AIAD, il n'y a pas de "rôles" au sens traditionnel, mais des responsabilités qui doivent être assumées.**
+
+### Ce que cela signifie concrètement
+
+| Approche traditionnelle | Approche AIAD |
+|------------------------|---------------|
+| Une personne = un rôle | Une personne = plusieurs responsabilités |
+| Rôle défini par un titre | Responsabilité définie par ce qui doit être fait |
+| Frontières rigides | Frontières fluides selon le contexte |
+| "Ce n'est pas mon job" | "Qui assume cette responsabilité ?" |
+
+### Exemple
+
+Dans une équipe de 3 personnes :
+- Alice assume les responsabilités PM + Tech Lead
+- Bob assume les responsabilités PE + QA
+- Claire assume les responsabilités AE + PE
+
+Dans une équipe de 8 personnes, chaque responsabilité peut être portée par une personne dédiée.
+
+**L'important n'est pas qui porte quel titre, mais que chaque responsabilité soit clairement assumée.**
+
+---
+
+## Les cinq responsabilités clés
+
+### 1. Product Manager — Responsable de la Valeur
+
+**Essence** : S'assurer que l'équipe construit les bonnes choses pour les bonnes personnes.
+
+**Pourquoi cette responsabilité existe** : Sans quelqu'un focalisé sur la valeur, les équipes construisent des fonctionnalités techniquement parfaites que personne n'utilise.
+
+**Ce que fait le PM :**
+
+| Action | Fréquence |
+|--------|-----------|
+| Définir le Product Goal (horizon 4-12 semaines) | Mensuel |
+| Maintenir le backlog ordonné par valeur | Continu |
+| Conduire la discovery (problème → solution → validation) | Hebdomadaire |
+| Définir les Outcome Criteria de chaque fonctionnalité | Par fonctionnalité |
+| Mesurer l'impact réel des releases | Post-release |
+| Arbitrer les trade-offs | À la demande |
+
+**Compétences non négociables :**
+
+1. **Product Strategy** : Savoir où on va et pourquoi
+2. **Discovery** : Identifier le vrai problème avant de construire
+3. **Analytics** : Mesurer ce qui compte, décider sur des données
+4. **Trade-off Mastery** : Arbitrer entre court et long terme
+
+**Comment savoir si ça fonctionne :**
+
+| Indicateur | Cible |
+|------------|-------|
+| Fonctionnalités atteignant leurs Outcome Criteria | >70% |
+| Temps entre insight utilisateur et release | <2 semaines |
+
+**Anti-pattern** : Le PM "passe-plat" qui transmet les demandes des stakeholders sans les challenger ni les prioriser.
+
+---
+
+### 2. Product Engineer — Responsable de l'Orchestration
+
+**Essence** : Transformer des intentions en réalité technique en orchestrant des agents IA.
+
+**Pourquoi cette responsabilité existe** : Les agents IA savent générer du code. Ils ne savent pas définir ce qu'il faut construire ni valider si c'est correct. Le PE fait le pont.
+
+**Ce que fait le PE :**
+
+| Action | Fréquence |
+|--------|-----------|
+| Rédiger des SPECs techniques précises | Par fonctionnalité |
+| Orchestrer les agents pour générer le code | Quotidien |
+| Valider la qualité du code généré | Post-génération |
+| Maintenir le contexte (AGENT-GUIDE, patterns) | Continu |
+| Collaborer à la discovery (prototypes, faisabilité) | À la demande |
+| Gérer la dette technique | Continu |
+
+**Compétences non négociables :**
+
+1. **Orchestration d'Agents** : Formuler des intentions claires, structurer le contexte
+2. **Architecture** : Penser système, anticiper les implications
+3. **Quality Thinking** : Définir "Done", penser aux cas limites
+4. **Product Thinking** : Comprendre le pourquoi, pas juste le comment
+
+**Comment savoir si ça fonctionne :**
+
+| Indicateur | Cible |
+|------------|-------|
+| First-time success rate (code généré correct du premier coup) | >70% |
+| Ratio code généré / code manuel | >80/20 |
+| Couverture de tests | >80% backend, >70% frontend |
+
+**Anti-pattern** : Le PE qui réécrit systématiquement le code des agents au lieu d'améliorer ses SPECs et son contexte.
+
+---
+
+### 3. Agents Engineer — Responsable de l'Écosystème IA
+
+**Essence** : Construire et optimiser l'écosystème d'agents qui démultiplie les capacités de l'équipe.
+
+**Pourquoi cette responsabilité existe** : Un agent mal configuré produit du code générique. Un écosystème bien calibré produit du code adapté au contexte. La différence ? L'investissement dans la configuration.
+
+**Ce que fait l'AE :**
+
+| Action | Fréquence |
+|--------|-----------|
+| Sélectionner les agents pertinents | Mensuel |
+| Configurer et calibrer chaque agent | Initial + itératif |
+| Définir la gouvernance (supervision, validation) | Initial |
+| Former l'équipe à l'utilisation efficace | Continu |
+| Monitorer les performances | Hebdomadaire |
+| Expérimenter avec nouveaux agents | Mensuel |
+
+**L'écosystème d'agents : approche par niveaux**
+
+```
+┌─────────────────────────────────────────────────────┐
+│        Niveau 1 : Gouvernance                       │
+│        Security, Compliance, Architecture           │
+│        → Droit de veto sur le code généré           │
+└─────────────────────────────────────────────────────┘
+                       ↓
+┌─────────────────────────────────────────────────────┐
+│        Niveau 2 : Qualité                           │
+│        Tests, Code Review, Performance              │
+│        → Avertissements et recommandations          │
+└─────────────────────────────────────────────────────┘
+                       ↓
+┌─────────────────────────────────────────────────────┐
+│        Niveau 3 : Productivité                      │
+│        Documentation, Refactoring, Migration        │
+│        → Suggestions d'amélioration                 │
+└─────────────────────────────────────────────────────┘
+                       ↓
+┌─────────────────────────────────────────────────────┐
+│        Agent Principal                              │
+│        Claude Code / Cursor / Copilot               │
+│        → Génération de code                         │
+└─────────────────────────────────────────────────────┘
+```
+
+**Principe de sélection :**
+
+1. **Commencer minimal** : Agent principal + Security + Quality
+2. **Ajouter par douleur** : Un problème récurrent ? Chercher un agent
+3. **Retirer par obsolescence** : Agent non utilisé depuis 1 mois ? Supprimer
+4. **Optimiser par mesure** : Suivre l'usage et l'efficacité réelle
+
+**Comment savoir si ça fonctionne :**
+
+| Indicateur | Cible |
+|------------|-------|
+| Taux d'adoption des agents par l'équipe | >90% |
+| Taux de faux positifs des agents | <20% |
+| Satisfaction PE sur l'écosystème | >8/10 |
+
+**Anti-pattern** : L'AE qui accumule des agents "au cas où" sans mesurer leur utilité réelle.
+
+---
+
+### 4. QA Engineer — Responsable de la Qualité
+
+**Essence** : Garantir que la qualité est intégrée dès le départ, pas vérifiée à la fin.
+
+**Pourquoi cette responsabilité existe** : Les agents génèrent des tests, mais ils ne savent pas penser comme un utilisateur frustré ni anticiper les cas limites métier.
+
+**Ce que fait le QA :**
+
+| Action | Fréquence |
+|--------|-----------|
+| Définir la stratégie de tests globale | Initial + revue trimestrielle |
+| Contribuer au Definition of Done | Par fonctionnalité |
+| Valider la pertinence des tests générés | Post-génération |
+| Conduire les tests exploratoires | Pré-release |
+| Mesurer et communiquer la qualité | Hebdomadaire |
+
+**Les quatre niveaux de validation :**
+
+| Niveau | Qui | Automatisation |
+|--------|-----|----------------|
+| Unitaire | Agents IA + PE | 100% |
+| Intégration | PE + Agent Quality | 90% |
+| Fonctionnel | QA + Agent Quality | 70% |
+| Exploratoire | QA (humain) | 0% |
+
+**Pourquoi le niveau exploratoire reste 100% humain** : Un agent suit des scénarios. Un humain trouve ce qui ne va pas en dehors des scénarios prévus.
+
+**Comment savoir si ça fonctionne :**
+
+| Indicateur | Cible |
+|------------|-------|
+| Bugs en production | Tendance décroissante |
+| Temps de détection d'un bug | <24h |
+| Taux de régression | <5% |
+
+**Anti-pattern** : Le QA qui teste uniquement à la fin du cycle au lieu de contribuer à la définition de "Done" dès le départ.
+
+---
+
+### 5. Tech Lead — Responsable de la Cohérence Technique
+
+**Essence** : Garantir que les décisions techniques d'aujourd'hui ne bloquent pas les évolutions de demain.
+
+**Pourquoi cette responsabilité existe** : Sans vision technique long-terme, chaque fonctionnalité est optimisée localement mais le système global devient incohérent.
+
+**Ce que fait le Tech Lead :**
+
+| Action | Fréquence |
+|--------|-----------|
+| Définir et maintenir le document ARCHITECTURE | Initial + évolutif |
+| Valider les décisions architecturales majeures | À la demande |
+| Conduire les design reviews | Par fonctionnalité majeure |
+| Établir les standards de qualité | Initial |
+| Gérer la dette technique (visibilité + priorisation) | Continu |
+| Coacher les PE sur sujets complexes | À la demande |
+
+**Le rôle dans les décisions :**
+
+| Type de décision | Rôle du Tech Lead |
+|------------------|-------------------|
+| **Stratégique** (architecture globale, choix stack) | Décide avec input équipe |
+| **Tactique** (patterns, libraries) | Guide, l'équipe décide |
+| **Opérationnelle** (implémentation spécifique) | N'intervient pas |
+
+**Comment savoir si ça fonctionne :**
+
+| Indicateur | Cible |
+|------------|-------|
+| Dette technique | Tendance stable ou décroissante |
+| Décisions architecturales revisitées | <10% par an |
+| Temps de design review | <2h |
+
+**Anti-pattern** : Le Tech Lead "super développeur" qui code plus qu'il ne guide, créant un goulot d'étranglement.
+
+---
+
+## Les Supporters : facilitateurs de succès
+
+### Définition
+
+Les Supporters sont des stakeholders qui créent les conditions de succès de l'équipe sans faire partie du quotidien.
+
+### Ce qu'ils font
+
+| Action | Impact |
+|--------|--------|
+| Créer un environnement psychologiquement sûr | L'équipe ose expérimenter et échouer |
+| Lever les obstacles organisationnels | L'équipe n'est pas bloquée par la bureaucratie |
+| Faciliter l'accès aux ressources | L'équipe a ce dont elle a besoin |
+
+### Ce qu'ils ne font pas
+
+- Définir le backlog (c'est le PM)
+- Valider les décisions techniques (c'est le Tech Lead)
+- Participer aux synchronisations quotidiennes
+
+---
+
+## Combiner les responsabilités
+
+### Équipe de 2-3 personnes
+
+| Personne | Responsabilités |
+|----------|-----------------|
+| A | PM + Tech Lead |
+| B | PE + QA + AE |
+
+### Équipe de 4-6 personnes
+
+| Personne | Responsabilités |
+|----------|-----------------|
+| A | PM |
+| B | PE + Tech Lead |
+| C | PE + AE |
+| D | QA |
+
+### Équipe de 7+ personnes
+
+Chaque responsabilité peut être portée par une personne dédiée.
+
+### Règle d'or
+
+**Quelle que soit la taille de l'équipe, chaque responsabilité doit avoir un porteur clairement identifié.**
+
+---
+
+## Erreurs fréquentes
+
+### "On n'a pas besoin d'Agents Engineer, chacun gère ses agents"
+
+**Le problème** : Chaque PE configure différemment, l'écosystème devient incohérent, les bonnes pratiques ne se partagent pas.
+
+**La réalité** : Même à temps partiel, quelqu'un doit avoir la vision globale de l'écosystème IA.
+
+### "Le Tech Lead décide de tout ce qui est technique"
+
+**Le problème** : Goulot d'étranglement, PE déresponsabilisés, frustration générale.
+
+**La réalité** : Le Tech Lead guide les décisions stratégiques. Les décisions opérationnelles appartiennent aux PE.
+
+### "Le PM n'a pas besoin de comprendre la technique"
+
+**Le problème** : Trade-offs mal arbitrés, fonctionnalités impossibles promisées, dette technique ignorée.
+
+**La réalité** : Le PM n'a pas besoin de coder, mais il doit comprendre les implications techniques de ses décisions.
+
+---
+
+## En résumé
+
+| Responsabilité | Question centrale | Focus |
+|----------------|-------------------|-------|
+| **PM** | Construit-on la bonne chose ? | Valeur |
+| **PE** | L'agent produit-il le bon résultat ? | Orchestration |
+| **AE** | L'écosystème est-il optimal ? | Configuration |
+| **QA** | Le résultat est-il fiable ? | Qualité |
+| **Tech Lead** | Le système reste-t-il cohérent ? | Architecture |
+
+---
+
+*Prochaine section : [Les Artefacts](04-artefacts.md)*
+
+
+---
+
+# FICHIER : 04-artefacts.md
+
+# Les Artefacts
+
+## Pourquoi lire cette section ?
+
+Cette section définit les documents essentiels qui structurent le travail d'une équipe AIAD. Sans ces artefacts, le contexte se perd, les agents IA produisent du code générique, et l'alignement entre intention et implémentation se dégrade.
+
+**Temps de lecture : 15 minutes**
+
+---
+
+## Le principe fondamental
+
+**Les artefacts AIAD ne sont pas de la bureaucratie. Ce sont des outils de pensée et de communication.**
+
+### Ce que cela signifie concrètement
+
+| Approche traditionnelle | Approche AIAD |
+|------------------------|---------------|
+| Documentation exhaustive | Documentation minimale et actionnable |
+| Écrire pour archiver | Écrire pour aligner et agir |
+| Document figé une fois validé | Document vivant qui évolue |
+| Rédigé par un rôle, lu par d'autres | Co-créé par l'équipe |
+
+### Les quatre critères d'un bon artefact
+
+| Critère | Question de validation |
+|---------|------------------------|
+| **Actionnable** | Peut-on agir à partir de ce document ? |
+| **Vivant** | Évolue-t-il avec la compréhension ? |
+| **Minimal** | Contient-il juste assez, pas plus ? |
+| **Collaboratif** | A-t-il été co-créé, pas dicté ? |
+
+**L'important n'est pas d'avoir des documents parfaits, mais des documents utiles.**
+
+---
+
+## Les quatre artefacts essentiels
+
+### 1. PRD — Product Requirement Document
+
+**Essence** : Clarifier POURQUOI et QUOI construire avant de se poser la question du COMMENT.
+
+**Pourquoi cet artefact existe** : Sans PRD, les équipes construisent des fonctionnalités techniquement parfaites que personne n'a demandées, ou résolvent des problèmes mal compris.
+
+**Ce que contient le PRD :**
+
+| Section | Contenu |
+|---------|---------|
+| Contexte et Problème | Quel problème ? Pour qui ? Pourquoi maintenant ? |
+| Outcome Criteria | Métriques mesurables de succès |
+| Personas et Use Cases | Profils utilisateurs et scénarios d'usage |
+| Hors Périmètre | Ce que nous NE faisons PAS (volontairement) |
+| Trade-offs et Décisions | Décisions majeures et alternatives écartées |
+| Dépendances et Risques | Prérequis et risques identifiés |
+
+**Bonnes pratiques :**
+
+1. **Commencer par le problème** : Pas par la solution
+2. **Outcome-driven** : Définir les critères de succès avant de construire
+3. **Collaboratif** : Rédiger avec l'équipe, pas pour l'équipe
+4. **Itératif** : Le PRD évolue avec la compréhension
+5. **Visuel** : Intégrer wireframes et flows quand pertinent
+
+**Comment savoir si ça fonctionne :**
+
+| Indicateur | Cible |
+|------------|-------|
+| L'équipe comprend le "pourquoi" | 100% des membres |
+| Changements de scope en cours de dev | <20% |
+| Outcome criteria atteints | >70% |
+
+**Anti-pattern** : Le PRD fleuve de 50 pages que personne ne lit, ou le PRD vague type "Améliorer l'expérience utilisateur".
+
+> 📖 *Voir Annexe A.1 pour le template complet et exemples*
+
+---
+
+### 2. ARCHITECTURE — Standards Techniques
+
+**Essence** : Définir les standards techniques que les agents IA et les PE doivent respecter.
+
+**Pourquoi cet artefact existe** : Sans document d'architecture, chaque fonctionnalité est implémentée différemment, les agents IA génèrent du code incohérent, et la dette technique s'accumule silencieusement.
+
+**Ce que contient le document ARCHITECTURE :**
+
+| Section | Contenu |
+|---------|---------|
+| Principes Architecturaux | 5 principes non-négociables |
+| Vue d'Ensemble | Architecture high-level avec justification |
+| Stack Technique | Technologies, versions, justifications |
+| Structure du Projet | Organisation dossiers et modules |
+| Conventions de Code | Nommage, formatage, imports |
+| Patterns et Bonnes Pratiques | Design patterns avec exemples |
+| Sécurité | Principes et pratiques obligatoires |
+| Performance | Budgets et stratégies |
+| ADR | Architecture Decision Records |
+
+**Bonnes pratiques :**
+
+1. **Évolutif** : L'architecture évolue avec le produit
+2. **Justifié** : Chaque choix a une rationale explicite
+3. **Pragmatique** : Pas d'over-engineering, YAGNI
+4. **Communicable** : Diagrammes visuels, pas que du texte
+5. **Actionnable** : Les PE peuvent s'y référer quotidiennement
+
+**Comment savoir si ça fonctionne :**
+
+| Indicateur | Cible |
+|------------|-------|
+| Décisions architecturales revisitées | <10% par an |
+| Code généré conforme aux standards | >90% |
+| Temps d'onboarding technique | <1 semaine |
+
+**Anti-pattern** : L'architecture "ivory tower" décidée sans connaître la réalité du terrain, ou le CV-driven development qui choisit des technos pour impressionner.
+
+> 📖 *Voir Annexe A.2 pour le template complet et exemples d'ADR*
+
+---
+
+### 3. AGENT-GUIDE — Contexte pour les Agents IA
+
+**Essence** : Fournir le contexte optimal aux agents IA pour qu'ils génèrent du code de qualité aligné avec les standards de l'équipe.
+
+**Pourquoi cet artefact existe** : Un agent sans contexte génère du code générique. Un agent avec un contexte riche génère du code professionnel adapté au projet.
+
+**Ce que contient l'AGENT-GUIDE :**
+
+| Section | Contenu |
+|---------|---------|
+| Identité du Projet | Nom, description, domaine métier, mission |
+| Documentation de Référence | Liens vers PRD, ARCHITECTURE, SPECs |
+| Stack Technique | Résumé des technologies utilisées |
+| Règles Absolues | TOUJOURS (obligations) et JAMAIS (interdictions) |
+| Conventions de Code | Nommage, imports, structure composants |
+| Vocabulaire Métier | Termes spécifiques au domaine |
+| Patterns de Développement | Approches favorisées avec exemples |
+| Anti-Patterns | Ce qu'il faut éviter avec exemples |
+| Notes d'Apprentissage | Learnings mis à jour continuellement |
+| **Lessons Learned** | **Erreurs récurrentes de l'agent, ritualisées — voir ci-dessous** |
+
+**Bonnes pratiques :**
+
+1. **Concret** : Exemples de code, pas juste principes abstraits
+2. **Évolutif** : Section "Notes d'Apprentissage" mise à jour continuellement
+3. **Contextuel** : Vocabulaire métier spécifique au domaine
+4. **Équilibré** : Ne pas tomber dans l'excès (100+ règles = aucune règle) — respecter le Context Budget
+5. **Vivant** : Review mensuelle minimum
+
+**La section Lessons Learned (v1.4) :**
+
+Cette section est un rituel obligatoire à chaque fin d'itération. Elle documente les erreurs récurrentes de l'agent pour éviter qu'elles se reproduisent d'une session à l'autre.
+
+Structure standard :
+
+| Date | Contexte de l'erreur | Comportement observé | Correction appliquée | Statut |
+|------|---------------------|---------------------|---------------------|--------|
+| 2026-02-01 | Génération service auth | Import circulaire créé | Expliciter l'ordre d'import dans la SPEC | ✅ Résolu |
+| 2026-02-10 | API endpoint POST /tasks | Validation manquante sur le champ `dueDate` | Ajouter règle TOUJOURS dans règles absolues | ✅ Résolu |
+
+**Règle** : à la fin de chaque itération, le PE vérifie s'il y a une erreur agent à documenter. 5 minutes. Pas optionnel.
+
+**Comment savoir si ça fonctionne :**
+
+| Indicateur | Cible |
+|------------|-------|
+| First-time success rate du code généré | >70% |
+| Conformité aux conventions | >90% |
+| Temps de correction post-génération | <20% du temps total |
+
+**Anti-pattern** : Le guide encyclopédique de 50 pages jamais mis à jour, ou le guide vague type "Écrire du bon code".
+
+> 📖 *Voir Annexe A.3 pour le template complet avec exemples de règles*
+
+---
+
+### 4. SPECS — Spécifications Techniques
+
+**Essence** : Faire le pont entre l'intention métier (PRD) et l'implémentation concrète par les agents IA.
+
+**Pourquoi cet artefact existe** : Une SPEC de qualité permet à un agent IA de générer 80%+ du code correct du premier coup. Sans SPEC, le PE passe plus de temps à corriger qu'à orchestrer.
+
+**Ce que contient une SPEC :**
+
+| Section | Contenu |
+|---------|---------|
+| **Scope d'Activation** | **Injectée seule ou combinée avec d'autres SPECs ? Préciser.** |
+| Contexte | Référence User Story, objectif, outcome attendu |
+| Périmètre | In Scope / Out of Scope explicites |
+| Fichiers Impactés | À créer / À modifier |
+| Interface Technique | API endpoints, types, schémas DB |
+| Comportement Détaillé | Flow nominal et cas limites |
+| Validation Rules | Règles de validation avec schémas |
+| Business Rules | Règles métier à appliquer |
+| Tests Attendus | Scénarios de test à implémenter |
+| Exemples d'Usage | Exemples concrets requête/réponse |
+| Definition of Done | Critères de "Done" |
+| **Critère de Drift** | **Règle concrète pour détecter si cette SPEC est devenue obsolète** |
+
+**Les quatre critères d'une SPEC de qualité :**
+
+| Critère | Bon Exemple | Mauvais Exemple |
+|---------|-------------|-----------------|
+| **Atomicité** | "Implémenter création tâche via API" | "Faire module gestion de tâches" |
+| **Précision** | "Retourner 400 si title vide ou >200 chars" | "Gérer les erreurs" |
+| **Testabilité** | "Accepter 'test@example.com', rejeter 'invalid'" | "Tester la validation" |
+| **Complétude** | Inclut types, validation, edge cases, tests | "Créer endpoint POST" |
+
+**Spec Quality Score (v1.4) — checklist avant exécution :**
+
+Avant de soumettre une SPEC à un agent, le PE valide les 5 points suivants :
+
+| Critère | Question de validation |
+|---------|----------------------|
+| ☐ **Atomicité** | Une seule responsabilité fonctionnelle ? |
+| ☐ **Interfaces précises** | Types et signatures explicites ? Pas de "retourner un objet" vague ? |
+| ☐ **Testabilité** | Les cas de test sont inclus et liés aux Outcome Criteria du PRD ? |
+| ☐ **Non-ambiguïté** | Zéro adverbe vague (correctement, convenablement, rapidement) ? |
+| ☐ **Scope défini** | Les fichiers impactés sont exhaustifs et le Critère de Drift est renseigné ? |
+
+Une SPEC qui ne passe pas le Spec Quality Score ne doit pas être soumise à l'agent. Corriger prend 10 minutes. Corriger le code généré sur une mauvaise SPEC prend des heures.
+
+**Explication des deux nouveaux champs (v1.4) :**
+
+*Scope d'Activation* : indique si cette SPEC doit être injectée seule (par défaut) ou en combinaison avec d'autres SPECs (cas des fonctionnalités transverses). Mélanger le contexte permanent de l'AGENT-GUIDE avec des SPECs multiples non reliées sature le budget de contexte de l'agent.
+
+*Critère de Drift* : règle concrète permettant de détecter si cette SPEC est devenue obsolète. Exemple : "Cette SPEC est en drift si le fichier `auth/validator.ts` est modifié sans mise à jour de la section Interface Technique."
+
+**Comment savoir si ça fonctionne :**
+
+| Indicateur | Cible |
+|------------|-------|
+| Code généré correct du premier coup | >80% |
+| Temps de rédaction SPEC vs. correction code | Ratio >1:3 |
+| Questions de clarification pendant l'implémentation | <2 par SPEC |
+
+**Anti-pattern** : La SPEC tentaculaire avec 20 fonctionnalités, ou la SPEC vague type "Améliorer la performance".
+
+> 📖 *Voir Annexe A.4 pour le template complet et exemples de SPECs*
+
+---
+
+## Les Definitions of Done
+
+### Definition of Output Done (DoOD)
+
+**Essence** : Standard de qualité uniforme pour qu'un incrément soit considéré comme "Done" et livrable.
+
+**Pourquoi cette définition existe** : Sans DoOD partagée, "Done" signifie quelque chose de différent pour chaque membre de l'équipe. Le code "fini" revient constamment avec des bugs ou des manques.
+
+**Les catégories de critères :**
+
+| Catégorie | Critères |
+|-----------|----------|
+| **Techniques** | Conventions respectées, linting OK, types complets, tests passent |
+| **Sécurité** | Scan passé, pas de secrets, validation inputs |
+| **Performance** | Budgets respectés, queries optimisées |
+| **Fonctionnels** | Spec respectée, acceptance criteria validés |
+| **Déploiement** | Build réussit, déployé staging, smoke tests OK |
+| **Review** | Code review faite, QA validé |
+
+**Ce qui N'est PAS "Done" :**
+
+| Affirmation | Pourquoi ce n'est pas Done |
+|-------------|---------------------------|
+| "Le code compile" | Compiler ≠ fonctionner |
+| "Ça marche sur ma machine" | L'environnement de prod est différent |
+| "Les tests passent localement" | CI peut révéler d'autres problèmes |
+| "Done à 90%" | 90% = pas done |
+| "On testera plus tard" | Plus tard = jamais |
+
+**Principe non-négociable** : Une fonctionnalité n'est "Done" que si TOUS les critères sont satisfaits. Pas d'exception.
+
+> 📖 *Voir Annexe A.5 pour la checklist complète*
+
+---
+
+### Definition of Outcome Done (DoOuD)
+
+**Essence** : Mesurer si la valeur attendue a été réalisée pour les stakeholders.
+
+**Pourquoi cette définition existe** : L'output (code livré) n'est que le moyen. L'outcome (valeur réalisée) est le but. Une fonctionnalité livrée mais non adoptée n'est pas un succès.
+
+**Les catégories de métriques :**
+
+| Catégorie | Exemples de métriques |
+|-----------|----------------------|
+| **User Outcomes** | NPS, CSAT, adoption, time to value, retention |
+| **Business Outcomes** | MRR, conversions, efficacité opérationnelle |
+| **Learning Outcomes** | Hypothèses validées/invalidées, insights découverts |
+
+**Le process de mesure :**
+
+| Étape | Action |
+|-------|--------|
+| 1. Définir | Outcomes AVANT de construire |
+| 2. Mesurer | À des jalons définis (1 sem, 1 mois, 3 mois) |
+| 3. Comparer | Attendu vs. réalisé |
+| 4. Décider | Continuer / Itérer / Sunset |
+| 5. Documenter | Learnings pour l'équipe |
+
+**Comment savoir si ça fonctionne :**
+
+| Indicateur | Cible |
+|------------|-------|
+| Fonctionnalités avec outcomes mesurés | 100% |
+| Outcomes atteignant leurs cibles | >70% |
+| Décisions basées sur données vs. intuition | >80% |
+
+> 📖 *Voir Annexe A.6 pour le template complet et exemples de métriques*
+
+---
+
+## Erreurs fréquentes
+
+### "On n'a pas le temps de rédiger des SPECs"
+
+**Le problème** : Le PE passe 80% de son temps à corriger le code généré au lieu de 20%.
+
+**La réalité** : Une heure de SPEC bien rédigée économise plusieurs heures de correction.
+
+### "Notre AGENT-GUIDE fait 100 pages"
+
+**Le problème** : l'agent ignore la plupart des règles car le contexte est trop large — c'est la conséquence directe d'un Context Budget dépassé.
+
+**La réalité** : un guide concis et priorisé est plus efficace qu'une encyclopédie. AGENT-GUIDE pour le contexte permanent, SPEC pour le contexte de tâche. Ne jamais mélanger les deux.
+
+### "La SPEC est validée, on ne la touche plus"
+
+**Le problème** : le code évolue, la SPEC reste figée. C'est le spec drift. En 5 itérations, la SPEC est obsolète et l'agent travaille sur une base erronée.
+
+**La réalité** : toute modification du comportement d'une fonctionnalité impose une mise à jour immédiate de la SPEC dans la même session. Sans exception.
+
+### "Le PRD est validé, on ne le touche plus"
+
+**Le problème** : La compréhension évolue, mais le document reste figé. L'équipe construit sur des hypothèses obsolètes.
+
+**La réalité** : Le PRD est un document vivant. Il évolue avec les learnings.
+
+---
+
+## En résumé
+
+| Artefact | Question centrale | Responsable principal |
+|----------|-------------------|----------------------|
+| **PRD** | Pourquoi et quoi construire ? | PM |
+| **ARCHITECTURE** | Quels standards techniques ? | Tech Lead |
+| **AGENT-GUIDE** | Quel contexte pour les agents ? | AE + PE |
+| **SPECS** | Comment implémenter précisément ? | PE |
+| **DoOD** | L'output est-il vraiment "Done" ? | QA + PE |
+| **DoOuD** | L'outcome est-il atteint ? | PM |
+
+---
+
+*Prochaine section : [Les Boucles Itératives](05-boucles.md)*
+
+
+---
+
+# FICHIER : 05-boucles-iteratives.md
+
+# Les Boucles Itératives
+
+## Pourquoi lire cette section ?
+
+Cette section décrit le cycle de travail quotidien d'une équipe AIAD. Sans ce rythme fluide, les équipes retombent dans les cérémonies rigides ou le chaos complet. Les boucles itératives sont le moteur qui transforme les intentions en valeur livrée.
+
+**Temps de lecture : 12 minutes**
+
+---
+
+## Le principe fondamental
+
+**Les boucles AIAD ne sont pas des Sprints. Ce sont des cycles naturels de création de valeur.**
+
+### Ce que cela signifie concrètement
+
+| Approche Sprint | Approche Boucles |
+|-----------------|------------------|
+| Durée fixe (2 semaines) | Durée variable (2h à 3 jours) |
+| Planification batch | Planification au fil de l'eau |
+| Engagement de scope | Engagement de qualité |
+| Vélocité mesurée en points | Valeur mesurée en outcomes |
+
+### Les quatre caractéristiques d'une boucle
+
+| Caractéristique | Description |
+|-----------------|-------------|
+| **Flux continu** | Dès qu'une fonctionnalité est intégrée, la prochaine démarre |
+| **Durée variable** | La complexité dicte la durée, pas le calendrier |
+| **Priorité dynamique** | Le feedback peut réorienter la prochaine fonctionnalité |
+| **Focus absolu** | Une seule fonctionnalité à la fois par PE |
+
+**L'important n'est pas de suivre un calendrier, mais de livrer de la valeur en continu.**
+
+---
+
+## La phase d'initialisation
+
+### Essence
+
+Poser les fondations avant de construire. Cette phase n'a lieu qu'une fois par produit (ou à chaque pivot majeur).
+
+### Pourquoi cette phase existe
+
+Sans initialisation structurée, les équipes démarrent dans le flou. Les agents IA génèrent du code sans contexte, l'architecture émerge par accident, et la dette technique s'accumule dès le premier jour.
+
+### Ce que produit l'initialisation
+
+| Livrable | Responsable |
+|----------|-------------|
+| Vision produit et Product Goal | PM |
+| PRD initial | PM |
+| Document ARCHITECTURE | Tech Lead |
+| AGENT-GUIDE | AE + PE |
+| Definitions of Done (DoOD, DoOuD) | Équipe |
+| Repository avec CI/CD | PE |
+| Première SPEC prête | PM + PE |
+
+### Comment savoir si c'est réussi
+
+| Indicateur | Cible |
+|------------|-------|
+| L'équipe peut démarrer l'implémentation | Jour 5-7 |
+| Tous les artefacts essentiels existent | 100% |
+| Premier commit possible | Fin de phase |
+
+**Anti-pattern** : L'initialisation qui s'éternise pendant des semaines, ou le démarrage précipité sans artefacts.
+
+> *Voir Annexe C.1 pour le process jour par jour*
+
+---
+
+## Les quatre boucles
+
+### Boucle 1 : Planifier
+
+**Essence** : Transformer une intention métier en SPEC que les agents IA peuvent implémenter.
+
+**Pourquoi cette boucle existe** : Sans planification explicite, le PE interprète l'intention du PM. Cette interprétation diverge. Le code livré ne correspond pas au besoin.
+
+**Comment ça se passe :**
+
+| Étape | Action |
+|-------|--------|
+| 1 | PM présente la prochaine priorité |
+| 2 | PE questionne et clarifie |
+| 3 | Décision de décomposition |
+| 4 | Rédaction collaborative de la SPEC |
+| 5 | Validation finale |
+
+**Ce qui déclenche cette boucle** : Fonctionnalité précédente intégrée ou nouvelle priorité critique.
+
+**Ce que produit cette boucle :**
+
+- SPEC détaillée prête pour implémentation
+- Outcome Criteria définis (si feature majeure)
+- Compréhension partagée entre PM et PE
+
+**Comment savoir si c'est réussi :**
+
+| Indicateur | Cible |
+|------------|-------|
+| Agent IA peut implémenter sans clarification | Oui |
+| Tests attendus sont explicites | 100% |
+| Cas limites documentés | Tous |
+
+**Anti-pattern** : La planification marathon de 4 heures, ou la SPEC de 3 lignes type "Ajouter le login".
+
+> *Voir Annexe C.2 pour le process détaillé*
+
+---
+
+### Boucle 2 : Implémenter
+
+**Essence** : Orchestrer les agents IA pour transformer la SPEC en code fonctionnel.
+
+**Pourquoi cette boucle existe** : C'est là que la valeur se matérialise. Un PE qui orchestre bien produit plus qu'une équipe traditionnelle de cinq développeurs.
+
+**Comment ça se passe :**
+
+| Étape | Action |
+|-------|--------|
+| 1 | Préparer le contexte (SPEC + ARCHITECTURE + AGENT-GUIDE) — respecter le Context Budget |
+| 2 | Demander le plan à l'agent avant de coder |
+| 3 | Valider en continu (compilation, linting, types) |
+| 4 | Générer les tests |
+| 5 | Itérer si nécessaire (max 3 fois) |
+| 6 | Finaliser (tous tests passent, commit local) |
+| **7** | **Sync des artefacts (15 min) — voir ci-dessous** |
+
+**Ce qui déclenche cette boucle** : SPEC validée et prête.
+
+**Ce que produit cette boucle :**
+
+- Code fonctionnel respectant le DoOD
+- Tests automatisés passants
+- Commit prêt (pas encore poussé)
+- **SPEC mise à jour si le comportement a évolué pendant l'implémentation**
+- **Lessons Learned mis à jour si une erreur agent notable a été corrigée**
+
+**Les pratiques qui font la différence :**
+
+| Pratique | Impact |
+|----------|--------|
+| Toujours référencer les artefacts | Contexte optimal pour l'agent |
+| Valider le plan avant le code | Évite les impasses |
+| Implémenter par morceaux si complexe | Contrôle progressif |
+| Documenter les learnings au fil de l'eau | AGENT-GUIDE toujours à jour |
+| Sync artefacts en fin de boucle | Zéro spec drift |
+
+**La micro-phase Sync des artefacts (v1.4) :**
+
+Durée : 15 minutes. Responsable : Product Engineer. Non négociable.
+
+| Vérification | Action si non conforme |
+|--------------|----------------------|
+| La SPEC reflète-t-elle le comportement implémenté ? | Mettre à jour la SPEC |
+| Le Critère de Drift de la SPEC est-il toujours valide ? | Réviser si les fichiers impactés ont changé |
+| Une erreur agent notable a-t-elle été corrigée manuellement ? | Documenter dans la section Lessons Learned de l'AGENT-GUIDE |
+| Une nouvelle convention a-t-elle émergé ? | Ajouter dans les patterns de l'AGENT-GUIDE |
+
+**Les pratiques qui font la différence :**
+
+| Pratique | Impact |
+|----------|--------|
+| Toujours référencer les artefacts | Contexte optimal pour l'agent |
+| Valider le plan avant le code | Évite les impasses |
+| Implémenter par morceaux si complexe | Contrôle progressif |
+| Documenter les learnings au fil de l'eau | AGENT-GUIDE toujours à jour |
+
+**Comment savoir si c'est réussi :**
+
+| Indicateur | Cible |
+|------------|-------|
+| Code correct du premier coup | >70% |
+| Ratio code généré / manuel | >80/20 |
+| Couverture de tests | >80% backend, >70% frontend |
+
+**Anti-pattern** : Le PE qui corrige 80% du code généré, ou qui génère sans contexte et espère que ça marche.
+
+> *Voir Annexe C.3 pour les prompt patterns*
+
+---
+
+### Boucle 3 : Valider
+
+**Essence** : S'assurer que le code répond aux attentes métier ET aux standards de qualité.
+
+**Pourquoi cette boucle existe** : Le code qui compile n'est pas forcément le code qui fonctionne. Le code qui fonctionne n'est pas forcément le code qui apporte de la valeur.
+
+**Comment ça se passe :**
+
+| Étape | Responsable | Focus |
+|-------|-------------|-------|
+| 1. Validation technique | PE | CI, couverture, linting, DoOD |
+| 2. Validation fonctionnelle | QA | Tests, acceptance criteria |
+| 3. Validation utilisabilité | QA + PM | UX, accessibilité, performance |
+| 4. Validation métier | PM | Intention respectée, outcomes |
+| 5. Décision | Équipe | VALIDÉ / CORRECTIONS / REJET |
+
+**Ce qui déclenche cette boucle** : Code implémenté et tests passent localement.
+
+**Ce que produit cette boucle :**
+
+- Rapport de validation
+- Liste de corrections mineures (si applicable)
+- Feu vert pour intégration
+
+**Comment savoir si c'est réussi :**
+
+| Indicateur | Cible |
+|------------|-------|
+| Validation au premier essai | >70% |
+| Bugs critiques détectés | 0 |
+| Bugs mineurs par feature | <3 |
+
+**Anti-pattern** : La validation bâclée "ça a l'air de marcher", ou le ping-pong interminable entre QA et PE.
+
+> *Voir Annexe C.4 pour le template de rapport QA*
+
+---
+
+### Boucle 4 : Intégrer
+
+**Essence** : Mettre le code en production et préparer la prochaine itération.
+
+**Pourquoi cette boucle existe** : Le code non déployé n'a aucune valeur. Plus le délai entre merge et production est long, plus le feedback est tardif.
+
+**Comment ça se passe :**
+
+| Étape | Action |
+|-------|--------|
+| 1 | Revue de code (self ou peer selon criticité) |
+| 2 | Pull main, résolution conflits, tests |
+| 3 | Push, PR, CI/CD |
+| 4 | Déploiement staging puis production |
+| 5 | Vérification post-déploiement |
+| 6 | Mise à jour CHANGELOG et AGENT-GUIDE |
+| 7 | **Anti-drift check : parcourir les SPECs utilisées, vérifier leur cohérence avec le code livré** |
+| 8 | Nettoyage contexte, fermeture ticket |
+
+**Ce qui déclenche cette boucle** : Validation OK.
+
+**Ce que produit cette boucle :**
+
+- Code en production (idéalement)
+- Documentation mise à jour
+- Contexte prêt pour la prochaine fonctionnalité
+- **SPECs vérifiées et synchronisées avec la réalité du code livré**
+
+**L'Anti-drift check (v1.4) :**
+
+Durée : 10 minutes. Responsable : Product Engineer.
+
+Avant de fermer le ticket, le PE répond à deux questions pour chaque SPEC utilisée dans la session :
+
+1. Le comportement livré correspond-il exactement à ce que décrit la SPEC ?
+2. Les fichiers impactés listés dans la SPEC sont-ils toujours exhaustifs ?
+
+Si la réponse à l'une des deux est non → mettre à jour la SPEC avant de fermer. La SPEC doit être committée dans le même PR que le code.
+
+**Stratégies de déploiement :**
+
+| Stratégie | Quand l'utiliser |
+|-----------|------------------|
+| Continuous Deployment | Features non-critiques |
+| Staged Rollout | Features majeures |
+| Feature Flags | Expérimentales, A/B tests |
+| Manual Release | Critiques, compliance |
+
+**Recommandation** : Viser Continuous Deployment avec Feature Flags.
+
+**Comment savoir si c'est réussi :**
+
+| Indicateur | Cible |
+|------------|-------|
+| Temps merge à production | <1h (idéal <15min) |
+| Taux de rollback | <5% |
+| Downtime lors déploiements | 0 |
+
+**Anti-pattern** : Le code qui attend des jours avant d'être mergé, ou le déploiement manuel stressant du vendredi soir.
+
+> *Voir Annexe C.5 pour Conventional Commits et stratégies de déploiement*
+
+---
+
+## Erreurs fréquentes
+
+### "On planifie tout en début de semaine"
+
+**Le problème** : Retour au mode batch. Les priorités changent mais le plan est figé.
+
+**La réalité** : Planifier juste avant d'implémenter. Le contexte est frais, les décisions sont pertinentes.
+
+### "L'implémentation prend toujours plus longtemps que prévu"
+
+**Le problème** : SPECs insuffisantes ou contexte agent mal préparé.
+
+**La réalité** : Investir 30 minutes de plus en planification économise des heures en implémentation.
+
+### "On valide à la fin, juste avant la release"
+
+**Le problème** : Les bugs s'accumulent, la validation devient un goulot d'étranglement.
+
+**La réalité** : Valider chaque fonctionnalité immédiatement. Le feedback rapide permet de corriger vite.
+
+---
+
+## En résumé
+
+| Boucle | Question centrale | Durée typique |
+|--------|-------------------|---------------|
+| **Planifier** | Que construire et pourquoi ? | 30min - 4h |
+| **Implémenter** | Comment le construire ? | 2h - 3 jours |
+| **Valider** | Est-ce que ça fonctionne ? | 1h - 4h |
+| **Intégrer** | Est-ce en production ? | 30min - 2h |
+
+---
+
+*Prochaine section : [Les Synchronisations](06-synchronisations.md)*
+
+
+---
+
+# FICHIER : 06-synchronisations.md
+
+# Les Synchronisations Intentionnelles
+
+## Pourquoi lire cette section ?
+
+Cette section définit les moments où l'équipe se réunit. Sans synchronisations intentionnelles, les équipes tombent dans deux extrêmes : trop de réunions qui tuent la productivité, ou pas assez de communication qui crée des silos. Les synchronisations AIAD remplacent les cérémonies Scrum par des rencontres ciblées et utiles.
+
+**Temps de lecture : 10 minutes**
+
+---
+
+## Le principe fondamental
+
+**Les synchronisations ne sont pas des cérémonies. Ce sont des moments de décision collective.**
+
+### Ce que cela signifie concrètement
+
+| Approche Cérémonie | Approche Synchronisation |
+|--------------------|--------------------------|
+| Calendrier fixe imposé | Déclenchée par un besoin |
+| Participants obligatoires | Participants pertinents |
+| Format rigide | Format adapté au contexte |
+| Durée standard | Durée minimale nécessaire |
+
+### Les sept caractéristiques d'une synchronisation
+
+| Caractéristique | Description |
+|-----------------|-------------|
+| **Intentionnelle** | Objectif clair défini avant la réunion |
+| **Timeboxée** | Durée maximale définie et respectée |
+| **Actionnable** | Génère des décisions et actions assignées |
+| **Flexible** | Fréquence et format s'adaptent au contexte |
+| **Orientée valeur** | Focus sur outcomes et apprentissage |
+| **Documentée** | Notes disponibles pour toute l'équipe |
+| **Améliorée** | Feedback régulier sur son utilité |
+
+**L'important n'est pas de suivre un calendrier de cérémonies, mais de se synchroniser quand c'est nécessaire.**
+
+---
+
+## Les cinq synchronisations
+
+### Sync 1 : Alignment Stratégique
+
+**Essence** : S'assurer que l'équipe reste alignée avec la stratégie produit.
+
+**Pourquoi cette sync existe** : Sans alignement régulier, les équipes dérivent. Le Product Goal devient obsolète, les priorités divergent de la stratégie, et l'effort se disperse.
+
+**Quand la déclencher :**
+
+- Mensuel ou bi-mensuel
+- Quand un Product Goal est atteint
+- Après un pivot stratégique
+
+**Qui participe :** PM + PE + Tech Lead + QA + Stakeholders clés + Supporters
+
+**Durée :** 1h30 - 2h
+
+**Comment ça se passe :**
+
+| Étape | Durée | Focus |
+|-------|-------|-------|
+| 1. Review des Outcomes | 30min | Outcomes atteints, learnings, effets secondaires |
+| 2. Review du Product Goal | 20min | Pertinence, adaptation, prochain goal |
+| 3. Priorisation Backlog | 40min | Prochaines priorités, ce qu'on décide de NE PAS faire |
+| 4. Feedback Supporters | 20min | Obstacles organisationnels, actions |
+| 5. Clôture | 10min | Résumé décisions, actions assignées |
+
+**Ce que produit cette sync :**
+
+- Product Goal validé ou adapté
+- Product Backlog priorisé
+- Actions Supporters assignées
+- Décisions stratégiques documentées
+
+**Comment savoir si c'est réussi :**
+
+| Indicateur | Cible |
+|------------|-------|
+| Alignement équipe sur Product Goal | 100% |
+| Clarté sur 5 prochaines priorités | Cristalline |
+| Actions Supporters complétées | >80% |
+
+**Anti-pattern** : L'alignement stratégique qui devient une revue de status de 3 heures, ou la réunion fantôme où personne ne prend de décision.
+
+> *Voir Annexe D.1 pour le template de notes*
+
+---
+
+### Sync 2 : Demo & Feedback
+
+**Essence** : Obtenir du feedback direct sur les fonctionnalités livrées.
+
+**Pourquoi cette sync existe** : Le code en production n'a de valeur que si les utilisateurs l'adoptent. Sans feedback rapide, les équipes construisent des fonctionnalités que personne n'utilise.
+
+**Quand la déclencher :**
+
+- Hebdomadaire
+- Après chaque feature majeure
+- Quand du feedback est nécessaire pour décider
+
+**Qui participe :** PM + PE + Utilisateurs/Clients/Stakeholders concernés
+
+**Durée :** 30min - 1h
+
+**Comment ça se passe :**
+
+| Étape | Durée | Focus |
+|-------|-------|-------|
+| 1. Démonstration | 15-20min | PE montre les fonctionnalités, focus usage réel |
+| 2. Feedback qualitatif | 20-30min | Questions ouvertes, discussion |
+| 3. Analyse données | 10min | Métriques d'usage si disponibles |
+| 4. Adaptation backlog | 10min | Nouvelles stories, repriorisation |
+
+**Ce que produit cette sync :**
+
+- Feedback utilisateur documenté
+- Nouvelles user stories (si pertinent)
+- Product Backlog repriorisé si nécessaire
+- Décisions d'itération ou pivot
+
+**Comment savoir si c'est réussi :**
+
+| Indicateur | Cible |
+|------------|-------|
+| Insights actionnables par session | >3 |
+| Satisfaction utilisateur sur features | >8/10 |
+| Participation stakeholders | >70% |
+
+**Anti-pattern** : La démo PowerPoint sans produit réel, ou la session où seul le PM parle pendant que les utilisateurs écoutent passivement.
+
+> *Voir Annexe D.2 pour le template et questions type*
+
+---
+
+### Sync 3 : Tech Review
+
+**Essence** : Assurer la cohérence technique et gérer la dette.
+
+**Pourquoi cette sync existe** : Sans revue technique régulière, l'architecture dérive par accident. La dette technique s'accumule invisiblement jusqu'à paralyser l'équipe.
+
+**Quand la déclencher :**
+
+- Mensuel
+- Après changements architecturaux majeurs
+- Quand la dette technique devient problématique
+
+**Qui participe :** Tech Lead + PE + Agents Engineer (+ QA si pertinent)
+
+**Durée :** 1h - 2h
+
+**Comment ça se passe :**
+
+| Étape | Durée | Focus |
+|-------|-------|-------|
+| 1. Review Architecture | 30min | ARCHITECTURE à jour, dérives, adaptations |
+| 2. Review Dette Technique | 30min | Niveau dette, priorités remédiation |
+| 3. Review Écosystème Agents | 30min | Performance agents, ajouts/retraits |
+| 4. Partage Learnings | 20min | Nouveaux patterns, anti-patterns |
+| 5. Clôture | 10min | Décisions, plan remédiation |
+
+**Ce que produit cette sync :**
+
+- Document ARCHITECTURE mis à jour
+- Plan de remédiation dette technique
+- Catalogue d'agents adapté
+- AGENT-GUIDE mis à jour
+- ADR pour décisions majeures
+
+**Comment savoir si c'est réussi :**
+
+| Indicateur | Cible |
+|------------|-------|
+| Dette technique | Tendance stable ou décroissante |
+| Performance agents | Amélioration continue |
+| AGENT-GUIDE | Mis à jour mensuellement |
+| Participation PE | >80% |
+
+**Anti-pattern** : La tech review qui devient un débat philosophique sans décision, ou la revue superficielle "tout va bien" qui ignore les vrais problèmes.
+
+> *Voir Annexe D.3 pour le template et critères de priorisation*
+
+---
+
+### Sync 4 : Rétrospective
+
+**Essence** : Améliorer continuellement l'efficacité et le bien-être de l'équipe.
+
+**Pourquoi cette sync existe** : Une équipe qui ne s'améliore pas régresse. La rétrospective est le mécanisme d'apprentissage collectif qui transforme les erreurs en améliorations.
+
+**Quand la déclencher :**
+
+- Hebdomadaire ou bi-hebdomadaire
+- Après un incident majeur
+- Quand l'équipe sent le besoin
+
+**Qui participe :** PE + PM + Agents Engineer + QA + Tech Lead
+
+**Durée :** 45min - 1h
+
+**Comment ça se passe :**
+
+| Étape | Durée | Focus |
+|-------|-------|-------|
+| 1. Rétrospective classique | 30min | Start / Stop / Continue (ou autre format) |
+| 2. Rétrospective IA | 20min | Prompts efficaces, erreurs agents, AGENT-GUIDE |
+| 3. Amélioration workflow | 10min | Goulots, collaboration, synchronisations |
+| 4. Engagement | 10min | 1-3 actions max, owners, deadlines |
+
+**Formats de facilitation à varier :**
+
+- Start / Stop / Continue
+- Mad / Sad / Glad
+- 4Ls : Liked / Learned / Lacked / Longed For
+- Sailboat (visuel)
+- Timeline
+
+**Ce que produit cette sync :**
+
+- Actions d'amélioration (1-3 max)
+- AGENT-GUIDE mis à jour avec learnings
+- Engagement collectif sur actions
+
+**Comment savoir si c'est réussi :**
+
+| Indicateur | Cible |
+|------------|-------|
+| Participation équipe | 100% |
+| Actions complétées (review retro suivante) | >80% |
+| Satisfaction équipe | >7/10, tendance stable ou croissante |
+| Amélioration implémentée par retro | ≥1 |
+
+**Anti-pattern** : La rétrospective où tout le monde dit "ça va" sans rien changer, ou celle qui génère 15 actions dont aucune n'est jamais faite.
+
+> *Voir Annexe D.4 pour le template et formats de facilitation*
+
+---
+
+### Sync 5 : Standup Quotidien (Optionnel)
+
+**Essence** : Synchronisation rapide pour aligner le travail en cours.
+
+**Pourquoi cette sync existe** : Certaines équipes ont besoin de se synchroniser quotidiennement pour éviter les blocages et maintenir le flux. D'autres non. C'est un outil, pas une obligation.
+
+**Quand la déclencher :**
+
+- Quotidien si l'équipe le souhaite
+- Peut être remplacé par un standup asynchrone
+
+**Qui participe :** PE (+ autres rôles si souhaité)
+
+**Durée :** 5-15 minutes MAX
+
+**Format synchrone :**
+
+Chaque membre partage (1-2min max) :
+1. Sur quoi je travaille actuellement
+2. Ce que je prévois de faire aujourd'hui
+3. Blocages éventuels
+
+**Format asynchrone (recommandé pour équipes distribuées) :**
+
+Via Slack/Teams, chaque matin :
+- **Hier :** [Ce que j'ai fait]
+- **Aujourd'hui :** [Ce que je prévois]
+- **Blocages :** [Aucun / Description]
+
+**Comment savoir si c'est réussi :**
+
+| Indicateur | Cible |
+|------------|-------|
+| Participation | >90% |
+| Durée respectée | <15min |
+| Blocages résolus dans la journée | >80% |
+
+**Anti-patterns :**
+
+- Le standup de 45min qui devient réunion de status
+- Les débats techniques pendant le standup
+- Le micro-management déguisé
+- L'obligation rigide sans valeur ajoutée
+
+> *Voir Annexe D.5 pour exemples de standup efficaces*
+
+---
+
+## Erreurs fréquentes
+
+### "On fait toutes les syncs chaque semaine"
+
+**Le problème** : Surcharge de réunions. L'équipe passe plus de temps à se synchroniser qu'à produire.
+
+**La réalité** : Adapter la fréquence au besoin. Une équipe mature peut espacer certaines syncs.
+
+### "Les syncs durent toujours plus longtemps que prévu"
+
+**Le problème** : Pas de timebox respecté, pas d'agenda clair, discussions qui dérivent.
+
+**La réalité** : Définir l'agenda et la durée à l'avance. Couper les discussions hors-sujet. "On en parle après."
+
+### "Personne ne prépare les syncs"
+
+**Le problème** : Les syncs deviennent des sessions d'improvisation inefficaces.
+
+**La réalité** : Chaque sync a un owner qui prépare l'agenda et les inputs nécessaires.
+
+---
+
+## En résumé
+
+| Sync | Question centrale | Fréquence typique |
+|------|-------------------|-------------------|
+| **Alignment Stratégique** | Où va-t-on ? | Mensuel |
+| **Demo & Feedback** | Est-ce que ça plaît ? | Hebdo |
+| **Tech Review** | Est-ce solide ? | Mensuel |
+| **Rétrospective** | Comment s'améliorer ? | Hebdo/Bi-hebdo |
+| **Standup** | Où en est-on ? | Quotidien (optionnel) |
+
+---
+
+*Prochaine section : [L'Écosystème d'Agents](07-ecosysteme.md)*
+
+
+---
+
+# FICHIER : 07-metriques.md
+
+# Les Métriques et l'Amélioration Continue
+
+## Pourquoi lire cette section ?
+
+Cette section définit ce que l'équipe mesure et comment elle s'améliore. Sans métriques, les équipes naviguent à l'aveugle. Avec trop de métriques, elles se noient dans les chiffres sans agir. Les métriques AIAD sont sélectionnées pour être actionnables : chaque indicateur pointe vers une décision ou une amélioration possible.
+
+**Temps de lecture : 12 minutes**
+
+---
+
+## Le principe fondamental
+
+**Les métriques informent les décisions, elles ne les dictent pas.**
+
+### Ce que cela signifie concrètement
+
+| Approche Data-Driven | Approche Data-Informed (AIAD) |
+|---------------------|-------------------------------|
+| Les chiffres décident | Les chiffres éclairent |
+| Optimiser la métrique | Optimiser la valeur |
+| Réagir aux fluctuations | Comprendre les tendances |
+| KPIs imposés | Métriques choisies par l'équipe |
+
+### Les quatre caractéristiques d'une bonne métrique
+
+| Caractéristique | Description |
+|-----------------|-------------|
+| **Actionnable** | Pointe vers une amélioration concrète |
+| **Compréhensible** | L'équipe sait ce qu'elle mesure et pourquoi |
+| **Comparable** | Permet de voir l'évolution dans le temps |
+| **Honnête** | Difficile à manipuler sans amélioration réelle |
+
+**L'important n'est pas de mesurer beaucoup, mais de mesurer ce qui compte.**
+
+---
+
+## Les cinq catégories de métriques
+
+### Catégorie 1 : Productivité
+
+**Essence** : Mesurer la capacité de l'équipe à livrer de la valeur rapidement.
+
+**Pourquoi cette catégorie existe** : Sans visibilité sur le flux de livraison, impossible de détecter les goulots d'étranglement ou de savoir si l'équipe accélère ou ralentit.
+
+| Métrique | Cible | Fréquence |
+|----------|-------|-----------|
+| **Cycle Time** (PLANIFIER → INTÉGRER) | <3 jours | Hebdomadaire |
+| **Lead Time** (Idée → Production) | <2 semaines | Hebdomadaire |
+| **Throughput** (Fonctionnalités livrées) | Stable ou en hausse | Hebdomadaire |
+| **Release Frequency** | Quotidien (idéal) | Hebdomadaire |
+| **Deployment Success Rate** | >95% | Hebdomadaire |
+
+**Comment interpréter les signaux :**
+
+| Signal | Questions à se poser |
+|--------|---------------------|
+| Cycle Time en hausse | Fonctionnalités trop complexes ? Problèmes avec les agents ? |
+| Lead Time stagnant | Goulots dans les boucles itératives ? |
+| Throughput en baisse | Qualité des SPECs ? Motivation de l'équipe ? |
+
+---
+
+### Catégorie 2 : Qualité
+
+**Essence** : Mesurer la robustesse du code et la fiabilité du produit.
+
+**Pourquoi cette catégorie existe** : La vélocité sans qualité est une illusion. Les bugs en production détruisent la confiance des utilisateurs et créent de la dette cachée.
+
+| Métrique | Cible | Fréquence |
+|----------|-------|-----------|
+| **Couverture de Tests** | >80% backend, >70% frontend | Hebdomadaire |
+| **Bugs en Production** | Tendance en baisse (-20% /trimestre) | Hebdomadaire |
+| **Mean Time To Detect (MTTD)** | <24h | Mensuel |
+| **Mean Time To Repair (MTTR)** | <4h | Mensuel |
+| **Dette Technique** | Stable ou en baisse | Mensuel |
+| **First-Time Success Rate** | >70% | Hebdomadaire |
+
+**Comment interpréter les signaux :**
+
+| Signal | Questions à se poser |
+|--------|---------------------|
+| Couverture <80% | Agent Quality mal configuré ? |
+| Bugs en hausse | DoOD pas respecté ? Validation QA insuffisante ? |
+| MTTR élevé | Monitoring insuffisant ? Architecture trop couplée ? |
+
+---
+
+### Catégorie 3 : Efficacité IA
+
+**Essence** : Mesurer la performance de l'écosystème d'agents IA.
+
+**Pourquoi cette catégorie existe** : Les agents IA sont au coeur d'AIAD. Si l'écosystème sous-performe, toute la méthode en souffre. Ces métriques permettent d'optimiser continuellement l'orchestration.
+
+| Métrique | Cible | Fréquence |
+|----------|-------|-----------|
+| **Taux d'Adoption Agents** | >90% | Hebdomadaire |
+| **First-Time Success Rate (Agents)** | >70% | Hebdomadaire |
+| **Ratio Code Généré / Manuel** | >80/20 | Hebdomadaire |
+| **Itérations Moyennes par Feature** | <3 | Hebdomadaire |
+| **Taux de Faux Positifs (Agents)** | <20% | Mensuel |
+| **Temps Résolution Problèmes Agents** | <2h | Mensuel |
+| **Satisfaction PE sur Écosystème** | >8/10 | Mensuel |
+
+**Comment interpréter les signaux :**
+
+| Signal | Questions à se poser |
+|--------|---------------------|
+| Adoption <90% | Agents pas assez performants ? Résistance culturelle ? |
+| First-Time Success <70% | AGENT-GUIDE obsolète ? SPECs mal rédigées ? |
+| Faux positifs >20% | Agents trop sensibles, besoin de tuning ? |
+
+---
+
+### Catégorie 4 : Outcomes
+
+**Essence** : Mesurer la valeur réelle livrée aux utilisateurs et stakeholders.
+
+**Pourquoi cette catégorie existe** : Livrer du code ne suffit pas. Ces métriques vérifient que ce qui est livré résout réellement les problèmes des utilisateurs et génère de la valeur business.
+
+| Métrique | Cible | Fréquence |
+|----------|-------|-----------|
+| **Atteinte Outcome Criteria** | >70% | Mensuel |
+| **Satisfaction Utilisateur (NPS, CSAT)** | >8/10 | Mensuel |
+| **Adoption Fonctionnalité** | >60% en 1 mois | Par feature |
+| **Time to Value** | <5 min (selon produit) | Mensuel |
+| **Retention Rate** | >80% (selon produit) | Mensuel |
+| **Business Impact** | Variable selon contexte | Mensuel |
+
+**Comment interpréter les signaux :**
+
+| Signal | Questions à se poser |
+|--------|---------------------|
+| Atteinte outcomes <70% | Problème de discovery ? Hypothèses invalides ? |
+| Satisfaction <8 | Features ne résolvent pas le vrai problème ? |
+| Adoption faible | Problème de go-to-market ? Feature pas utile ? |
+
+---
+
+### Catégorie 5 : Équipe
+
+**Essence** : Mesurer le bien-être et l'engagement de l'équipe.
+
+**Pourquoi cette catégorie existe** : Une équipe épuisée ou démotivée ne peut pas performer durablement. Ces métriques sont des indicateurs avancés de problèmes à venir.
+
+| Métrique | Cible | Fréquence |
+|----------|-------|-----------|
+| **Satisfaction Équipe** | >7/10 | Hebdomadaire (pulse) |
+| **Psychological Safety** | >8/10 | Mensuel |
+| **Temps en Flow** | >4h/jour | Hebdomadaire |
+| **Turnover** | <10% /an | Annuel |
+| **Sick Days** | Baseline stable | Mensuel |
+
+**Comment interpréter les signaux :**
+
+| Signal | Questions à se poser |
+|--------|---------------------|
+| Satisfaction <7 | Problèmes de management ? Surcharge ? Manque d'autonomie ? |
+| Temps en flow <4h | Trop d'interruptions ? Trop de synchronisations ? |
+| Turnover élevé | Burnout ? Manque de perspectives ? |
+
+---
+
+## Les deux dashboards
+
+### Dashboard hebdomadaire (pour l'équipe)
+
+**Objectif** : Donner à l'équipe une vision claire de sa performance opérationnelle.
+
+| Section | Métriques clés |
+|---------|---------------|
+| Productivité | Cycle Time, Throughput, Release Frequency |
+| Qualité | Couverture Tests, Bugs Production, First-Time Success |
+| Efficacité IA | Adoption Agents, First-Time Success Agents, Ratio Généré/Manuel |
+| Équipe | Satisfaction, Temps en Flow |
+
+**Ce qui doit déclencher une action immédiate :**
+
+- Cycle Time qui double
+- First-Time Success sous 50%
+- Satisfaction équipe sous 6/10
+
+### Dashboard mensuel (pour PM + Stakeholders)
+
+**Objectif** : Donner aux stakeholders une vision de la valeur livrée et des tendances.
+
+| Section | Métriques clés |
+|---------|---------------|
+| Outcomes | Atteinte Criteria, NPS, Adoption, Business Impact |
+| Vélocité | Lead Time et son évolution |
+| Santé technique | Dette Technique, niveau et tendance |
+| Actions | Top 3 des améliorations nécessaires |
+
+**Ce que ce dashboard ne doit jamais être :**
+
+- Un outil de micro-management
+- Une liste de vanity metrics
+- Un rapport sans actions associées
+
+> *Voir Annexe E.1 pour exemples de dashboards complets*
+
+---
+
+## Le processus d'amélioration continue
+
+### Le cycle PDCA adapté à AIAD
+
+**Pourquoi PDCA** : Ce framework éprouvé structure l'amélioration en évitant les changements impulsifs et les analyses sans action.
+
+| Phase | Ce qui se passe |
+|-------|-----------------|
+| **PLAN** | Identifier un problème via les métriques, analyser la cause racine, définir une hypothèse d'amélioration |
+| **DO** | Implémenter le changement à petite échelle, documenter, mesurer |
+| **CHECK** | Analyser avant/après, vérifier si l'hypothèse est validée, identifier les effets de bord |
+| **ACT** | Si succès : standardiser. Si échec : apprendre et réessayer autrement |
+
+### Comment analyser une cause racine
+
+**Technique des 5 Pourquoi** :
+
+1. Pourquoi le Cycle Time a augmenté ? → Les agents mettent plus de temps
+2. Pourquoi les agents mettent plus de temps ? → Ils font plus d'erreurs
+3. Pourquoi font-ils plus d'erreurs ? → Les SPECs sont moins claires
+4. Pourquoi les SPECs sont moins claires ? → Nouveau PM pas encore formé
+5. Pourquoi pas encore formé ? → Pas de processus d'onboarding SPECs
+
+**Action** : Créer un guide d'onboarding pour la rédaction de SPECs.
+
+### La cadence d'amélioration
+
+| Fréquence | Activité | Responsable |
+|-----------|----------|-------------|
+| **Quotidien** | Monitoring automatique (alertes) | Système |
+| **Hebdomadaire** | Review métriques équipe (Rétrospective) | Équipe |
+| **Mensuel** | Review métriques outcomes (Alignment) | PM + Stakeholders |
+| **Trimestriel** | Review du framework AIAD lui-même | Équipe + Supporters |
+
+---
+
+## L'amélioration du framework lui-même
+
+### Pourquoi c'est nécessaire
+
+AIAD n'est pas gravé dans le marbre. Le framework doit évoluer avec l'équipe, les outils, et les apprentissages. Une équipe qui applique AIAD sans jamais l'adapter finit par suivre un processus obsolète.
+
+### Les six questions de la revue trimestrielle
+
+**Question 1 : Les boucles itératives sont-elles fluides ?**
+
+- Y a-t-il des frictions ou des goulots ?
+- Faut-il ajouter, retirer ou modifier des étapes ?
+
+**Question 2 : Les synchronisations sont-elles utiles ?**
+
+- Apportent-elles de la valeur ?
+- Faut-il adapter la fréquence ou le format ?
+
+**Question 3 : Les artefacts sont-ils vivants et utiles ?**
+
+- PRD, ARCHITECTURE, AGENT-GUIDE sont-ils à jour ?
+- Sont-ils utilisés quotidiennement ?
+
+**Question 4 : L'écosystème d'agents est-il optimal ?**
+
+- Les agents apportent-ils 80%+ de la valeur ?
+- Y a-t-il de nouveaux agents à explorer ?
+
+**Question 5 : Les métriques sont-elles actionnables ?**
+
+- Informent-elles vraiment les décisions ?
+- Y a-t-il des vanity metrics à retirer ?
+
+**Question 6 : L'équipe est-elle épanouie ?**
+
+- Satisfaction >7/10 ?
+- Turnover acceptable ?
+- Équilibre vie pro/perso respecté ?
+
+> *Voir Annexe E.2 pour le template de revue trimestrielle*
+
+---
+
+## Erreurs fréquentes
+
+### "On mesure tout ce qu'on peut mesurer"
+
+**Le problème** : Paralysie par l'analyse. L'équipe passe plus de temps à regarder des dashboards qu'à livrer de la valeur.
+
+**La réalité** : Commencer avec 5-7 métriques essentielles. Ajouter uniquement si un besoin réel émerge.
+
+### "Les métriques sont bonnes, donc tout va bien"
+
+**Le problème** : Les métriques peuvent être optimisées sans amélioration réelle. Goodhart's Law : "Quand une mesure devient un objectif, elle cesse d'être une bonne mesure."
+
+**La réalité** : Croiser les métriques quantitatives avec le feedback qualitatif. Une équipe satisfaite avec un bon throughput est un meilleur signal qu'un throughput élevé seul.
+
+### "On n'a pas le temps de faire de l'amélioration continue"
+
+**Le problème** : L'équipe court après les deadlines sans jamais s'arrêter pour s'améliorer. Les mêmes problèmes se répètent.
+
+**La réalité** : L'amélioration continue n'est pas un luxe, c'est un investissement. Une heure de rétrospective bien faite économise des jours de travail inefficace.
+
+---
+
+## En résumé
+
+| Catégorie | Question centrale | Fréquence review |
+|-----------|-------------------|------------------|
+| **Productivité** | Livre-t-on assez vite ? | Hebdomadaire |
+| **Qualité** | Livre-t-on du solide ? | Hebdomadaire |
+| **Efficacité IA** | Les agents performent-ils ? | Hebdomadaire |
+| **Outcomes** | Livre-t-on de la valeur ? | Mensuel |
+| **Équipe** | L'équipe va-t-elle bien ? | Hebdomadaire |
+
+---
+
+*Prochaine section : [L'Écosystème d'Agents](08-ecosysteme.md)*
+
+
+---
+
+# FICHIER : 08-annexes.md
+
+# Les Annexes
+
+## Pourquoi lire cette section ?
+
+Les annexes rassemblent les ressources détaillées pour mettre AIAD en pratique. Le framework principal donne les principes et la structure ; les annexes fournissent les templates, exemples et guides d'implémentation.
+
+**Usage recommandé** : consulter les annexes au moment où vous en avez besoin, pas en lecture linéaire.
+
+**Temps de lecture : 5 minutes** (pour la table des matières, les annexes individuelles varient)
+
+---
+
+## Comment utiliser les annexes
+
+| Situation | Annexe à consulter |
+|-----------|-------------------|
+| Démarrer un nouveau projet | A.1 (PRD), A.2 (ARCHITECTURE), A.3 (AGENT-GUIDE) |
+| Rédiger une spécification | A.4 (SPECS), H.4 (exemples concrets) |
+| Configurer l'écosystème d'agents | F (Catalogue d'Agents), G.2 (Installation) |
+| Préparer une synchronisation | D (Synchronisations Détaillées) |
+| Améliorer les métriques | E (Dashboards), E.2 (Revue trimestrielle) |
+| Former un nouveau membre | C.1 (Initialisation), H.1 (Prompts efficaces) |
+| Résoudre un problème | I.1 (Troubleshooting), I.2 (Glossaire) |
+
+---
+
+## Annexe A : Templates et Structures
+
+**Essence** : Les documents fondamentaux d'un projet AIAD, prêts à l'emploi.
+
+| Template | Usage | Responsable principal |
+|----------|-------|----------------------|
+| **A.1 PRD** | Définir la vision produit et les outcomes | Product Manager |
+| **A.2 ARCHITECTURE** | Documenter les décisions techniques | Tech Lead |
+| **A.3 AGENT-GUIDE** | Configurer le contexte pour les agents IA | Agents Engineer |
+| **A.4 SPECS** | Spécifier une fonctionnalité | Product Engineer |
+| **A.5 DoOD** | Checklist de validation output | Équipe |
+| **A.6 DoOuD** | Critères de succès outcome | Product Manager |
+
+**Conseil pratique** : ne pas remplir tous les champs au démarrage. Commencer par l'essentiel, enrichir au fil du projet.
+
+---
+
+## Annexe B : Détails des Responsabilités
+
+**Essence** : Approfondir ce que chaque responsabilité implique au quotidien.
+
+| Section | Contenu |
+|---------|---------|
+| **B.1 Product Manager** | Anti-patterns discovery, exemples de PRD efficaces |
+| **B.2 Product Engineer** | Workflow quotidien type, patterns d'orchestration |
+| **B.3 QA Engineer** | Stratégies de test par contexte, automatisation |
+| **B.4 Tech Lead** | Conduite des design reviews, dette technique |
+| **B.5 Supporters** | Quand intervenir, anti-patterns de sur-intervention |
+| **B.6 Agents Engineer** | Configuration AGENT-GUIDE, optimisation prompts, création SubAgents |
+
+**Pourquoi ces détails existent** : le framework principal définit les responsabilités, mais le quotidien demande des exemples concrets et des cas limites documentés.
+
+---
+
+## Annexe C : Processus Opérationnels Détaillés
+
+**Essence** : Le détail étape par étape des boucles et de l'initialisation.
+
+| Section | Contenu |
+|---------|---------|
+| **C.1 Phase d'Initialisation** | Les 7 premiers jours détaillés, checklist jour par jour |
+| **C.2 Boucle PLANIFIER** | Process complet, critères d'entrée/sortie |
+| **C.3 Boucle IMPLÉMENTER** | Workflow d'orchestration, prompt patterns |
+| **C.4 Boucle VALIDER** | Template rapport QA, critères de régression |
+| **C.5 Boucle INTÉGRER** | Conventional Commits, stratégies de merge |
+
+**Quand consulter** : lors de l'adoption initiale ou quand une boucle dysfonctionne et nécessite un recadrage.
+
+---
+
+## Annexe D : Synchronisations Détaillées
+
+**Essence** : Formats, templates et exemples pour chaque type de synchronisation.
+
+| Section | Contenu |
+|---------|---------|
+| **D.1 Alignment Stratégique** | Template d'ordre du jour, exemples de décisions |
+| **D.2 Demo & Feedback** | Questions type pour collecter du feedback utile |
+| **D.3 Tech Review** | Critères de priorisation de la dette technique |
+| **D.4 Rétrospective** | Formats de facilitation (Start/Stop/Continue, 4L, etc.) |
+| **D.5 Standup** | Exemples de standups efficaces vs inefficaces |
+
+**Rappel** : les synchronisations sont à la demande, pas prescrites. Ces templates aident quand on décide d'en tenir une.
+
+---
+
+## Annexe E : Métriques et Dashboards
+
+**Essence** : Visualiser et analyser les métriques AIAD.
+
+| Section | Contenu |
+|---------|---------|
+| **E.1 Exemples de dashboards** | Maquettes pour dashboard hebdomadaire et mensuel |
+| **E.2 Template revue trimestrielle** | Questions, format, participants, outputs attendus |
+
+**Lien avec le framework** : la section Métriques définit *quoi* mesurer ; cette annexe montre *comment* le présenter.
+
+---
+
+## Annexe F : Catalogue d'Agents Spécialisés
+
+**Essence** : Configuration et règles pour chaque type d'agent.
+
+| Section | Agent | Cas d'usage principal |
+|---------|-------|----------------------|
+| **F.1** | Security | Audit de vulnérabilités, OWASP, secrets |
+| **F.2** | Quality | Couverture de tests, standards de code |
+| **F.3** | Architecture | Cohérence patterns, détection de dette |
+| **F.4** | Documentation | Génération et mise à jour de docs |
+| **F.5** | Performance | Profiling, optimisation, benchmarks |
+| **F.6** | Code Review | Revue automatisée, suggestions |
+| **F.7** | Autres | Product Management, Refactoring, Migration |
+
+**Conseil pratique** : commencer avec 2-3 agents, ajouter progressivement selon les besoins réels.
+
+---
+
+## Annexe G : Guides d'Implémentation
+
+**Essence** : Instructions techniques pour mettre en place l'environnement AIAD.
+
+| Section | Contenu |
+|---------|---------|
+| **G.1 Configuration environnement** | Commandes bash, structure de projet |
+| **G.2 Installation agents IA** | Setup des principaux agents du marché |
+| **G.3 Setup CI/CD** | Intégration des agents dans le pipeline |
+| **G.4 Configuration permissions** | Droits et accès pour les agents |
+| **G.5 Installation MCP et plugins** | Extensions et intégrations |
+| **G.6 Création de SubAgents** | Agents spécialisés sur mesure |
+
+**Avertissement** : ces guides évoluent rapidement avec les outils. Vérifier les versions et la documentation officielle des outils.
+
+---
+
+## Annexe H : Exemples et Patterns
+
+**Essence** : Apprendre par l'exemple.
+
+| Section | Contenu |
+|---------|---------|
+| **H.1 Prompts efficaces** | Exemples de prompts qui produisent du code de qualité |
+| **H.2 Patterns de code** | Structures recommandées par contexte |
+| **H.3 Anti-patterns** | Erreurs courantes avec exemples à éviter |
+| **H.4 Cas d'usage SPECs** | SPECs réelles commentées |
+| **H.5 Notes d'apprentissage** | Learnings issus de projets réels |
+
+**Valeur principale** : raccourcir la courbe d'apprentissage en montrant ce qui fonctionne (et ce qui ne fonctionne pas).
+
+---
+
+## Annexe I : Outils et Références
+
+**Essence** : Ressources de support et référence.
+
+| Section | Contenu |
+|---------|---------|
+| **I.1 Troubleshooting** | FAQ et solutions aux problèmes courants |
+| **I.2 Glossaire** | Définitions complètes de tous les termes AIAD |
+| **I.3 Bibliographie** | Sources et lectures complémentaires |
+| **I.4 Communauté** | Canaux de support et contribution |
+
+---
+
+## Disponibilité des annexes
+
+| Statut | Signification |
+|--------|---------------|
+| Disponible | Annexe rédigée et utilisable |
+| En cours | Annexe en rédaction |
+| Planifié | Annexe prévue pour une version future |
+
+Les annexes sont développées progressivement selon les retours terrain. Les templates essentiels (A.1 à A.6) sont prioritaires.
+
+---
+
+## Fin du Framework AIAD v1.3
+
+**La méthodologie de référence pour le développement produit à l'ère des agents IA.**
+
+Version 1.3 - Janvier 2026
+
+---
+
+## Prochaines étapes pour adopter AIAD
+
+| Étape | Action |
+|-------|--------|
+| 1 | Lire le framework : comprendre les concepts et principes |
+| 2 | Planifier l'adoption : identifier les quick wins et blockers potentiels |
+| 3 | Former l'équipe : workshop d'introduction AIAD |
+| 4 | Phase d'initialisation : suivre le guide sur 4-7 jours (voir Annexe C.1) |
+| 5 | Premiers cycles : livrer les 3 premières fonctionnalités en mode AIAD |
+| 6 | Première rétrospective : adapter le framework au contexte |
+| 7 | Amélioration continue : itérer sur le framework lui-même |
+
+---
+
+## Erreurs fréquentes à l'adoption
+
+### "On va tout mettre en place d'un coup"
+
+**Le problème** : surcharge de changements, équipe perdue, abandon rapide.
+
+**La réalité** : commencer par les artefacts essentiels (PRD, AGENT-GUIDE), ajouter les boucles progressivement.
+
+### "On adapte AIAD à nos processus actuels"
+
+**Le problème** : garder les cérémonies Scrum et ajouter AIAD par-dessus crée de la friction.
+
+**La réalité** : AIAD remplace les frameworks existants, il ne s'additionne pas.
+
+### "Les annexes, c'est pour plus tard"
+
+**Le problème** : réinventer les templates au lieu d'utiliser ceux qui existent.
+
+**La réalité** : les templates (Annexe A) sont le point de départ le plus concret pour démarrer.
+
+---
+
+*Retour au début : [Préambule](01-preambule.md)*
+
+
+---
+
+# FICHIER : v1 3
+
+# Framework AIAD v1.3
+*AI-Agent Iterative Development*
+
+**La méthodologie de référence pour le développement produit à l'ère des agents IA**
+
+Version 1.3 - Janvier 2026
+
+---
+
+## Table des matières
+
+1. [Préambule : Le Changement de Paradigme](#préambule)
+2. [Vision et Philosophie AIAD](#vision-et-philosophie)
+3. [L'Écosystème AIAD](#lécosystème-aiad)
+4. [Les Artefacts Vivants](#les-artefacts-vivants)
+5. [Les Boucles Itératives Continues](#les-boucles-itératives-continues)
+6. [Synchronisations Intentionnelles](#synchronisations-intentionnelles)
+7. [Métriques et Amélioration Continue](#métriques-et-amélioration-continue)
+8. [Annexes](#annexes)
+
+---
+
+# Préambule : Le Changement de Paradigme
+
+## De l'Artisan au Chef d'Orchestre
+
+Pendant des décennies, le développement logiciel a été l'apanage d'artisans techniques maîtrisant syntaxe, patterns et architectures. **Cette époque est révolue.**
+
+Les agents IA ne sont pas de simples outils d'autocomplétion. Ce sont des **partenaires de développement autonomes** capables de transformer une intention en code fonctionnel, de générer des tests, de détecter des vulnérabilités, et d'optimiser des performances.
+
+Le développeur moderne n'est plus celui qui code le mieux, mais **celui qui orchestre le mieux**.
+
+## Les Trois Vérités d'AIAD
+
+### 1. La valeur émerge de l'intention, pas de l'exécution
+
+**Ce qui compte :**
+- Clarté du problème à résoudre
+- Qualité des spécifications
+- Validation des outcomes
+
+**Ce qui compte moins :**
+- Lignes de code écrites
+- Maîtrise syntaxique
+- Vélocité brute
+
+### 2. La complexité se gère par l'observation, pas par la planification
+
+Dans un monde d'émergence, les prédictions sont des illusions. Seule la boucle rapide "essayer → observer → adapter" génère de la certitude.
+
+### 3. L'excellence vient de l'écosystème, pas de l'individu
+
+Un Product Engineer médiocre avec d'excellents agents surpasse un développeur brillant seul. Construire et optimiser l'écosystème d'agents est l'investissement à plus haut ROI.
+
+## Pourquoi AIAD v1.3 ?
+
+La v1.2 a radicalisé la rupture avec Scrum et systématisé l'approche empirique. La v1.3 va à l'essentiel :
+
+- **Framework conceptuel clair** : Focus sur les principes et la structure
+- **Pragmatisme maximal** : Détails d'implémentation en annexes
+- **Adoptabilité rapide** : Comprendre AIAD en 30 minutes, le maîtriser en 3 mois
+
+---
+
+# Vision et Philosophie AIAD
+
+## Principe Cardinal : La Valeur Avant Tout
+
+AIAD ne juge pas sur l'effort, la vélocité ou la conformité aux processus. **AIAD juge sur la valeur réalisée pour les stakeholders.**
+
+- Une fonctionnalité non utilisée est un échec, quelle que soit sa qualité technique
+- Une fonctionnalité qui résout un faux problème est un échec, quelle que soit la rapidité de livraison
+- Une fonctionnalité qui crée plus de problèmes qu'elle n'en résout est un échec, quelles que soient les métriques intermédiaires
+
+## Les Quatre Piliers d'AIAD
+
+### 1. Empirisme Radical
+
+**Principes :**
+- **Hypothèses > Certitudes** : Tout est une hypothèse jusqu'à preuve du contraire
+- **Observation > Opinion** : Les données et les usages réels priment sur les intuitions
+- **Adaptation > Adhérence** : Pivoter rapidement vaut mieux que persévérer dans l'erreur
+- **Apprentissage > Exécution** : Maximiser la vitesse d'apprentissage, pas la vitesse de production
+
+### 2. Orchestration Systémique
+
+**Principes :**
+- Les humains définissent le "pourquoi" et le "quoi", les agents IA génèrent le "comment"
+- L'excellence vient de la qualité de l'écosystème d'agents, pas de l'héroïsme individuel
+- La dette la plus coûteuse est la dette de contexte (agents mal configurés, documentation obsolète)
+- L'amélioration continue de l'orchestration est plus importante que l'amélioration du code
+
+### 3. Fluidité par Émergence
+
+**Principes :**
+- Pas de cadence artificielle (Sprints), mais un flux continu ajusté à la complexité réelle
+- Pas de cérémonies prescrites, mais des synchronisations intentionnelles quand nécessaires
+- Pas de rôles rigides, mais des responsabilités fluides adaptées au contexte
+- Pas de planification détaillée long-terme, mais une direction claire et des ajustements continus
+
+### 4. Excellence Produit
+
+**Principes :**
+- **Product thinking > Project thinking** : Focus sur le cycle de vie complet, pas sur la livraison
+- **Discovery intégrée** : Comprendre le problème fait partie du développement, pas une phase séparée
+- **Qualité built-in** : La qualité est non négociable, pas un trade-off
+- **Validation continue** : La release n'est pas la fin, c'est le début de l'apprentissage
+
+## Le Manifeste AIAD
+
+**Nous valorisons :**
+
+- **Outcomes observables** plutôt que outputs livrés
+- **Intention claire** plutôt que spécifications exhaustives
+- **Observation empirique** plutôt que planification détaillée
+- **Orchestration maîtrisée** plutôt que codage héroïque
+- **Amélioration continue** plutôt que conformité aux processus
+- **Collaboration intentionnelle** plutôt que réunions prescrites
+- **Responsabilité partagée** plutôt que silos fonctionnels
+- **Excellence long-terme** plutôt que livraison à tout prix
+
+Sans ignorer les éléments de droite, nous reconnaissons que les éléments de gauche créent plus de valeur dans un contexte de développement assisté par agents IA.
+
+---
+
+# L'Écosystème AIAD
+
+## Principe Fondamental : Responsabilités, pas Rôles
+
+Dans AIAD, il n'y a pas de "rôles" au sens traditionnel, mais des **responsabilités** qui doivent être assumées. Une personne peut porter plusieurs responsabilités. Une responsabilité peut être partagée entre plusieurs personnes. L'important est la clarté sur qui assume quoi.
+
+## Les Responsabilités Clés
+
+### Product Manager (PM) - Responsable de la Valeur
+
+**Essence :** Maximiser la valeur long-terme en équilibrant vision, réalité marché, et capacités de l'équipe.
+
+**Le PM dans AIAD EST :**
+- Un leader produit avec vision stratégique claire
+- Un expert en découverte de problèmes et validation d'hypothèses
+- Un arbitre de trade-offs complexes
+- Un obsédé de la mesure d'impact réel
+
+**Compétences critiques (non négociables) :**
+1. **Product Strategy** : Vision inspirante et actionnable, positionnement différenciant
+2. **Discovery & Research** : Entretiens utilisateurs, analyse quali/quanti, identification du vrai problème
+3. **Product Analytics** : Définition de métriques pertinentes, analyse comportementale, décisions data-informed
+4. **Outcome-Oriented Thinking** : Focus problèmes résolus vs. fonctionnalités livrées
+5. **Trade-off Mastery** : Arbitrage court/long-terme, gestion de stakeholders contradictoires
+
+**Responsabilités concrètes :**
+- Définir et communiquer le **Product Goal** (horizon 4-12 semaines)
+- Maintenir un **Product Backlog** ordonné par valeur réelle
+- Définir les **Outcome Criteria** pour chaque fonctionnalité majeure
+- Conduire la **Discovery** (problème, solution, validation)
+- Mesurer l'**impact réel** des releases
+- Arbitrer les **trade-offs**
+- Engager et aligner les **stakeholders**
+
+**Indicateurs de succès :**
+- % de fonctionnalités atteignant leurs Outcome Criteria : >70%
+- Temps entre insight et release : <2 semaines
+- Satisfaction stakeholders : >8/10
+- ROI mesuré des fonctionnalités majeures
+
+> 📖 *Voir Annexe B.1 pour les anti-patterns à éviter et exemples détaillés*
+
+---
+
+### Product Engineer (PE) - Responsable de l'Orchestration
+
+**Essence :** Transformer des intentions en réalité technique de qualité en orchestrant un écosystème d'agents IA.
+
+**Le PE dans AIAD EST :**
+- Un orchestrateur d'agents IA
+- Un architecte de solutions orienté outcomes
+- Un validateur de qualité multi-dimensionnelle
+- Un contributeur actif à la discovery
+
+**Compétences critiques :**
+1. **Orchestration d'Agents IA** : Formulation d'intentions claires, structuration du contexte, itération sur prompts
+2. **Architecture & Design** : Pensée systémique, anticipation des implications techniques
+3. **Quality Thinking** : Définition de "Done", pensée cas limites, équilibre tests/pragmatisme
+4. **Product Thinking** : Compréhension contexte métier, questionnement des specs
+5. **Décomposition de Complexité** : Division en tâches atomiques, identification des risques
+
+**Responsabilités concrètes :**
+- Orchestrer les agents IA pour générer du code de qualité
+- Rédiger les SPECs techniques détaillées
+- Valider la qualité du code généré
+- Maintenir le contexte (AGENT-GUIDE, learnings, patterns)
+- Collaborer à la discovery (prototypes, faisabilité)
+- Gérer la dette technique (transparence et remédiation)
+
+**Indicateurs de succès :**
+- First-time success rate : >70%
+- Ratio code généré / code manuel : >80/20
+- Couverture de tests : >80% backend, >70% frontend
+- Temps moyen par fonctionnalité : tendance décroissante
+
+> 📖 *Voir Annexe B.2 pour le workflow quotidien type et anti-patterns*
+
+---
+
+### Agents Engineer (AE) - Responsable de l'Écosystème IA
+
+**Essence :** Construire, optimiser et maintenir l'écosystème d'agents IA qui démultiplie les capacités de l'équipe.
+
+**Vision :** L'Agents Engineer ne gère pas des outils, il construit un **écosystème d'intelligence augmentée**. C'est l'investissement à plus haut ROI de l'équipe.
+
+**Compétences critiques :**
+1. **IA Engineering** : LLMs (capacités/limites), prompt engineering avancé, fine-tuning contextuel
+2. **Systems Thinking** : Vision holistique, optimisation globale vs. locale
+3. **Broad Technical Knowledge** : Compréhension cross-domain (sécurité, qualité, architecture, DevOps)
+4. **Data-Driven Optimization** : Mesure performance agents, A/B testing configurations
+
+**Responsabilités concrètes :**
+- Sélectionner les agents spécialisés pertinents
+- Configurer et calibrer chaque agent
+- Définir la gouvernance (niveaux de supervision, règles de validation)
+- Former l'équipe à l'utilisation efficace
+- Monitorer les performances des agents
+- Optimiser continuellement l'écosystème
+- Expérimenter avec nouveaux agents
+
+**L'écosystème d'agents : approche stratifiée**
+
+```
+┌─────────────────────────────────────────────────────┐
+│        Agents de Gouvernance (Tier 1)               │
+│        Security, Compliance, Architecture           │
+│        → Droit de veto                              │
+└─────────────────────────────────────────────────────┘
+                       ↓
+┌─────────────────────────────────────────────────────┐
+│        Agents de Qualité (Tier 2)                   │
+│        Quality (tests), Code Review, Performance    │
+│        → Avertissements                             │
+└─────────────────────────────────────────────────────┘
+                       ↓
+┌─────────────────────────────────────────────────────┐
+│        Agents de Productivité (Tier 3)              │
+│        Documentation, Refactoring, Migration        │
+│        → Suggestions                                │
+└─────────────────────────────────────────────────────┘
+                       ↓
+┌─────────────────────────────────────────────────────┐
+│        Agent Principal de Développement (Core)      │
+│        Claude Code / Cursor / Copilot               │
+└─────────────────────────────────────────────────────┘
+```
+
+**Principe de sélection d'agents :**
+1. Commencer minimal : Agent principal + Agent Security + Agent Quality
+2. Ajouter par douleur : Quand un problème récurrent émerge
+3. Retirer par obsolescence : Si un agent n'est plus utilisé
+4. Optimiser par mesure : Suivre usage et efficacité
+
+**Indicateurs de succès :**
+- Taux d'adoption des agents : >90%
+- Taux de faux positifs : <20%
+- Temps résolution problèmes agents : <2h
+- Satisfaction PE sur écosystème : >8/10
+
+> 📖 *Voir Annexe F pour le catalogue complet des agents spécialisés*
+
+---
+
+### QA Engineer - Responsable de la Qualité Multi-Dimensionnelle
+
+**Essence :** Garantir que la qualité est built-in, pas bolt-on.
+
+Le QA dans AIAD n'est pas un "testeur" qui vérifie à la fin. C'est un **architecte de qualité** qui définit les standards, co-crée les stratégies de test avec les agents, et valide la qualité multi-dimensionnelle.
+
+**Compétences critiques :**
+1. **Test Strategy Design** : Stratégie adaptée à chaque type de fonctionnalité
+2. **Quality Thinking** : Penser au-delà des happy paths, identifier cas limites
+3. **Collaboration avec Agents** : Calibrer Agent Quality, valider pertinence des tests générés
+4. **User Empathy** : Tester l'utilisabilité, pas juste la fonctionnalité
+
+**Responsabilités concrètes :**
+- Définir la stratégie de tests globale
+- Contribuer au Definition of Output Done
+- Valider la pertinence des tests générés par les agents
+- Conduire les tests exploratoires
+- Identifier et documenter bugs et régressions
+- Mesurer et communiquer la qualité réelle
+
+**Les 4 niveaux de validation :**
+
+| Niveau | Responsable | Type | Automatisation | Quand |
+|--------|-------------|------|----------------|-------|
+| Unitaire | Agents IA + PE | Tests unitaires | 100% | Post-génération |
+| Intégration | PE + Agent Quality | Tests d'intégration | 90% | Pré-commit |
+| Fonctionnel | QA + Agent Quality | Tests de scénarios | 70% | Pré-merge |
+| Exploratoire | QA | Tests manuels ciblés | 0% | Pré-release |
+
+**Indicateurs de succès :**
+- Couverture de tests : >80% backend, >70% frontend
+- Bugs en production : tendance décroissante (-20% /trimestre)
+- Temps détection bug : <24h
+- Taux de régression : <5%
+
+> 📖 *Voir Annexe B.3 pour les stratégies de test détaillées*
+
+---
+
+### Tech Lead - Responsable de la Cohérence Technique
+
+**Essence :** Garantir que les décisions techniques s'alignent avec la vision long-terme et créent une base solide pour l'évolution du produit.
+
+Le Tech Lead n'est pas un "super développeur". C'est un **architecte de systèmes évolutifs** et un **coach technique**.
+
+**Compétences critiques :**
+1. **Systems Architecture** : Vision holistique, anticipation des évolutions futures
+2. **Technical Leadership** : Coaching, mentorat, facilitation de décisions complexes
+3. **Strategic Technical Thinking** : Alignement technique et stratégie produit, gestion dette technique
+
+**Responsabilités concrètes :**
+- Définir et maintenir le document ARCHITECTURE
+- Valider les décisions architecturales majeures
+- Conduire les revues techniques (design reviews)
+- Établir les standards de qualité et conventions
+- Gérer la dette technique (visibilité et priorisation)
+- Collaborer avec l'Agents Engineer pour calibrer Agent Architecture
+- Coacher les PE sur sujets techniques complexes
+
+**Le rôle dans les décisions techniques :**
+
+```
+Décisions Stratégiques (Architecture globale, choix stack)
+→ Tech Lead DÉCIDE avec input équipe
+
+Décisions Tactiques (Patterns, libraries, approches)
+→ Tech Lead GUIDE, équipe décide
+
+Décisions Opérationnelles (Implémentation spécifique)
+→ PE DÉCIDE avec autonomie
+```
+
+**Indicateurs de succès :**
+- Dette technique : tendance décroissante ou stable
+- Satisfaction PE sur guidelines : >8/10
+- Temps design review : <2h
+- Décisions architecturales revisitées : <10% /an
+
+> 📖 *Voir Annexe B.4 pour les anti-patterns et exemples de design reviews*
+
+---
+
+## Stakeholders et Supporters
+
+### Stakeholders - Porteurs d'Intérêts
+
+**Définition :** Toute entité intéressée par, affectée par, ou impactant le produit.
+
+**Types de stakeholders :**
+1. **Primaires** : Utilisateurs finaux, Clients, Décideurs, Équipe produit
+2. **Secondaires** : Sponsors financiers, Gouvernance, Partenaires, Concurrents
+3. **Tertiaires** : Législateurs, Communauté, Écosystème
+
+**Principes de gestion :**
+- **Priorisation claire** : Tous les stakeholders ne sont pas égaux
+- **Engagement intentionnel** : Interactions régulières avec prioritaires
+- **Feedback systématique** : Boucles courtes de validation
+- **Transparence** : Communication claire sur décisions et trade-offs
+
+### Supporters - Facilitateurs de Succès
+
+**Définition :** Stakeholders qui facilitent activement le succès de l'équipe en créant les conditions optimales.
+
+**Responsabilités critiques :**
+1. **Créer le Climate** : Environnement psychologiquement sûr, culture d'expérimentation
+2. **Lever les Obstacles** : Résoudre problèmes organisationnels que l'équipe ne peut pas résoudre
+3. **Faciliter l'Accès** : Aux ressources, stakeholders, informations
+
+> 📖 *Voir Annexe B.5 pour les rôles typiques de Supporters et anti-patterns*
+
+---
+
+# Les Artefacts Vivants
+
+## Principe Cardinal
+
+Les artefacts AIAD ne sont pas de la bureaucratie. Ce sont des **outils de pensée et de communication** qui créent de l'alignement et réduisent l'ambiguïté.
+
+**Un bon artefact AIAD est :**
+- ✅ **Actionnable** : On peut agir à partir de lui
+- ✅ **Vivant** : Il évolue avec la compréhension
+- ✅ **Minimal** : Juste assez, pas plus
+- ✅ **Collaboratif** : Co-créé, pas dicté
+
+## Les 4 Artefacts Essentiels
+
+### 1. Product Requirement Document (PRD)
+
+**Objectif :** Clarifier POURQUOI et QUOI construire avant de se poser la question du COMMENT.
+
+**Sections clés :**
+- **Contexte et Problème** : Quel problème ? Pour qui ? Pourquoi maintenant ?
+- **Success Criteria (Outcome Criteria)** : Métriques mesurables et observables
+- **Personas et Use Cases** : Profils utilisateurs et scénarios d'usage
+- **Hors Périmètre** : Ce que nous NE faisons PAS (volontairement)
+- **Trade-offs et Décisions** : Décisions majeures prises et alternatives écartées
+- **Dépendances et Risques** : Prérequis et risques identifiés
+
+**Bonnes pratiques :**
+1. Commencer par le problème, pas par la solution
+2. Outcome-driven : Définir success criteria mesurables avant de construire
+3. Collaboratif : Rédiger avec l'équipe, pas pour l'équipe
+4. Itératif : Le PRD évolue avec la compréhension
+5. Visuel : Intégrer wireframes, flows quand pertinent
+
+**Anti-patterns :**
+- 🚫 PRD fleuve de 50 pages que personne ne lira
+- 🚫 PRD dictatorial avec solution imposée
+- 🚫 PRD vague : "Améliorer l'expérience utilisateur"
+- 🚫 PRD statique jamais mis à jour
+
+> 📖 *Voir Annexe A.1 pour le template complet et exemples*
+
+---
+
+### 2. Document ARCHITECTURE
+
+**Objectif :** Définir les standards techniques que les agents IA et les PE doivent respecter.
+
+**Sections clés :**
+- **Principes Architecturaux** : 5 principes non-négociables
+- **Vue d'Ensemble** : Architecture high-level avec justification
+- **Stack Technique** : Technologies, versions, justifications
+- **Structure du Projet** : Organisation dossiers et modules
+- **Conventions de Code** : Nommage, formatage, imports
+- **Patterns et Bonnes Pratiques** : Design patterns avec exemples
+- **Sécurité** : Principes et pratiques obligatoires
+- **Performance** : Budgets de performance et stratégies
+- **Qualité et Dette Technique** : Definition of Output Done, gestion dette
+- **ADR (Architecture Decision Records)** : Décisions majeures documentées
+
+**Bonnes pratiques :**
+1. Évolutif, pas figé : L'architecture évolue avec le produit
+2. Justifié : Chaque choix a une rationale explicite
+3. Pragmatique : Pas d'over-engineering, YAGNI
+4. Communicable : Diagrammes visuels, pas que du texte
+5. Actionnable : Les PE peuvent s'y référer quotidiennement
+
+**Anti-patterns :**
+- 🚫 Ivory tower architecture : Décider sans connaître la réalité
+- 🚫 CV-driven development : Choisir des technos pour le CV
+- 🚫 Documentation obsolète qui ne reflète pas la réalité
+- 🚫 Complexité prématurée pour des problèmes hypothétiques
+
+> 📖 *Voir Annexe A.2 pour le template complet et exemples d'ADR*
+
+---
+
+### 3. AGENT-GUIDE (ex. CLAUDE.md)
+
+**Objectif :** Fournir le contexte optimal aux agents IA pour qu'ils génèrent du code de qualité aligné avec les standards de l'équipe.
+
+**Principe cardinal :** Un agent sans contexte génère du code générique. Un agent avec un contexte riche génère du code professionnel.
+
+**Sections clés :**
+- **Identité du Projet** : Nom, description, domaine métier, mission
+- **Documentation de Référence** : Liens vers PRD, ARCHITECTURE, SPECs
+- **Stack Technique** : Résumé des technologies utilisées
+- **Règles Absolues** : TOUJOURS (obligations) et JAMAIS (interdictions)
+- **Conventions de Code** : Nommage, organisation imports, structure composants
+- **Vocabulaire Métier** : Termes spécifiques au domaine avec définitions
+- **Configuration des Agents Spécialisés** : Règles spécifiques par agent
+- **Patterns de Développement** : Approches favorisées avec exemples
+- **Anti-Patterns** : Ce qu'il faut éviter avec exemples
+- **Notes d'Apprentissage** : Learnings mis à jour continuellement
+
+**Bonnes pratiques :**
+1. Concret et actionnable : Exemples de code, pas juste principes abstraits
+2. Évolutif : Section "Notes d'Apprentissage" mise à jour continuellement
+3. Contextuel : Vocabulaire métier spécifique au domaine
+4. Équilibré : Ne pas tomber dans l'excès (100+ règles = aucune règle)
+5. Vivant : Review mensuelle minimum pour synchroniser avec la réalité
+
+**Anti-patterns :**
+- 🚫 Guide encyclopédique de 50 pages que personne ne lit
+- 🚫 Guide obsolète écrit au début puis jamais mis à jour
+- 🚫 Guide vague : "Écrire du bon code" (pas actionnable)
+- 🚫 Guide dictatorial avec trop de règles rigides
+
+> 📖 *Voir Annexe A.3 pour le template complet avec exemples de règles*
+
+---
+
+### 4. Document SPECS (Spécifications Techniques)
+
+**Objectif :** Bridge entre l'intention métier (PRD) et l'implémentation concrète par les agents IA.
+
+**Principe cardinal :** Une SPEC de qualité permet à un agent IA de générer 80%+ du code correct du premier coup.
+
+**Sections clés :**
+- **Contexte** : Référence User Story, objectif, outcome attendu
+- **Périmètre** : In Scope / Out of Scope explicites
+- **Fichiers Impactés** : À créer / À modifier
+- **Interface Technique** : API endpoints, types, schémas DB
+- **Comportement Détaillé** : Flow nominal et cas limites
+- **Validation Rules** : Règles de validation avec schémas
+- **Business Rules** : Règles métier à appliquer
+- **Tests Attendus** : Scénarios de test à implémenter
+- **Exemples d'Usage** : Exemples concrets requête/réponse
+- **Outcome Criteria** : Comment mesurer le succès (si applicable)
+- **Dépendances** : Pré-requis et impacts downstream
+- **Definition of Output Done Checklist** : Critères de "Done"
+
+**Critères d'une SPEC de qualité :**
+
+| Critère | Bon Exemple | Mauvais Exemple |
+|---------|-------------|-----------------|
+| **Atomicité** | "Implémenter création tâche via API" | "Faire module gestion de tâches" |
+| **Précision** | "Retourner 400 si title vide ou >200 chars" | "Gérer les erreurs" |
+| **Testabilité** | "Accepter 'test@example.com', rejeter 'invalid'" | "Tester la validation" |
+| **Complétude** | Inclut types, validation, edge cases, tests | "Créer endpoint POST" |
+
+**Anti-patterns :**
+- 🚫 SPEC vague : "Améliorer la performance" (non actionnable)
+- 🚫 SPEC tentaculaire : 20 fonctionnalités dans une SPEC
+- 🚫 SPEC code : Écrire le code directement dans la SPEC
+- 🚫 SPEC obsolète jamais mise à jour avec les learnings
+
+> 📖 *Voir Annexe A.4 pour le template complet et exemples de SPECs*
+
+---
+
+## Definitions of Done
+
+### Definition of Output Done (DoOD)
+
+**Objectif :** Standard de qualité uniforme et non-négociable pour qu'un incrément soit considéré comme "Done" et livrable.
+
+**Principe :** Une fonctionnalité n'est "Done" que si TOUS les critères sont satisfaits. Pas d'exception. Pas de "Done à 90%".
+
+**Catégories de critères :**
+
+**Critères Techniques :**
+- Code Quality (conventions, linting, types, complexité, commentaires)
+- Testing (couverture, tous tests passent, edge cases, pas de flaky tests)
+- Security (scan passé, pas de secrets, validation inputs, gestion erreurs)
+- Performance (budgets respectés, queries optimisées, monitoring)
+
+**Critères Fonctionnels :**
+- Conformité (spec respectée, acceptance criteria validés)
+- Documentation (API, README, CHANGELOG)
+
+**Critères de Déploiement :**
+- CI/CD (build réussit, déployé staging, smoke tests, rollback plan)
+- Review (code review, QA validation, PM validation si pertinent)
+
+**Critères de Qualité Long-Terme :**
+- Maintenabilité (pas de dette ou dette documentée, architecture cohérente)
+
+**Ce qui N'est PAS "Done" :**
+- ❌ "Le code compile"
+- ❌ "Ça marche sur ma machine"
+- ❌ "Les tests passent localement"
+- ❌ "Done à 90%"
+- ❌ "On testera/documentera plus tard"
+
+> 📖 *Voir Annexe A.5 pour la checklist complète et exemples*
+
+---
+
+### Definition of Outcome Done (DoOuD)
+
+**Objectif :** Définir comment mesurer si la valeur attendue a été réalisée pour les stakeholders.
+
+**Principe :** L'output (code livré) n'est que le moyen. L'outcome (valeur réalisée) est le but.
+
+**Catégories de métriques :**
+
+**User Outcomes :**
+- Satisfaction utilisateur (NPS, CSAT)
+- Adoption fonctionnalité
+- Time to Value
+- Retention
+
+**Business Outcomes :**
+- Impact business (MRR, conversions, etc.)
+- Efficacité opérationnelle
+- Réduction coûts
+
+**Learning Outcomes :**
+- Hypothèses validées/invalidées
+- Insights utilisateur découverts
+- Learnings techniques
+
+**Process de mesure :**
+1. Définir outcomes AVANT de construire
+2. Mesurer à des jalons définis (1 sem, 1 mois, 3 mois)
+3. Comparer attendu vs. réalisé
+4. Décider : Continuer / Itérer / Sunset
+5. Documenter learnings
+
+> 📖 *Voir Annexe A.6 pour le template complet et exemples de métriques*
+
+---
+
+# Les Boucles Itératives Continues
+
+## Philosophie : Au-delà des Cérémonies
+
+**La rigidité tue l'adaptabilité.**
+
+AIAD abandonne complètement les Sprints Scrum au profit de **boucles itératives fluides**.
+
+**Caractéristiques des boucles :**
+- **Flux continu** : Dès qu'une fonctionnalité est intégrée, la prochaine démarre
+- **Durée variable** : Une fonctionnalité peut prendre 2h ou 3 jours selon sa complexité
+- **Priorité dynamique** : La prochaine fonctionnalité peut changer en fonction du feedback
+- **Focus absolu** : Une seule fonctionnalité à la fois par PE (pas de multitasking)
+
+```
+┌──────────────────────────────────────────────────────────┐
+│                                                          │
+│   PLANIFIER → IMPLÉMENTER → VALIDER → INTÉGRER          │
+│       ↑                                          ↓        │
+│       └──────────────────────────────────────────        │
+│                                                          │
+│   Feedback utilisateur → Ajustement priorités           │
+│                                                          │
+└──────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Phase d'Initialisation (Une fois par produit)
+
+**Durée totale :** 4-7 jours  
+**Fréquence :** Une seule fois au début (ou à chaque pivot majeur)
+
+**Objectifs globaux :**
+1. Établir la vision produit et le Product Goal initial
+2. Définir l'architecture technique et le stack
+3. Configurer l'environnement de développement
+4. Initialiser l'écosystème d'agents IA
+5. Préparer la première fonctionnalité
+
+**Livrables attendus :**
+- [ ] Product Vision et Product Goal documentés
+- [ ] PRD initial créé
+- [ ] Document ARCHITECTURE complet
+- [ ] AGENT-GUIDE (CLAUDE.md) complet
+- [ ] Definition of Output Done (DoOD) défini
+- [ ] Definition of Outcome Done (DoOuD) défini
+- [ ] Repository Git initialisé avec CI/CD
+- [ ] Environnements staging/production créés
+- [ ] Agents spécialisés sélectionnés et configurés
+- [ ] Première SPEC prête pour implémentation
+
+> 📖 *Voir Annexe C.1 pour le process détaillé jour par jour*
+
+---
+
+## Les 4 Boucles Continues
+
+### Boucle 1 : PLANIFIER LA FONCTIONNALITÉ
+
+**Déclencheur :** Fonctionnalité précédente intégrée OU nouvelle priorité critique
+
+**Participants :** PM + PE (+ QA si complexe, + Tech Lead si impacte architecture)
+
+**Durée :** 30 min - 4h (selon complexité)
+
+**Objectif :** Transformer une intention métier en SPEC actionnable pour les agents IA
+
+**Étapes clés :**
+1. PM présente la prochaine priorité (contexte, user story, outcomes)
+2. PE questionne et clarifie (cas limites, dépendances, risques, complexité)
+3. Décision de décomposition (simple/complexe/très complexe)
+4. Rédaction collaborative de la SPEC
+5. Validation finale
+
+**Livrables :**
+- [ ] SPEC détaillée dans `/docs/specs/SPEC-XXX.md`
+- [ ] Outcome Criteria définis (si feature majeure)
+- [ ] Compréhension partagée de l'objectif
+
+**Indicateur de qualité :**
+- ✅ Un agent IA peut comprendre et implémenter à partir de cette SPEC seule
+- ✅ Les tests attendus sont clairs et actionnables
+- ✅ Tous les cas limites sont documentés
+
+> 📖 *Voir Annexe C.2 pour le process détaillé et exemples*
+
+---
+
+### Boucle 2 : IMPLÉMENTER
+
+**Déclencheur :** SPEC validée et prête
+
+**Participants :** PE + Agents IA (+ Agents Engineer si problème)
+
+**Durée :** Variable (2h - 3 jours)
+
+**Objectif :** Transformer la SPEC en code fonctionnel de qualité professionnelle
+
+**Étapes clés :**
+1. Préparation du contexte (/clear, lecture SPEC/PRD/ARCHITECTURE/AGENT-GUIDE)
+2. Orchestration de l'implémentation (prompt structuré, validation du plan)
+3. Validation continue (compilation, linting, conformité SPEC, types)
+4. Génération des tests (Agent Quality, vérification couverture)
+5. Corrections itératives (max 3 itérations)
+6. Finalisation (tous tests passent, DoOD respecté, commit local)
+
+**Livrables :**
+- [ ] Code fonctionnel respectant le Definition of Output Done
+- [ ] Tests automatisés passant (couverture >80%)
+- [ ] Documentation mise à jour si nécessaire
+- [ ] Commit prêt (pas encore poussé)
+
+**Indicateurs de qualité :**
+- ✅ First-time success >70%
+- ✅ Ratio code généré / manuel : >80/20
+- ✅ Couverture de tests : >80% backend, >70% frontend
+- ✅ Aucun warning linter
+
+**Pratiques clés d'orchestration :**
+1. Contexte optimal : Toujours référencer @SPEC, @CLAUDE.md, @ARCHITECTURE.md
+2. Validation du plan : Demander le plan AVANT de coder
+3. Itération progressive : Implémenter par morceaux si complexe
+4. Utilisation agents spécialisés : Quality, Security, Architecture
+5. Mise à jour AGENT-GUIDE : Documenter learnings au fil de l'eau
+
+> 📖 *Voir Annexe C.3 pour le workflow détaillé et prompt patterns*
+
+---
+
+### Boucle 3 : VALIDER
+
+**Déclencheur :** Code implémenté et tests passent localement
+
+**Participants :** QA + PE (+ PM si feature critique)
+
+**Durée :** 1h - 4h (selon criticité)
+
+**Objectif :** S'assurer que la fonctionnalité répond aux attentes métier ET aux standards de qualité
+
+**Étapes clés :**
+1. Validation Technique (PE) : Tests CI, couverture, linting, DoOD
+2. Validation Fonctionnelle (QA) : Deploy test, tests fonctionnels, acceptance criteria
+3. Validation Utilisabilité (QA + PM) : Interface, UX, accessibilité, performance
+4. Validation Agents Spécialisés : Security, Architecture, Quality, Performance
+5. Validation Métier (PM si majeure) : Démo, vérification intention, outcomes
+6. Décision : VALIDÉ / CORRECTIONS MINEURES / REJET
+
+**Livrables :**
+- [ ] Rapport de validation QA
+- [ ] Liste de corrections mineures (si applicable)
+- [ ] Validation PM (si feature majeure)
+- [ ] Feu vert pour intégration
+
+**Indicateurs de qualité :**
+- ✅ Taux de validation au premier essai : >70%
+- ✅ Temps moyen de validation : <2h
+- ✅ Bugs critiques détectés : 0
+- ✅ Bugs mineurs : <3 par feature
+
+> 📖 *Voir Annexe C.4 pour le template de rapport QA et process détaillé*
+
+---
+
+### Boucle 4 : INTÉGRER & SAUVEGARDER
+
+**Déclencheur :** Validation OK (tous les feux verts)
+
+**Participants :** PE (+ DevOps si problème de déploiement)
+
+**Durée :** 30min - 2h
+
+**Objectif :** Intégrer le code dans la branche principale, déployer, et préparer la prochaine itération
+
+**Étapes clés :**
+1. Revue de Code (self ou peer selon criticité)
+2. Préparation au Merge (pull main, résolution conflits, tests)
+3. Push et Merge (PR, CI/CD, auto-merge ou manuel)
+4. Déploiement (auto-deploy staging, smoke tests, release production)
+5. Vérification Post-Déploiement (monitoring, logs, métriques)
+6. Documentation et Traçabilité (commit structuré, CHANGELOG, tag)
+7. Préparation Prochaine Itération (/clear, update AGENT-GUIDE, fermeture ticket)
+
+**Livrables :**
+- [ ] Code mergé dans branche principale
+- [ ] Déployé en staging (minimum)
+- [ ] Idéalement : déployé en production (livraison continue)
+- [ ] CHANGELOG mis à jour (si release)
+- [ ] Contexte agent nettoyé
+- [ ] AGENT-GUIDE mis à jour (si learnings)
+
+**Stratégies de Déploiement :**
+
+| Stratégie | Quand | Risque | Vitesse feedback |
+|-----------|-------|--------|------------------|
+| **Continuous Deployment** | Features non-critiques | Bas | Maximum |
+| **Staged Rollout** | Features majeures | Moyen | Rapide |
+| **Feature Flags** | Expérimentales, A/B | Très bas | Maximum |
+| **Manual Release** | Critiques, compliance | Très bas | Lent |
+
+**Recommandation AIAD :** Viser Continuous Deployment avec Feature Flags.
+
+**Indicateurs de qualité :**
+- ✅ Temps merge à production : <1h (idéalement <15min)
+- ✅ Taux de rollback : <5%
+- ✅ Downtime lors déploiements : 0
+- ✅ MTTR : <15min
+
+> 📖 *Voir Annexe C.5 pour Conventional Commits et stratégies de déploiement*
+
+---
+
+# Synchronisations Intentionnelles
+
+## Principes Transversaux
+
+Les synchronisations remplacent les cérémonies Scrum rigides. Elles sont :
+
+1. **Intentionnelles** : Objectif clair et participants pertinents
+2. **Timeboxées** : Durée maximale définie et RESPECTÉE
+3. **Actionnables** : Génèrent des décisions concrètes et actions assignées
+4. **Flexibles** : Fréquence et format s'adaptent au contexte
+5. **Orientées Valeur** : Focus sur valeur, outcomes, apprentissage
+6. **Documentées** : Notes disponibles pour toute l'équipe
+7. **Améliorées Continuellement** : Feedback régulier sur leur utilité
+
+---
+
+## Les 5 Synchronisations Clés
+
+### Sync 1 : Alignement Stratégique
+
+**Objectif :** S'assurer que l'équipe reste alignée avec la stratégie produit et adapter le Product Goal si nécessaire.
+
+**Fréquence :** Mensuel ou Bi-Mensuel (ou quand Product Goal atteint)
+
+**Participants :** PM + PE + Tech Lead + QA + Stakeholders clés + Supporters
+
+**Durée :** 1.5 - 2h
+
+**Agenda principal :**
+1. Review des Outcomes (30min) : Outcomes atteints, learnings, side effects
+2. Review du Product Goal (20min) : Pertinence, adaptation, prochain goal
+3. Priorisation Product Backlog (40min) : Prochaines priorités, ce qu'on décide de NE PAS faire
+4. Feedback Supporters (20min) : Obstacles organisationnels, actions
+5. Actions et Décisions (10min) : Résumé, Product Goal validé, actions assignées
+
+**Livrables :**
+- [ ] Product Goal validé ou adapté
+- [ ] Product Backlog à jour et priorisé
+- [ ] Liste d'actions Supporters
+- [ ] Décisions stratégiques documentées
+
+**Indicateurs de succès :**
+- Alignement équipe sur Product Goal : 100%
+- Clarté sur 5 prochaines priorités : Cristalline
+- Actions Supporters complétées : >80%
+
+> 📖 *Voir Annexe D.1 pour le template de notes et exemples*
+
+---
+
+### Sync 2 : Demo & Feedback Utilisateurs
+
+**Objectif :** Obtenir du feedback direct et rapide des utilisateurs/clients/stakeholders sur les fonctionnalités livrées.
+
+**Fréquence :** Hebdomadaire OU après chaque feature majeure
+
+**Participants :** PM + PE + Utilisateurs/Clients/Stakeholders concernés
+
+**Durée :** 30min - 1h
+
+**Agenda principal :**
+1. Démonstration (15-20min) : PE montre fonctionnalités, focus usage réel
+2. Feedback Qualitatif (20-30min) : Questions ouvertes, discussion
+3. Analyse des Données (10min) : Métriques d'usage si disponibles
+4. Adaptation Product Backlog (10min) : Nouvelles stories, repriorisation
+
+**Livrables :**
+- [ ] Feedback utilisateur documenté
+- [ ] Nouvelles user stories ajoutées (si pertinent)
+- [ ] Product Backlog repriorisé si nécessaire
+- [ ] Décisions d'itération ou pivot documentées
+
+**Indicateurs de succès :**
+- Feedback actionnable obtenu : >3 insights par session
+- Satisfaction utilisateur sur features : >8/10
+- Taux participation stakeholders : >70%
+
+> 📖 *Voir Annexe D.2 pour le template de notes et questions type*
+
+---
+
+### Sync 3 : Tech Review
+
+**Objectif :** Assurer cohérence technique et excellence architecturale, gérer dette technique, optimiser écosystème d'agents.
+
+**Fréquence :** Mensuel OU après changements architecturaux majeurs
+
+**Participants :** Tech Lead + PE + Agents Engineer (+ QA si pertinent)
+
+**Durée :** 1 - 2h
+
+**Agenda principal :**
+1. Review de l'Architecture (30min) : ARCHITECTURE à jour, dérives, adaptations
+2. Review Dette Technique (30min) : Niveau dette, priorités remédiation, prévention
+3. Review Écosystème Agents (30min) : Pertinence agents, performance, ajouts/retraits
+4. Partage Pratiques et Learnings (20min) : Nouveaux patterns, anti-patterns
+5. Actions et Décisions (10min) : Résumé décisions, plan remédiation
+
+**Livrables :**
+- [ ] Document ARCHITECTURE mis à jour (si changements)
+- [ ] Plan de remédiation dette technique
+- [ ] Catalogue d'agents adapté
+- [ ] AGENT-GUIDE mis à jour
+- [ ] ADR pour décisions majeures
+
+**Indicateurs de succès :**
+- Dette technique : tendance décroissante ou stable
+- Performance agents : amélioration continue
+- AGENT-GUIDE : mis à jour mensuellement minimum
+- Participation PE : >80%
+
+> 📖 *Voir Annexe D.3 pour le template de notes et critères de priorisation dette*
+
+---
+
+### Sync 4 : Retrospective d'Équipe
+
+**Objectif :** Amélioration continue de l'efficacité, du bien-être et de la collaboration de l'équipe.
+
+**Fréquence :** Hebdomadaire ou Bi-Hebdomadaire
+
+**Participants :** PE + PM + Agents Engineer + QA + Tech Lead
+
+**Durée :** 45min - 1h
+
+**Agenda principal :**
+1. Rétrospective Classique (30min) : Start / Stop / Continue (ou autre format)
+2. Rétrospective IA Spécifique (20min) : Prompts efficaces, erreurs récurrentes agents, AGENT-GUIDE
+3. Amélioration Workflow (10min) : Goulots, collaboration, synchronisations
+4. Actions et Engagement (10min) : 1-3 actions max, owners, deadlines
+
+**Formats de Facilitation (à varier) :**
+- Start / Stop / Continue
+- Mad / Sad / Glad
+- 4Ls : Liked / Learned / Lacked / Longed For
+- Sailboat (visuel)
+- Timeline
+
+**Livrables :**
+- [ ] Actions d'amélioration (1-3 max)
+- [ ] AGENT-GUIDE mis à jour avec learnings
+- [ ] Engagement collectif sur actions
+
+**Indicateurs de succès :**
+- Participation équipe : 100%
+- Actions complétées (review retro suivante) : >80%
+- Satisfaction équipe : tendance croissante ou stable >7/10
+- Amélioration continue : ≥1 action implémentée par retro
+
+> 📖 *Voir Annexe D.4 pour le template de notes et formats de facilitation*
+
+---
+
+### Sync 5 : Standup Quotidien (OPTIONNEL)
+
+**Objectif :** Synchronisation rapide quotidienne pour aligner travail en cours et identifier blocages.
+
+**Fréquence :** Quotidien (si l'équipe le souhaite)
+
+**Participants :** PE (+ autres rôles si souhaité)
+
+**Durée :** 5 - 15 minutes MAX
+
+**Format A : Synchrone**
+Chaque membre partage (1-2min max) :
+1. Sur quoi je travaille actuellement
+2. Ce que je prévois de faire aujourd'hui
+3. Blocages éventuels
+
+**Format B : Asynchrone** (recommandé pour équipes distribuées)
+Via Slack/Teams, chaque matin :
+- **Hier :** [Ce que j'ai fait]
+- **Aujourd'hui :** [Ce que je prévois]
+- **Blocages :** [Aucun / Description]
+
+**Indicateurs de succès :**
+- Participation : >90%
+- Durée respectée : <15min
+- Blocages résolus dans la journée : >80%
+
+**Anti-patterns :**
+- 🚫 Standup de 45min qui devient réunion de status
+- 🚫 Débats techniques pendant le standup
+- 🚫 Micro-management déguisé
+- 🚫 Obligation rigide sans valeur ajoutée
+
+> 📖 *Voir Annexe D.5 pour exemples de standup efficaces*
+
+---
+
+# Métriques et Amélioration Continue
+
+## Principe Cardinal
+
+**"Ce qui n'est pas mesuré ne peut pas être amélioré."** - Peter Drucker
+
+AIAD adopte une approche **data-informed** (pas data-driven) : les métriques informent les décisions, mais ne les dictent pas. Le contexte et le jugement humain restent essentiels.
+
+---
+
+## Les 5 Catégories de Métriques
+
+### 1. Métriques de Productivité
+
+**Objectif :** Mesurer la capacité de l'équipe à livrer de la valeur rapidement.
+
+| Métrique | Cible | Fréquence |
+|----------|-------|-----------|
+| **Cycle Time** (PLANIFIER → INTÉGRER) | <3 jours | Hebdomadaire |
+| **Lead Time** (Idée → Production) | <2 semaines | Hebdomadaire |
+| **Throughput** (Fonctionnalités livrées) | Stable ou ⬆️ | Hebdomadaire |
+| **Release Frequency** | Quotidien (idéal) | Hebdomadaire |
+| **Deployment Success Rate** | >95% | Hebdomadaire |
+
+**Analyse :**
+- Cycle Time ⬆️ → Fonctionnalités trop complexes ? Problèmes agents ?
+- Lead Time stagnant → Goulots dans les boucles ?
+- Throughput ⬇️ → Qualité SPECs ? Motivation équipe ?
+
+---
+
+### 2. Métriques de Qualité
+
+**Objectif :** Mesurer la qualité du code et la robustesse du produit.
+
+| Métrique | Cible | Fréquence |
+|----------|-------|-----------|
+| **Couverture de Tests** | >80% backend, >70% frontend | Hebdomadaire |
+| **Bugs en Production** | Tendance ⬇️ (-20% /trimestre) | Hebdomadaire |
+| **Mean Time To Detect (MTTD)** | <24h | Mensuel |
+| **Mean Time To Repair (MTTR)** | <4h | Mensuel |
+| **Dette Technique** | Stable ou ⬇️ | Mensuel |
+| **First-Time Success Rate** | >70% | Hebdomadaire |
+
+**Analyse :**
+- Couverture <80% → Agent Quality mal configuré ?
+- Bugs ⬆️ → DoOD pas respecté ? Validation QA insuffisante ?
+- MTTR élevé → Monitoring insuffisant ? Architecture couplée ?
+
+---
+
+### 3. Métriques d'Efficacité IA
+
+**Objectif :** Mesurer la performance de l'écosystème d'agents IA.
+
+| Métrique | Cible | Fréquence |
+|----------|-------|-----------|
+| **Taux d'Adoption Agents** | >90% | Hebdomadaire |
+| **First-Time Success Rate (Agents)** | >70% | Hebdomadaire |
+| **Ratio Code Généré / Manuel** | >80/20 | Hebdomadaire |
+| **Itérations Moyennes par Feature** | <3 | Hebdomadaire |
+| **Taux de Faux Positifs (Agents)** | <20% | Mensuel |
+| **Temps Résolution Problèmes Agents** | <2h | Mensuel |
+| **Satisfaction PE sur Écosystème** | >8/10 | Mensuel |
+
+**Analyse :**
+- Adoption <90% → Agents pas performants ? Résistance culturelle ?
+- First-Time Success <70% → AGENT-GUIDE obsolète ? SPECs mal rédigées ?
+- Faux positifs >20% → Agents trop sensibles, besoin tuning
+
+---
+
+### 4. Métriques d'Outcomes
+
+**Objectif :** Mesurer la valeur réelle livrée aux stakeholders.
+
+| Métrique | Cible | Fréquence |
+|----------|-------|-----------|
+| **Atteinte Outcome Criteria** | >70% | Mensuel |
+| **Satisfaction Utilisateur (NPS, CSAT)** | >8/10 | Mensuel |
+| **Adoption Fonctionnalité** | >60% en 1 mois | Par feature |
+| **Time to Value** | <5 min (selon produit) | Mensuel |
+| **Retention Rate** | >80% (selon produit) | Mensuel |
+| **Business Impact** | Variable | Mensuel |
+
+**Analyse :**
+- Atteinte outcomes <70% → Problème discovery ? Hypothèses invalides ?
+- Satisfaction <8 → Features ne résolvent pas le vrai problème ?
+- Adoption faible → Problème go-to-market ? Feature pas utile ?
+
+---
+
+### 5. Métriques d'Équipe
+
+**Objectif :** Mesurer le bien-être et l'engagement de l'équipe.
+
+| Métrique | Cible | Fréquence |
+|----------|-------|-----------|
+| **Satisfaction Équipe** | >7/10 | Hebdomadaire (pulse) |
+| **Psychological Safety** | >8/10 | Mensuel |
+| **Temps en Flow** | >4h/jour | Hebdomadaire |
+| **Turnover** | <10% /an | Annuel |
+| **Sick Days** | Baseline stable | Mensuel |
+
+**Analyse :**
+- Satisfaction <7 → Problèmes management ? Surcharge ? Manque autonomie ?
+- Temps en flow <4h → Trop d'interruptions ? Trop de syncs ?
+- Turnover élevé → Burnout ? Manque perspectives ?
+
+---
+
+## Dashboard de Suivi Recommandé
+
+**Principe :** Un dashboard AIAD doit être actionnable, pas juste informatif. Chaque métrique doit pointer vers une action possible.
+
+### Vue Hebdomadaire (pour l'équipe)
+
+**Sections :**
+1. **Productivité** : Cycle Time, Throughput, Release Frequency
+2. **Qualité** : Couverture Tests, Bugs Production, First-Time Success
+3. **Efficacité IA** : Adoption Agents, First-Time Success Agents, Ratio Généré/Manuel
+4. **Équipe** : Satisfaction, Temps en Flow
+
+### Vue Mensuelle (pour PM + Stakeholders)
+
+**Sections :**
+1. **Outcomes** : Atteinte Criteria, NPS, Adoption, Business Impact
+2. **Lead Time** : Évolution et objectif
+3. **Dette Technique** : Niveau et tendance
+4. **Top 3 Actions Nécessaires**
+
+> 📖 *Voir Annexe E.1 pour exemples de dashboards complets*
+
+---
+
+## Processus d'Amélioration Continue
+
+**Framework :** PDCA (Plan-Do-Check-Act) adapté à AIAD
+
+### Le Cycle PDCA
+
+```
+1. PLAN (Planifier l'amélioration)
+   ├─ Identifier un problème via les métriques
+   ├─ Analyser la cause racine (5 Why's, Fishbone)
+   ├─ Définir une hypothèse d'amélioration
+   └─ Définir comment mesurer le succès
+
+2. DO (Expérimenter la solution)
+   ├─ Implémenter le changement (petite échelle d'abord)
+   ├─ Documenter le changement
+   └─ Mesurer les résultats
+
+3. CHECK (Vérifier l'impact)
+   ├─ Analyser les données avant/après
+   ├─ Le problème est-il résolu ?
+   ├─ Y a-t-il des effets de bord ?
+   └─ L'hypothèse est-elle validée ?
+
+4. ACT (Agir selon les résultats)
+   ├─ Si succès → Standardiser (update docs)
+   ├─ Si échec → Apprendre et essayer autre chose
+   └─ Communiquer les learnings
+```
+
+### Cadence d'Amélioration Continue
+
+| Fréquence | Activité | Responsable |
+|-----------|----------|-------------|
+| **Quotidien** | Monitoring métriques temps réel | Automatique (alertes) |
+| **Hebdomadaire** | Review métriques équipe (Retro) | Équipe |
+| **Mensuel** | Review métriques outcomes (Alignment) | PM + Stakeholders |
+| **Trimestriel** | Review framework AIAD lui-même | Équipe + Supporters |
+
+---
+
+## Amélioration Continue du Framework AIAD
+
+**Principe méta :** AIAD v1.3 n'est pas gravé dans le marbre. Le framework lui-même doit être amélioré continuellement.
+
+**Questions à se poser (trimestriellement) :**
+
+1. **Les boucles itératives sont-elles fluides ?**
+   - Frictions ou goulots ?
+   - Faut-il ajouter/retirer/modifier des étapes ?
+
+2. **Les synchronisations sont-elles utiles ?**
+   - Apportent-elles de la valeur ?
+   - Faut-il adapter fréquence ou format ?
+
+3. **Les artefacts sont-ils vivants et utiles ?**
+   - PRD, ARCHITECTURE, AGENT-GUIDE à jour ?
+   - Sont-ils utilisés quotidiennement ?
+
+4. **L'écosystème d'agents est-il optimal ?**
+   - Les agents apportent-ils 80%+ de valeur ?
+   - Nouveaux agents à explorer ?
+
+5. **Les métriques sont-elles actionnables ?**
+   - Informent-elles vraiment les décisions ?
+   - Vanity metrics à retirer ?
+
+6. **L'équipe est-elle épanouie ?**
+   - Satisfaction >7/10 ?
+   - Turnover acceptable ?
+   - Équilibre vie pro/perso respecté ?
+
+> 📖 *Voir Annexe E.2 pour le template de revue trimestrielle*
+
+---
+
+# Annexes
+
+**Note :** Les annexes détaillées seront développées dans une version ultérieure. Elles incluront :
+
+## Annexe A : Templates et Structures
+- A.1 Template PRD complet
+- A.2 Template ARCHITECTURE complet
+- A.3 Template AGENT-GUIDE complet (avec section Lessons Learned)
+- A.4 Template SPECS complet (avec Scope d'Activation et Critère de Drift)
+- A.5 Template DoOD avec checklist
+- A.6 Template DoOuD avec métriques
+- **A.7 Spec Quality Score — checklist opérationnelle (v1.4)**
+
+## Annexe B : Détails des Responsabilités
+- B.1 Product Manager : Anti-patterns et exemples
+- B.2 Product Engineer : Workflow quotidien détaillé
+- B.3 QA Engineer : Stratégies de test détaillées
+- B.4 Tech Lead : Design reviews et anti-patterns
+- B.5 Supporters : Rôles et anti-patterns
+
+## Annexe C : Processus Opérationnels Détaillés
+- C.1 Phase d'Initialisation (7 jours détaillés)
+- C.2 Boucle PLANIFIER : Process complet
+- C.3 Boucle IMPLÉMENTER : Workflow, prompt patterns et Sync des artefacts (v1.4)
+- C.4 Boucle VALIDER : Template rapport QA
+- C.5 Boucle INTÉGRER : Conventional Commits, stratégies et Anti-drift check (v1.4)
+
+## Annexe D : Synchronisations Détaillées
+- D.1 Alignment Stratégique : Template et exemples
+- D.2 Demo & Feedback : Questions type
+- D.3 Tech Review : Critères priorisation dette
+- D.4 Retrospective : Formats de facilitation
+- D.5 Standup : Exemples efficaces
+
+## Annexe E : Métriques et Dashboards
+- E.1 Exemples de dashboards complets
+- E.2 Template revue trimestrielle AIAD
+
+## Annexe F : Catalogue d'Agents Spécialisés
+- F.1 Agent Security : Configuration et règles
+- F.2 Agent Quality : Configuration et règles
+- F.3 Agent Architecture : Configuration et règles
+- F.4 Agent Documentation : Configuration et règles
+- F.5 Agent Performance : Configuration et règles
+- F.6 Agent Code Review : Configuration et règles
+- F.7 Autres Agents : Product Management, Refactoring, Migration
+
+## Annexe G : Guides d'Implémentation
+- G.1 Configuration environnement (commandes bash)
+- G.2 Installation et configuration agents IA
+- G.3 Setup CI/CD
+- G.4 Configuration permissions
+- G.5 Installation MCP et plugins
+- G.6 Création de SubAgents
+
+## Annexe H : Exemples et Patterns
+- H.1 Exemples de prompts efficaces
+- H.2 Patterns de code recommandés
+- H.3 Anti-patterns à éviter avec exemples
+- H.4 Cas d'usage concrets de SPECs
+- H.5 Notes d'apprentissage (learnings)
+- **H.6 Steering Files Guide — alignement AGENT-GUIDE avec Kiro, Cursor Memory Banks et GitHub Spec Kit (v1.4)**
+
+## Annexe I : Outils et Références
+- I.1 Troubleshooting et FAQ
+- I.2 Glossaire complet
+- I.3 Bibliographie et ressources
+- I.4 Communauté et support
+
+---
+
+**🎯 Fin du Framework AIAD v1.4**
+
+**La méthodologie de référence pour le développement produit à l'ère des agents IA.**
+
+**Version 1.4 - Février 2026**
+
+---
+
+**Prochaines étapes pour adopter AIAD :**
+
+1. **Lire le framework** : Comprendre les concepts et principes (30 min)
+2. **Planifier l'adoption** : Identifier les quick wins et blockers potentiels (1h)
+3. **Former l'équipe** : Workshop d'introduction AIAD (4h)
+4. **Phase d'initialisation** : Suivre le guide sur 4-7 jours (voir Annexe C.1)
+5. **Premiers cycles** : Livrer les 3 premières fonctionnalités en mode AIAD (2-3 semaines)
+6. **Première rétrospective** : Adapter le framework au contexte (1h)
+7. **Amélioration continue** : Itérer sur le framework lui-même (permanent)
+
+**Bon courage dans votre transformation ! 🚀**
