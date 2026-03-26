@@ -1,6 +1,6 @@
 ﻿# application Development Guidelines
 
-Auto-generated from all feature plans. Last updated: 2026-02-23
+Auto-generated from all feature plans. Last updated: 2026-02-25
 
 ## Active Technologies
 - TypeScript 5.x, Node.js 20+ + Astro 5.x, @astrojs/react, Tailwind CSS 4.x, Zod (003-add-constitution-section)
@@ -30,6 +30,7 @@ TypeScript 5.x, Node.js 20+: Follow standard conventions
 - 004-google-analytics: Added TypeScript 5.x, Node.js 20+ + Astro 5.x, @astrojs/starlight 0.37.x, @astrojs/react, React 19, Recharts
 - 003-add-constitution-section: Added TypeScript 5.x, Node.js 20+ + Astro 5.x, @astrojs/react, Tailwind CSS 4.x, Zod
 
+- 002-responsive-design: Responsive design optimization for all custom React/Astro components (CSS media queries, touch targets, grid fixes, table-to-card conversion)
 - 001-aiad-framework-webapp: Added TypeScript 5.x, Node.js 20+ + Astro 5.x, @astrojs/starlight, @astrojs/react, @astrojs/tailwind, react 19, react-chartjs-2, chart.js 4.x, tailwindcss 4.x
 
 <!-- MANUAL ADDITIONS START -->
