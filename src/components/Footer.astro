@@ -1,0 +1,40 @@
+---
+import Default from '@astrojs/starlight/components/Footer.astro';
+import CookieConsent from './CookieConsent.astro';
+const isProd = import.meta.env.PROD;
+---
+
+<Default {...Astro.props}><slot /></Default>
+
+{isProd && (
+  <div class="cookie-footer-wrapper">
+    <button
+      class="cookie-manage-link"
+      id="cookie-manage-btn"
+      type="button"
+    ></button>
+    <CookieConsent />
+  </div>
+)}
+
+{isProd && (
+  <script>
+    import { detectLanguage } from '../scripts/analytics';
+
+    function initFooterLink() {
+      const btn = document.getElementById('cookie-manage-btn');
+      if (btn) {
+        const lang = detectLanguage();
+        btn.textContent = lang === 'en' ? 'Cookie settings' : 'Gestion des cookies';
+        btn.addEventListener('click', () => {
+          if (typeof (window as any).showCookieConsent === 'function') {
+            (window as any).showCookieConsent();
+          }
+        });
+      }
+    }
+
+    initFooterLink();
+    document.addEventListener('astro:after-swap', initFooterLink);
+  </script>
+)}

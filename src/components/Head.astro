@@ -1,0 +1,17 @@
+---
+import Default from '@astrojs/starlight/components/Head.astro';
+const isProd = import.meta.env.PROD;
+---
+
+<Default {...Astro.props}><slot /></Default>
+
+{isProd && (
+  <script>
+    import { hasValidAcceptedConsent, initGTM } from '../scripts/analytics';
+
+    const containerId = import.meta.env.PUBLIC_GTM_CONTAINER_ID;
+    if (containerId && hasValidAcceptedConsent()) {
+      initGTM(containerId);
+    }
+  </script>
+)}

@@ -1,0 +1,88 @@
+---
+---
+
+<div id="cookie-consent-banner" class="cookie-consent" style="display: none;">
+  <div class="cookie-consent-content">
+    <p class="cookie-consent-text" id="cookie-consent-text"></p>
+    <div class="cookie-consent-buttons">
+      <button id="cookie-accept" class="cookie-btn cookie-btn-accept"></button>
+      <button id="cookie-refuse" class="cookie-btn cookie-btn-refuse"></button>
+    </div>
+  </div>
+</div>
+
+<script>
+  import {
+    isConsentValid,
+    setConsent,
+    initGTM,
+    detectLanguage,
+  } from '../scripts/analytics';
+
+  function showBanner() {
+    const banner = document.getElementById('cookie-consent-banner');
+    if (banner) {
+      banner.style.display = 'flex';
+      banner.classList.add('cookie-consent-visible');
+    }
+  }
+
+  function hideBanner() {
+    const banner = document.getElementById('cookie-consent-banner');
+    if (banner) {
+      banner.classList.remove('cookie-consent-visible');
+      setTimeout(() => {
+        banner.style.display = 'none';
+      }, 300);
+    }
+  }
+
+  function initBannerText() {
+    const lang = detectLanguage();
+    const textEl = document.getElementById('cookie-consent-text');
+    const acceptBtn = document.getElementById('cookie-accept');
+    const refuseBtn = document.getElementById('cookie-refuse');
+
+    if (lang === 'en') {
+      if (textEl) textEl.textContent = 'This site uses cookies to analyze traffic and improve your experience. You can accept or decline analytics cookies.';
+      if (acceptBtn) acceptBtn.textContent = 'Accept';
+      if (refuseBtn) refuseBtn.textContent = 'Decline';
+    } else {
+      if (textEl) textEl.textContent = 'Ce site utilise des cookies pour analyser le trafic et améliorer votre expérience. Vous pouvez accepter ou refuser les cookies analytics.';
+      if (acceptBtn) acceptBtn.textContent = 'Accepter';
+      if (refuseBtn) refuseBtn.textContent = 'Refuser';
+    }
+  }
+
+  function init() {
+    initBannerText();
+
+    if (!isConsentValid()) {
+      showBanner();
+    }
+
+    document.getElementById('cookie-accept')?.addEventListener('click', () => {
+      setConsent('accepted');
+      const containerId = import.meta.env.PUBLIC_GTM_CONTAINER_ID;
+      if (containerId) {
+        initGTM(containerId);
+      }
+      hideBanner();
+    });
+
+    document.getElementById('cookie-refuse')?.addEventListener('click', () => {
+      setConsent('refused');
+      hideBanner();
+    });
+
+    // Global function to re-show banner (called from footer link)
+    (window as any).showCookieConsent = () => {
+      initBannerText();
+      showBanner();
+    };
+  }
+
+  // Run on initial load and on Astro page transitions
+  init();
+  document.addEventListener('astro:after-swap', init);
+</script>

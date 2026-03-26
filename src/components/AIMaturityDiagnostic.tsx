@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import { trackEvent } from "../scripts/analytics";
 import {
   RadarChart,
   PolarGrid,
@@ -583,6 +584,9 @@ export default function AIMaturityDiagnostic() {
   };
 
   const handleFinish = () => {
+    const { globalLevel } = computeScores();
+    const levelName = LEVELS[globalLevel - 1]?.name || `Level ${globalLevel}`;
+    trackEvent('diagnostic_completed', { maturity_level: levelName });
     setPage("results");
   };
 
@@ -702,7 +706,7 @@ export default function AIMaturityDiagnostic() {
 
             {/* CTA */}
             <button
-              onClick={() => setPage("quiz")}
+              onClick={() => { trackEvent('diagnostic_started'); setPage("quiz"); }}
               style={{
                 width: "100%",
                 borderRadius: "0.75rem",

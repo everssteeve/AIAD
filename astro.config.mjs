@@ -5,11 +5,15 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://everssteeve.github.io',
-	base: '/AIAD',
+	site: 'https://aiad.ovh',
+	base: '/',
 	integrations: [
 		starlight({
 			title: 'AIAD Framework',
+			components: {
+				Head: './src/components/Head.astro',
+				Footer: './src/components/Footer.astro',
+			},
 			defaultLocale: 'root',
 			locales: {
 				root: { label: 'Français', lang: 'fr' },
